@@ -1,0 +1,1 @@
+<view><my-nav vue-id="84b2e140-1" title="{{pageTitle}}" bind:__l="__l"></my-nav><view class="search-box"><my-search bind:click="__e" vue-id="84b2e140-2" data-event-opts="{{[['^click',[['gotoSearch']]]]}}" bind:__l="__l"></my-search></view></view>

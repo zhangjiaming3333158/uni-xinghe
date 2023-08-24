@@ -1,0 +1,1 @@
+<view class="custom-navbar data-v-0fafcbf8"><image class="icon data-v-0fafcbf8" src="../../static/my-icons/logo.png" data-event-opts="{{[['tap',[['handleIconClick',['$event']]]]]}}" bindtap="__e"></image><text class="title data-v-0fafcbf8">{{title}}</text></view>

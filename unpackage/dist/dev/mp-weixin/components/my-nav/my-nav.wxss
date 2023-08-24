@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.custom-navbar.data-v-0fafcbf8 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 19px;
+  height: 64px;
+  background-color: #cbc1b2;
+  box-sizing: border-box;
+}
+.custom-navbar .icon.data-v-0fafcbf8 {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  line-height: 64px;
+  width: 100px;
+  height: 25px;
+  margin-right: 10px;
+}
+.custom-navbar .title.data-v-0fafcbf8 {
+  text-align: center;
+  justify-content: center;
+  line-height: 64px;
+  font-size: 13px;
+  color: #f8f8f8;
+}
+

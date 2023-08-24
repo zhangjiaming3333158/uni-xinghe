@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.my-search-container.data-v-8ad86a50 {
+  height: 50px;
+  background-color: #cbc1b2;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-search-container .my-search-box.data-v-8ad86a50 {
+  height: 36px;
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-search-container .my-search-box uni-icons.data-v-8ad86a50 {
+  margin-right: 5px;
+  color: #999;
+}
+.my-search-container .my-search-box text.data-v-8ad86a50 {
+  font-size: 14px;
+  color: #999;
+}
+
