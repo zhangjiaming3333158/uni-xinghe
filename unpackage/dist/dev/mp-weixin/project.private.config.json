@@ -3,5 +3,18 @@
 	"projectname": "wx-xinghe",
 	"setting": {
 		"compileHotReLoad": true
+	},
+	"condition": {
+		"miniprogram": {
+			"list": [
+				{
+					"name": "",
+					"pathName": "subpkgB/myInfo/myInfo",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				}
+			]
+		}
 	}
 }

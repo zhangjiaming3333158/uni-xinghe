@@ -1,4 +1,7 @@
 {
+	"easycom": {
+    "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+  },
   "pages": [
     {
       "path": "pages/home/home",
@@ -41,7 +44,12 @@
       "style": {
         "navigationBarTitleText": "我的",
         "enablePullDownRefresh": false,
-        "navigationStyle": "custom"
+        "navigationStyle": "custom",
+				"usingComponents":{
+					"van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
+					"van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
+					"van-button": "/wxcomponents/@vant/weapp/dist/button/index"
+				}
       }
     }
   ],
@@ -81,14 +89,14 @@
           "path": "myInfo/myInfo",
           "style": {
             "navigationBarTitleText": "个人信息",
-            "enablePullDownRefresh": false
-          }
-        },
-        {
-          "path": "vip/vip",
-          "style": {
-            "navigationBarTitleText": "会员",
-            "enablePullDownRefresh": false
+            "enablePullDownRefresh": false,
+						"usingComponents":{
+							"van-field": "/wxcomponents/@vant/weapp/dist/field/index",
+							"van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
+							"van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
+              "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index",
+              "van-area": "/wxcomponents/@vant/weapp/dist/area/index"
+						}
           }
         },
         {
@@ -139,7 +147,7 @@
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "星禾",
-    "navigationBarBackgroundColor": "#C00000",
+    "navigationBarBackgroundColor": "#cbc1b2",
     "backgroundColor": "#FFFFFF"
   },
   "tabBar": {
@@ -176,8 +184,5 @@
         "selectedIconPath": "static/tab_icons/my-active.png"
       }
     ]
-  },
-  "easycom": {
-    "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
   }
 }

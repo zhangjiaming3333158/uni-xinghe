@@ -4,6 +4,9 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "my-nav": "/components/my-nav/my-nav",
-    "my-search": "/components/my-search/my-search"
+    "uni-tag": "/uni_modules/uni-tag/components/uni-tag/uni-tag",
+    "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
+    "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
+    "van-button": "/wxcomponents/@vant/weapp/dist/button/index"
   }
 }

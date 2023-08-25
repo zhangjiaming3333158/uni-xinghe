@@ -107,14 +107,25 @@
   border-radius: 10px;
 }
 .scroll .scroll-view_H .scroll-view-item_H view.data-v-92bb8f34 {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   height: 146rpx;
   width: 146rpx;
   text-align: center;
   line-height: 146rpx;
 }
-.scroll .scroll-view_H .scroll-view-item_H view ._img.data-v-92bb8f34 {
-  height: 100%;
-  width: 100%;
+.scroll .scroll-view_H .scroll-view-item_H view image.data-v-92bb8f34 {
+  height: 70%;
+  width: 70%;
+  margin-bottom: -25px;
+}
+.scroll .scroll-view_H .scroll-view-item_H view text.data-v-92bb8f34 {
+  height: 30%;
+  width: 70%;
+  font-size: 24rpx;
+  color: #000;
 }
 .waterfall.data-v-92bb8f34 {
   margin-top: 30rpx;
@@ -183,10 +194,14 @@
 .waterfall .demo-bottom .bottom-ava.data-v-92bb8f34 {
   margin-top: 5px;
   margin-right: 5px;
-  width: 50rpx;
-  height: 50rpx;
+  width: 60rpx;
+  height: 60rpx;
   border-radius: 40rpx;
   background-color: #f2f2f2;
+}
+.waterfall .demo-bottom .bottom-ava image.data-v-92bb8f34 {
+  width: 100%;
+  height: 100%;
 }
 .waterfall .demo-bottom .bottom-name.data-v-92bb8f34 {
   font-size: 22rpx;

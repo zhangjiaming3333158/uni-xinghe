@@ -19,7 +19,6 @@
       "root": "subpkgB",
       "pages": [
         "myInfo/myInfo",
-        "vip/vip",
         "message/message",
         "order/order",
         "history/history",
@@ -32,7 +31,7 @@
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "星禾",
-    "navigationBarBackgroundColor": "#C00000",
+    "navigationBarBackgroundColor": "#cbc1b2",
     "backgroundColor": "#FFFFFF"
   },
   "tabBar": {

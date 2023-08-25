@@ -22,7 +22,24 @@
 	"libVersion": "3.0.1",
 	"appid": "wx24408d3bc4bf37e8",
 	"projectname": "wx-xinghe",
-	"condition": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": []
+		}
+	},
 	"editorSetting": {
 		"tabIndent": "tab",
 		"tabSize": 2

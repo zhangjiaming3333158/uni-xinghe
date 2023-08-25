@@ -89,8 +89,9 @@
       <scroll-view class="scroll-view_H">
         <view id="demo1" class="scroll-view-item_H uni-bg-red">
           <view v-for="(i, index) in 10" :key="index">
-            <img src="../../static/my-icons/wx-logo.jpg"
-          /></view>
+            <image src="../../static/my-icons/wx-logo.jpg" mode="scaleToFill" />
+            <text>首页</text>
+          </view>
         </view>
       </scroll-view>
     </view>
@@ -116,7 +117,12 @@
             </view>
             <!-- 名称 -->
             <view class="demo-bottom">
-              <view class="bottom-ava"> </view>
+              <view class="bottom-ava">
+                <image
+                  src="../../static/my-icons/wx-logo.jpg"
+                  mode="scaleToFill"
+                />
+              </view>
               <view class="bottom-name">
                 {{ item.shop }}
               </view>
@@ -148,7 +154,12 @@
             </view>
             <!-- 名称 -->
             <view class="demo-bottom">
-              <view class="bottom-ava"> </view>
+              <view class="bottom-ava">
+                <image
+                  src="../../static/my-icons/wx-logo.jpg"
+                  mode="scaleToFill"
+                />
+              </view>
               <view class="bottom-name">
                 {{ item.shop }}
               </view>
@@ -429,13 +440,24 @@ export default {
       height: 292rpx;
       border-radius: 10px;
       view {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
         height: 146rpx;
         width: 146rpx;
         text-align: center;
         line-height: 146rpx;
-        img {
-          height: 100%;
-          width: 100%;
+        image {
+          height: 70%;
+          width: 70%;
+          margin-bottom: -25px;
+        }
+        text{
+          height: 30%;
+          width: 70%;
+          font-size: 24rpx;
+          color: #000;
         }
       }
     }
@@ -514,10 +536,14 @@ export default {
     .bottom-ava {
       margin-top: 5px;
       margin-right: 5px;
-      width: 50rpx;
-      height: 50rpx;
+      width: 60rpx;
+      height: 60rpx;
       border-radius: 40rpx;
       background-color: #f2f2f2;
+      image {
+        width: 100%;
+        height: 100%;
+      }
     }
     .bottom-name {
       font-size: 22rpx;

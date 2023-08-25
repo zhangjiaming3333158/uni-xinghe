@@ -127,12 +127,12 @@ export default {
     align-items: center;
   }
   .amount {
-    color: #c00000;
+    color: #552220;
   }
   .btn-settle {
     height: 50px;
     min-width: 100px;
-    background-color: #c00000;
+    background-color: #883333;
     color: white;
     line-height: 50px;
     text-align: center;
