@@ -118,10 +118,7 @@
             <!-- 名称 -->
             <view class="demo-bottom">
               <view class="bottom-ava">
-                <image
-                  src="../../static/my-icons/wx-logo.jpg"
-                  mode="scaleToFill"
-                />
+                <image src="/static/my-icons/wx-logo.jpg" mode="scaleToFill" />
               </view>
               <view class="bottom-name">
                 {{ item.shop }}
@@ -131,8 +128,15 @@
                   type="heart"
                   size="20"
                   class="bottom-icon"
+                  v-if="item.choice == false"
                 ></uni-icons>
-                <text>1</text>
+                <uni-icons
+                  type="heart-filled"
+                  size="20"
+                  class="bottom-icon"
+                  v-else
+                ></uni-icons>
+                <text>{{ item.like }}</text>
               </view>
             </view>
           </view>
@@ -155,21 +159,25 @@
             <!-- 名称 -->
             <view class="demo-bottom">
               <view class="bottom-ava">
-                <image
-                  src="../../static/my-icons/wx-logo.jpg"
-                  mode="scaleToFill"
-                />
+                <image src="/static/my-icons/wx-logo.jpg" mode="scaleToFill" />
               </view>
               <view class="bottom-name">
                 {{ item.shop }}
               </view>
-              <view class="bottom-like">
+              <view class="bottom-like" @click="changLike(item)">
                 <uni-icons
                   type="heart"
                   size="20"
                   class="bottom-icon"
+                  v-if="item.choice == false"
                 ></uni-icons>
-                <text>1</text>
+                <uni-icons
+                  type="heart-filled"
+                  size="20"
+                  class="bottom-icon"
+                  v-else
+                ></uni-icons>
+                <text>{{ item.like }}</text>
               </view>
             </view>
           </view>
@@ -185,6 +193,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import badgeMix from '@/mixins/tabbar-badge.js'
 export default {
   mixins: [badgeMix],
@@ -196,85 +205,8 @@ export default {
       //瀑布流列表
       loadStatus: 'loadmore',
       flowList: [],
-      list: [
-        {
-          price: 35,
-          title: '北国风光，千里冰封，万里雪飘',
-          shop: '李白杜甫白居易旗舰店',
-          image:
-            'http://pic.sc.chinaz.com/Files/pic/pic9/202002/zzpic23327_s.jpg',
-        },
-        {
-          price: 75,
-          title: '望长城内外，惟余莽莽',
-          shop: '李白杜甫白居易旗舰店',
-          image:
-            'http://pic.sc.chinaz.com/Files/pic/pic9/202002/zzpic23325_s.jpg',
-        },
-        {
-          price: 385,
-          title: '大河上下，顿失滔滔',
-          shop: '李白杜甫白居易旗舰店',
-          image:
-            'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg',
-        },
-        {
-          price: 784,
-          title: '欲与天公试比高',
-          shop: '李白杜甫白居易旗舰店',
-          image:
-            'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/zzpic23369_s.jpg',
-        },
-        {
-          price: 7891,
-          title: '须晴日，看红装素裹，分外妖娆',
-          shop: '李白杜甫白居易旗舰店',
-          image:
-            'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2130_s.jpg',
-        },
-        {
-          price: 2341,
-          shop: '李白杜甫白居易旗舰店',
-          title: '江山如此多娇，引无数英雄竞折腰',
-          image:
-            'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23346_s.jpg',
-        },
-        {
-          price: 661,
-          shop: '李白杜甫白居易旗舰店',
-          title: '惜秦皇汉武，略输文采',
-          image:
-            'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23344_s.jpg',
-        },
-        {
-          price: 1654,
-          title: '唐宗宋祖，稍逊风骚',
-          shop: '李白杜甫白居易旗舰店',
-          image:
-            'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
-        },
-        {
-          price: 1678,
-          title: '一代天骄，成吉思汗',
-          shop: '李白杜甫白居易旗舰店',
-          image:
-            'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
-        },
-        {
-          price: 924,
-          title: '只识弯弓射大雕',
-          shop: '李白杜甫白居易旗舰店',
-          image:
-            'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
-        },
-        {
-          price: 8243,
-          title: '俱往矣，数风流人物，还看今朝',
-          shop: '李白杜甫白居易旗舰店',
-          image:
-            'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
-        },
-      ],
+      pages: 0, //当前页数
+      limit: 10, //总页数
     }
   },
   onLoad() {
@@ -287,15 +219,26 @@ export default {
     //waterfall
     this.addRandomData()
   },
+  computed: {
+    ...mapState('m_home', ['list']),
+  },
   onReachBottom() {
-    this.loadStatus = 'loading'
-    // 模拟数据加载
-    setTimeout(() => {
-      this.addRandomData()
-      this.loadStatus = 'loadmore'
-    }, 1000)
+    this.limit = Math.floor(this.list.length / 10)
+    if (this.limit > this.pages) {
+      this.loadStatus = 'loading'
+      // 模拟数据加载
+      setTimeout(() => {
+        this.addRandomData()
+        this.loadStatus = 'loadmore'
+      }, 1000)
+      this.pages++ // 页数+1
+    } else {
+      this.loadStatus = 'none'
+    }
   },
   methods: {
+    //获取home.js中的方法
+    ...mapMutations('m_home', ['addLike', 'removeLike', 'changeChoice']),
     gotoSearch() {
       uni.navigateTo({
         url: '/subpkgA/search/search',
@@ -310,10 +253,10 @@ export default {
       this.swiperList = res.message
     },
     addRandomData() {
-      for (let i = 0; i < 10; i++) {
-        let index = this.$u.random(0, this.list.length - 1)
+      for (let i = 0; i < this.list.length > 10 ? this.list.length : 10; i++) {
+        // console.log(i)
         // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
-        let item = JSON.parse(JSON.stringify(this.list[index]))
+        let item = JSON.parse(JSON.stringify(this.list[i]))
         item.id = this.$u.guid()
         this.flowList.push(item)
       }
@@ -324,6 +267,17 @@ export default {
     clear() {
       this.$refs.uWaterfall.clear()
     },
+    changLike(item){
+      if (item.choice == false) {
+        console.log(item);
+        this.addLike(item)
+        this.changeChoice(item)
+      } else {
+        console.log(item);
+        this.removeLike(item)
+        this.changeChoice(item)
+      }
+    }
   },
 }
 </script>
@@ -453,7 +407,7 @@ export default {
           width: 70%;
           margin-bottom: -25px;
         }
-        text{
+        text {
           height: 30%;
           width: 70%;
           font-size: 24rpx;

@@ -77,6 +77,8 @@ export default {
     width: 100rpx;
     height: 100rpx;
     border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #eeeedd;
   }
   .info {
     margin-top: -5px;

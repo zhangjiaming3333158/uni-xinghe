@@ -1,5 +1,5 @@
 {
-	"easycom": {
+  "easycom": {
     "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
   },
   "pages": [
@@ -28,7 +28,11 @@
       "style": {
         "navigationBarTitleText": "定制",
         "enablePullDownRefresh": false,
-        "navigationStyle": "custom"
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index",
+          "van-button": "/wxcomponents/@vant/weapp/dist/button/index"
+        }
       }
     },
     {
@@ -45,11 +49,11 @@
         "navigationBarTitleText": "我的",
         "enablePullDownRefresh": false,
         "navigationStyle": "custom",
-				"usingComponents":{
-					"van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
-					"van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
-					"van-button": "/wxcomponents/@vant/weapp/dist/button/index"
-				}
+        "usingComponents": {
+          "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
+          "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
+          "van-button": "/wxcomponents/@vant/weapp/dist/button/index"
+        }
       }
     }
   ],
@@ -90,13 +94,13 @@
           "style": {
             "navigationBarTitleText": "个人信息",
             "enablePullDownRefresh": false,
-						"usingComponents":{
-							"van-field": "/wxcomponents/@vant/weapp/dist/field/index",
-							"van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
-							"van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
+            "usingComponents": {
+              "van-field": "/wxcomponents/@vant/weapp/dist/field/index",
+              "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
+              "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
               "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index",
               "van-area": "/wxcomponents/@vant/weapp/dist/area/index"
-						}
+            }
           }
         },
         {
@@ -110,7 +114,12 @@
           "path": "order/order",
           "style": {
             "navigationBarTitleText": "订单",
-            "enablePullDownRefresh": false
+            "enablePullDownRefresh": false,
+            "usingComponents": {
+              "van-button": "/wxcomponents/@vant/weapp/dist/button/index",
+              "van-action-sheet": "/wxcomponents/@vant/weapp/dist/action-sheet/index",
+              "van-steps": "/wxcomponents/@vant/weapp/dist/steps/index"
+            }
           }
         },
         {
@@ -139,6 +148,28 @@
           "style": {
             "navigationBarTitleText": "常见问题",
             "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path": "orderDetail/orderDetail",
+          "style": {
+            "navigationBarTitleText": "订单详情",
+            "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path": "buy/buy",
+          "style": {
+            "navigationBarTitleText": "购买",
+            "enablePullDownRefresh": false,
+            "usingComponents": {
+              "van-field": "/wxcomponents/@vant/weapp/dist/field/index",
+              "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
+              "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
+              "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index",
+              "van-area": "/wxcomponents/@vant/weapp/dist/area/index",
+              "van-button": "/wxcomponents/@vant/weapp/dist/button/index"
+            }
           }
         }
       ]

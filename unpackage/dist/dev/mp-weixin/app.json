@@ -24,7 +24,9 @@
         "history/history",
         "coupon/coupon",
         "invite/invite",
-        "question/question"
+        "question/question",
+        "orderDetail/orderDetail",
+        "buy/buy"
       ]
     }
   ],
