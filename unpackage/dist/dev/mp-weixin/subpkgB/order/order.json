@@ -7,7 +7,6 @@
     "my-steps": "/components/my-steps/my-steps",
     "van-button": "/wxcomponents/@vant/weapp/dist/button/index",
     "van-action-sheet": "/wxcomponents/@vant/weapp/dist/action-sheet/index",
-    "van-steps": "/wxcomponents/@vant/weapp/dist/steps/index",
     "my-address": "/components/my-address/my-address"
   }
 }

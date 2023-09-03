@@ -3,7 +3,12 @@
     <view class="top">
       <view class="name">
         <van-cell-group>
-          <van-field :value="value" label="昵称" left-icon="contact" disabled />
+          <van-field
+            :value="info.my_name"
+            label="昵称"
+            left-icon="contact"
+            @change="onChangeName"
+          />
         </van-cell-group>
       </view>
       <view class="ava">
@@ -13,22 +18,57 @@
     <view class="body">
       <view class="item">
         <van-cell-group>
-          <van-field :value="value" label="性别" left-icon="contact" disabled />
+          <van-field
+            :value="info.my_sex"
+            label="性别"
+            left-icon="contact"
+            @change="onChangeSex"
+          />
         </van-cell-group>
         <van-cell-group>
-          <van-field :value="value" label="身高" left-icon="contact" disabled />
+          <van-field
+            type="number"
+            :value="info.my_height"
+            label="身高(cm)"
+            left-icon="contact"
+            @change="onChangeHeight"
+          />
         </van-cell-group>
         <van-cell-group>
-          <van-field :value="value" label="体重" left-icon="contact" disabled />
+          <van-field
+            type="number"
+            :value="info.my_weight"
+            label="体重(kg)"
+            left-icon="contact"
+            @change="onChangeWeight"
+          />
         </van-cell-group>
         <van-cell-group>
-          <van-field :value="value" label="胸围" left-icon="contact" disabled />
+          <van-field
+            type="number"
+            :value="info.my_breast"
+            label="胸围(cm)"
+            left-icon="contact"
+            @change="onChangeBreast"
+          />
         </van-cell-group>
         <van-cell-group>
-          <van-field :value="value" label="腰围" left-icon="contact" disabled />
+          <van-field
+            type="number"
+            :value="info.my_waist"
+            label="腰围(cm)"
+            left-icon="contact"
+            @change="onChangeWaist"
+          />
         </van-cell-group>
         <van-cell-group>
-          <van-field :value="value" label="臀围" left-icon="contact" disabled />
+          <van-field
+            type="number"
+            :value="info.my_bottock"
+            label="臀围(cm)"
+            left-icon="contact"
+            @change="onChangeBottock"
+          />
         </van-cell-group>
       </view>
     </view>
@@ -36,56 +76,130 @@
       <view class="foot-item">
         <van-cell-group>
           <van-cell title="默认尺码">
-            <van-tag slot="right-icon" color="#7232dd" :plain="!isPlain"
-              >S</van-tag
+            <view @click="changeSize(0)">
+              <van-tag
+                slot="right-icon"
+                color="#7232dd"
+                :plain="info.my_size != 0"
+                >S</van-tag
+              >
+            </view>
+            <view @click="changeSize(1)"
+              ><van-tag
+                slot="right-icon"
+                color="#7232dd"
+                :plain="info.my_size != 1"
+                >M</van-tag
+              ></view
             >
-            <van-tag slot="right-icon" color="#7232dd" :plain="!isPlain"
-              >M</van-tag
+            <view @click="changeSize(2)"
+              ><van-tag
+                slot="right-icon"
+                color="#7232dd"
+                :plain="info.my_size != 2"
+                >L</van-tag
+              ></view
             >
-            <van-tag slot="right-icon" color="#7232dd" :plain="!isPlain"
-              >L</van-tag
+            <view @click="changeSize(3)"
+              ><van-tag
+                slot="right-icon"
+                color="#7232dd"
+                :plain="info.my_size != 3"
+                >XL</van-tag
+              ></view
             >
-            <van-tag slot="right-icon" color="#7232dd" :plain="!isPlain"
-              >XL</van-tag
-            >
-            <van-tag slot="right-icon" color="#7232dd" :plain="!isPlain"
-              >XXL</van-tag
+            <view @click="changeSize(4)"
+              ><van-tag
+                slot="right-icon"
+                color="#7232dd"
+                :plain="info.my_size != 4"
+                >XXL</van-tag
+              ></view
             >
           </van-cell>
-          <van-field
-            :value="value"
-            label="电话号码"
-            left-icon="phone-o"
-            disabled
-          />
-          <my-address></my-address>
         </van-cell-group>
       </view>
+    </view>
+    <view class="bottom">
+      <van-cell-group>
+        <van-field
+          :value="info.my_phone"
+          label="电话号码"
+          left-icon="phone-o"
+          @change="onChangePhone"
+        />
+        <my-address></my-address>
+      </van-cell-group>
     </view>
   </view>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      value: 'xxx',
       isPlain: false,
-      areaList: {
-        province_list: {
-          110000: '北京市',
-          120000: '天津市',
-        },
-        city_list: {
-          110100: '北京市',
-          120100: '天津市',
-        },
-        county_list: {
-          110101: '东城区',
-          110102: '西城区',
-        },
+      info: {
+        my_sex: '',
+        my_height: '',
+        my_weight: '',
+        my_size: '',
+        my_name: '',
+        my_breast: '',
+        my_waist: '',
+        my_bottock: '',
+        my_phone: '',
       },
+      test: '',
     }
+  },
+  computed: {
+    ...mapState('m_user', ['my']),
+  },
+  mounted() {
+    if (this.my) {
+      this.info = this.my
+    }
+  },
+  methods: {
+    ...mapMutations('m_user', ['setMy']),
+    onChangeName(e) {
+      this.info.my_name = e.detail
+      this.setMy(this.info)
+    },
+    onChangeSex(e) {
+      this.info.my_sex = e.detail
+      this.setMy(this.info)
+    },
+    onChangeHeight(e) {
+      this.info.my_height = e.detail
+      this.setMy(this.info)
+    },
+    onChangeWeight(e) {
+      this.info.my_weight = e.detail
+      this.setMy(this.info)
+    },
+    changeSize(e) {
+      this.info.my_size = e
+      this.setMy(this.info)
+    },
+    onChangePhone(e) {
+      this.info.my_phone = e.detail
+      this.setMy(this.info)
+    },
+    onChangeBreast(e) {
+      this.info.my_breast = e.detail
+      this.setMy(this.info)
+    },
+    onChangeWaist(e) {
+      this.info.my_waist = e.detail
+      this.setMy(this.info)
+    },
+    onChangeBottock(e) {
+      this.info.my_bottock = e.detail
+      this.setMy(this.info)
+    },
   },
 }
 </script>
@@ -166,11 +280,25 @@ export default {
       align-items: center;
       .van-cell {
         width: 750rpx;
-        .van-tag {
-          margin-right: 30rpx;
+        .van-cell__title {
+          flex: 1 !important;
+          width: 200rpx;
+        }
+        .van-cell__value {
+          flex: 2;
+          width: 200rpx;
+          view {
+            display: inline-block;
+            .van-tag {
+              margin-right: 30rpx;
+            }
+          }
         }
       }
     }
+  }
+  .bottom {
+    width: 100%;
   }
 }
 </style>

@@ -1,68 +1,110 @@
 <template>
   <view>
-    <my-nav :title="pageTitle"></my-nav>
-    <!-- 头像信息 -->
-    <view class="user-info">
-      <image
-        class="avatar"
-        src="../../static/my-icons/favicon.ico"
-        mode="scaleToFill"
-      ></image>
-      <view class="info">
-        <view class="name">XXXXXXXXXXX</view>
-        <view class="info3"
-          ><uni-tag
-            :inverted="true"
-            :circle="true"
-            size="mini"
-            text="身高: xxxcm"
-          /><uni-tag
-            :inverted="true"
-            :circle="true"
-            size="mini"
-            text="体重: xxkg"
-          /><uni-tag
-            :inverted="true"
-            :circle="true"
-            size="mini"
-            text="默认尺码: xxx"
-          />
+    <view @click="changeIsShow" v-show="!isShow">
+      <my-login></my-login>
+    </view>
+
+    <view v-show="isShow">
+      <my-nav :title="pageTitle"></my-nav>
+      <!-- 头像信息 -->
+      <view class="user-info">
+        <image
+          class="avatar"
+          src="/static/my-icons/favicon.ico"
+          mode="scaleToFill"
+        ></image>
+        <view class="info">
+          <view class="name">{{ my_name }}</view>
+          <view class="info3"
+            ><uni-tag
+              :inverted="true"
+              :circle="true"
+              size="mini"
+              :text="my_height"
+            /><uni-tag
+              :inverted="true"
+              :circle="true"
+              size="mini"
+              :text="my_weight"
+            /><uni-tag
+              :inverted="true"
+              :circle="true"
+              size="mini"
+              :text="my_size"
+            />
+          </view>
         </view>
       </view>
-    </view>
-    <view class="cell">
-      <van-cell-group inset>
-        <navigator url="/subpkgB/myInfo/myInfo">
-          <van-cell icon="user-o" title="个人信息" value=">" />
-        </navigator>
-        <navigator url="/subpkgB/message/message">
-          <van-cell icon="chat-o" title="消息" value=">" />
-        </navigator>
-        <navigator url="/subpkgB/order/order">
-          <van-cell icon="orders-o" title="订单" value=">" />
-        </navigator>
-        <navigator url="/subpkgB/coupon/coupon">
-          <van-cell icon="discount" title="优惠券" value=">" />
-        </navigator>
-        <navigator url="/subpkgB/invite/invite">
-          <van-cell icon="gift-o" title="邀请有礼" value=">" />
-        </navigator>
-        <navigator url="/subpkgB/question/question">
-          <van-cell icon="question-o" title="常见问题" value=">" />
-        </navigator>
-        <van-button type="primary" block>退出登录</van-button>
-      </van-cell-group>
+      <view class="cell">
+        <van-cell-group inset>
+          <navigator url="/subpkgB/myInfo/myInfo">
+            <van-cell icon="user-o" title="个人信息" value=">" />
+          </navigator>
+          <navigator url="/subpkgB/message/message">
+            <van-cell icon="chat-o" title="消息" value=">" />
+          </navigator>
+          <navigator url="/subpkgB/order/order">
+            <van-cell icon="orders-o" title="订单" value=">" />
+          </navigator>
+          <navigator url="/subpkgB/coupon/coupon">
+            <van-cell icon="discount" title="优惠券" value=">" />
+          </navigator>
+          <navigator url="/subpkgB/invite/invite">
+            <van-cell icon="gift-o" title="邀请有礼" value=">" />
+          </navigator>
+          <navigator url="/subpkgB/question/question">
+            <van-cell icon="question-o" title="常见问题" value=">" />
+          </navigator>
+          <van-button type="primary" block>退出登录</van-button>
+        </van-cell-group>
+      </view>
     </view>
   </view>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
       pageTitle: '我的',
+      isShow: false,
     }
   },
+  computed: {
+    ...mapState('m_user', ['my']),
+    ...mapState('m_user', ['userinfo']),
+    my_height() {
+      return '身高: ' + this.my.my_height + 'cm'
+    },
+    my_weight() {
+      return '体重: ' + this.my.my_weight + 'kg'
+    },
+    my_size() {
+      if (this.my.my_size == 0) {
+        return '尺码: ' + 'S'
+      } else if (this.my.my_size == 1) {
+        return '尺码: ' + 'M'
+      } else if (this.my.my_size == 2) {
+        return '尺码: ' + 'L'
+      } else if (this.my.my_size == 3) {
+        return '尺码: ' + 'XL'
+      } else if (this.my.my_size == 4) {
+        return '尺码: ' + 'XXL'
+      }
+    },
+    my_name() {
+      return this.my.my_name
+    },
+  },
+  methods: {
+    changeIsShow() {
+      setTimeout(() => {
+        this.isShow = !this.isShow
+      }, 1000)
+    },
+  },
+  mounted() {},
 }
 </script>
 
@@ -70,7 +112,7 @@ export default {
 .user-info {
   display: flex;
   align-items: center;
-  height: 200rpx;
+  height: 300rpx;
   background-color: #cbc1b2;
   .avatar {
     margin-left: 20rpx;
@@ -102,13 +144,13 @@ export default {
   }
 }
 .cell {
-  margin-top: 20rpx;
+  margin-top: 30rpx;
   .van-cell {
     margin-top: 20rpx;
     border-radius: 50rpx;
   }
   .van-button {
-    margin-top: 20rpx;
+    margin-top: 30rpx;
     border-radius: 50rpx;
     margin-bottom: 50rpx;
     border: 1px solid #552220;

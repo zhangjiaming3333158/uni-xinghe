@@ -12,7 +12,9 @@
       "pages": [
         "goods_detail/goods_detail",
         "goods_list/goods_list",
-        "search/search"
+        "search/search",
+        "test/test",
+        "login/login"
       ]
     },
     {
@@ -34,7 +36,8 @@
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "星禾",
     "navigationBarBackgroundColor": "#cbc1b2",
-    "backgroundColor": "#FFFFFF"
+    "backgroundColor": "#FFFFFF",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#C00000",

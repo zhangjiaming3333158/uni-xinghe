@@ -101,22 +101,22 @@ var components
 try {
   components = {
     myNav: function () {
-      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 195))
+      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 201))
     },
     mySearch: function () {
-      return __webpack_require__.e(/*! import() | components/my-search/my-search */ "components/my-search/my-search").then(__webpack_require__.bind(null, /*! @/components/my-search/my-search.vue */ 202))
+      return __webpack_require__.e(/*! import() | components/my-search/my-search */ "components/my-search/my-search").then(__webpack_require__.bind(null, /*! @/components/my-search/my-search.vue */ 208))
     },
     uWaterfall: function () {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-waterfall/u-waterfall */ "node-modules/uview-ui/components/u-waterfall/u-waterfall").then(__webpack_require__.bind(null, /*! uview-ui/components/u-waterfall/u-waterfall.vue */ 209))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-waterfall/u-waterfall */ "node-modules/uview-ui/components/u-waterfall/u-waterfall").then(__webpack_require__.bind(null, /*! uview-ui/components/u-waterfall/u-waterfall.vue */ 215))
     },
     uLazyLoad: function () {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-lazy-load/u-lazy-load */ "node-modules/uview-ui/components/u-lazy-load/u-lazy-load").then(__webpack_require__.bind(null, /*! uview-ui/components/u-lazy-load/u-lazy-load.vue */ 216))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-lazy-load/u-lazy-load */ "node-modules/uview-ui/components/u-lazy-load/u-lazy-load").then(__webpack_require__.bind(null, /*! uview-ui/components/u-lazy-load/u-lazy-load.vue */ 222))
     },
     uniIcons: function () {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 223))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 229))
     },
     uLoadmore: function () {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-loadmore/u-loadmore */ "node-modules/uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! uview-ui/components/u-loadmore/u-loadmore.vue */ 231))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-loadmore/u-loadmore */ "node-modules/uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! uview-ui/components/u-loadmore/u-loadmore.vue */ 237))
     },
   }
 } catch (e) {
@@ -199,7 +199,7 @@ var _default = {
       flowList: [],
       pages: 0,
       //当前页数
-      limit: 10 //总页数
+      limit: 1 //总页数
     };
   },
   onLoad: function onLoad() {
@@ -228,7 +228,7 @@ var _default = {
       this.loadStatus = 'none';
     }
   },
-  methods: _objectSpread(_objectSpread({}, (0, _vuex.mapMutations)('m_home', ['addLike', 'removeLike', 'changeChoice'])), {}, {
+  methods: _objectSpread(_objectSpread({
     gotoSearch: function gotoSearch() {
       uni.navigateTo({
         url: '/subpkgA/search/search'
@@ -271,14 +271,10 @@ var _default = {
         item.id = this.$u.guid();
         this.flowList.push(item);
       }
-    },
-    remove: function remove(id) {
-      this.$refs.uWaterfall.remove(id);
-    },
-    clear: function clear() {
-      this.$refs.uWaterfall.clear();
-    },
+    }
+  }, (0, _vuex.mapMutations)('m_home', ['addLike', 'removeLike', 'changeChoice'])), {}, {
     changLike: function changLike(item) {
+      var _this3 = this;
       if (item.choice == false) {
         console.log(item);
         this.addLike(item);
@@ -288,6 +284,10 @@ var _default = {
         this.removeLike(item);
         this.changeChoice(item);
       }
+      this.$nextTick(function () {
+        // 可在这里执行一些依赖于状态更新后的操作
+        _this3.flowList = _this3.list;
+      });
     }
   })
 };

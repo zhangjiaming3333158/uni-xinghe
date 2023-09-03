@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "goods_list",
+  "navigationBarTitleText": "商品列表",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 150,
   "backgroundColor": "#F8F8F8",

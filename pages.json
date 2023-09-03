@@ -64,14 +64,14 @@
         {
           "path": "goods_detail/goods_detail",
           "style": {
-            "navigationBarTitleText": "goods_detail",
+            "navigationBarTitleText": "商品详情",
             "enablePullDownRefresh": false
           }
         },
         {
           "path": "goods_list/goods_list",
           "style": {
-            "navigationBarTitleText": "goods_list",
+            "navigationBarTitleText": "商品列表",
             "enablePullDownRefresh": true,
             "onReachBottomDistance": 150,
             "backgroundColor": "#F8F8F8"
@@ -80,11 +80,27 @@
         {
           "path": "search/search",
           "style": {
-            "navigationBarTitleText": "search",
+            "navigationBarTitleText": "搜索",
+            "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path": "test/test",
+          "style": {
+            "navigationBarTitleText": "测试",
             "enablePullDownRefresh": false
           }
         }
-      ]
+          ,{
+                    "path" : "login/login",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "登录",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
     },
     {
       "root": "subpkgB",
@@ -98,8 +114,7 @@
               "van-field": "/wxcomponents/@vant/weapp/dist/field/index",
               "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
               "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
-              "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index",
-              "van-area": "/wxcomponents/@vant/weapp/dist/area/index"
+              "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index"
             }
           }
         },
@@ -117,8 +132,7 @@
             "enablePullDownRefresh": false,
             "usingComponents": {
               "van-button": "/wxcomponents/@vant/weapp/dist/button/index",
-              "van-action-sheet": "/wxcomponents/@vant/weapp/dist/action-sheet/index",
-              "van-steps": "/wxcomponents/@vant/weapp/dist/steps/index"
+              "van-action-sheet": "/wxcomponents/@vant/weapp/dist/action-sheet/index"
             }
           }
         },
@@ -167,7 +181,6 @@
               "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
               "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
               "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index",
-              "van-area": "/wxcomponents/@vant/weapp/dist/area/index",
               "van-button": "/wxcomponents/@vant/weapp/dist/button/index"
             }
           }
@@ -179,7 +192,8 @@
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "星禾",
     "navigationBarBackgroundColor": "#cbc1b2",
-    "backgroundColor": "#FFFFFF"
+    "backgroundColor": "#FFFFFF",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#C00000",

@@ -125,7 +125,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -141,9 +141,16 @@ var _default = {
   },
   onHide: function onHide() {
     console.log('App Hide');
+  },
+  onPullDownRefresh: function onPullDownRefresh() {
+    console.log('refresh');
+    setTimeout(function () {
+      uni.stopPullDownRefresh();
+    }, 1000);
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

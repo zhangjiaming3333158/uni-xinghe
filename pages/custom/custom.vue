@@ -6,12 +6,12 @@
       <view class="head-left">
         <view><van-tag type="primary" plain>款式</van-tag></view>
         <view v-for="(item, index) in 4" :key="index"
-          ><u-avatar src="../../static/my-icons/wx-logo.jpg"></u-avatar
+          ><u-avatar src="/static/my-icons/wx-logo.jpg"></u-avatar
         ></view>
         <view><u-icon size="80" name="more-circle"></u-icon></view>
       </view>
       <view class="head-right">
-        <image src="../../static/my-icons/wx-logo.jpg" mode="scaleToFill" />
+        <image src="/static/my-icons/wx-logo.jpg" mode="scaleToFill" />
       </view>
     </view>
     <view class="body">
@@ -44,7 +44,7 @@
 
 <script>
 // 按需导入 mapMutations 这个辅助方法
-import { mapGetters, mapMutations } from 'vuex' //引入mapGettersf
+import { mapMutations } from 'vuex' //引入mapGettersf
 import badgeMix from '@/mixins/tabbar-badge.js'
 export default {
   mixins: [badgeMix],
@@ -95,7 +95,7 @@ export default {
 
 <style lang="scss">
 .container {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   .head {
@@ -105,6 +105,8 @@ export default {
     align-items: center;
     background-color: #fff;
     .head-left {
+      box-sizing: border-box;
+      padding: 20rpx 0;
       display: flex;
       flex-direction: column;
       justify-content: center;

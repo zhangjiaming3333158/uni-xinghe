@@ -99,7 +99,7 @@ var components
 try {
   components = {
     myGoods: function () {
-      return __webpack_require__.e(/*! import() | components/my-goods/my-goods */ "components/my-goods/my-goods").then(__webpack_require__.bind(null, /*! @/components/my-goods/my-goods.vue */ 283))
+      return __webpack_require__.e(/*! import() | components/my-goods/my-goods */ "components/my-goods/my-goods").then(__webpack_require__.bind(null, /*! @/components/my-goods/my-goods.vue */ 289))
     },
   }
 } catch (e) {
@@ -168,7 +168,7 @@ var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 49));
 var myGoods = function myGoods() {
   __webpack_require__.e(/*! require.ensure | components/my-goods/my-goods */ "components/my-goods/my-goods").then((function () {
-    return resolve(__webpack_require__(/*! ../../components/my-goods/my-goods.vue */ 283));
+    return resolve(__webpack_require__(/*! ../../components/my-goods/my-goods.vue */ 289));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

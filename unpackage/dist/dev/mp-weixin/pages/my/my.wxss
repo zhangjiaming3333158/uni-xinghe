@@ -4,7 +4,7 @@
 .user-info {
   display: flex;
   align-items: center;
-  height: 200rpx;
+  height: 300rpx;
   background-color: #cbc1b2;
 }
 .user-info .avatar {
@@ -34,14 +34,14 @@
   background-color: #eeeedd;
 }
 .cell {
-  margin-top: 20rpx;
+  margin-top: 30rpx;
 }
 .cell .van-cell {
   margin-top: 20rpx;
   border-radius: 50rpx;
 }
 .cell .van-button {
-  margin-top: 20rpx;
+  margin-top: 30rpx;
   border-radius: 50rpx;
   margin-bottom: 50rpx;
   border: 1px solid #552220;

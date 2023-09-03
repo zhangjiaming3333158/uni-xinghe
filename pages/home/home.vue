@@ -97,7 +97,7 @@
     </view>
     <!-- waterfall -->
     <view class="waterfall">
-      <u-waterfall v-model="flowList" ref="uWaterfall">
+      <u-waterfall v-model="flowList">
         <template v-slot:left="{ leftList }">
           <view
             class="demo-warter"
@@ -123,7 +123,7 @@
               <view class="bottom-name">
                 {{ item.shop }}
               </view>
-              <view class="bottom-like">
+              <view class="bottom-like" @click="changLike(item)">
                 <uni-icons
                   type="heart"
                   size="20"
@@ -206,7 +206,7 @@ export default {
       loadStatus: 'loadmore',
       flowList: [],
       pages: 0, //当前页数
-      limit: 10, //总页数
+      limit: 1, //总页数
     }
   },
   onLoad() {
@@ -237,8 +237,6 @@ export default {
     }
   },
   methods: {
-    //获取home.js中的方法
-    ...mapMutations('m_home', ['addLike', 'removeLike', 'changeChoice']),
     gotoSearch() {
       uni.navigateTo({
         url: '/subpkgA/search/search',
@@ -261,23 +259,23 @@ export default {
         this.flowList.push(item)
       }
     },
-    remove(id) {
-      this.$refs.uWaterfall.remove(id)
-    },
-    clear() {
-      this.$refs.uWaterfall.clear()
-    },
-    changLike(item){
+    //获取home.js中的方法
+    ...mapMutations('m_home', ['addLike', 'removeLike', 'changeChoice']),
+    changLike(item) {
       if (item.choice == false) {
-        console.log(item);
+        console.log(item)
         this.addLike(item)
         this.changeChoice(item)
       } else {
-        console.log(item);
+        console.log(item)
         this.removeLike(item)
         this.changeChoice(item)
       }
-    }
+      this.$nextTick(() => {
+        // 可在这里执行一些依赖于状态更新后的操作
+        this.flowList = this.list
+      })
+    },
   },
 }
 </script>

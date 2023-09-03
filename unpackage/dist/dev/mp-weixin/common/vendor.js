@@ -3217,7 +3217,23 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
-/***/ 228:
+/***/ 23:
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 234:
 /*!**************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \**************************************************************************************************************************/
@@ -4236,22 +4252,6 @@ var _default = {
   }]
 };
 exports.default = _default;
-
-/***/ }),
-
-/***/ 23:
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
@@ -10377,7 +10377,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 276:
+/***/ 282:
 /*!*********************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpwxs.js ***!
   \*********************************************************************************************************************************************/
@@ -10456,7 +10456,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 277:
+/***/ 283:
 /*!************************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-swipe-action/components/uni-swipe-action-item/bindingx.js ***!
   \************************************************************************************************************************************************/
@@ -10476,7 +10476,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 278:
+/***/ 284:
 /*!***********************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpother.js ***!
   \***********************************************************************************************************************************************/
@@ -10527,7 +10527,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 309:
+/***/ 315:
 /*!***************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
   \***************************************************************************************************************************************/
@@ -10542,9 +10542,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 310));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 311));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 312));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 316));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 317));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 318));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -10554,7 +10554,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 310:
+/***/ 316:
 /*!**************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
   \**************************************************************************************************************************************/
@@ -10565,7 +10565,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-good
 
 /***/ }),
 
-/***/ 311:
+/***/ 317:
 /*!*******************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
   \*******************************************************************************************************************************************/
@@ -10576,7 +10576,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-go
 
 /***/ }),
 
-/***/ 312:
+/***/ 318:
 /*!*******************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
   \*******************************************************************************************************************************************/
@@ -10719,7 +10719,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 320:
+/***/ 326:
 /*!*****************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
   \*****************************************************************************************************************************************/
@@ -10734,9 +10734,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 321));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 322));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 323));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 327));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 328));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 329));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -10746,7 +10746,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 321:
+/***/ 327:
 /*!****************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
   \****************************************************************************************************************************************/
@@ -10757,7 +10757,7 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 
 /***/ }),
 
-/***/ 322:
+/***/ 328:
 /*!*********************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
   \*********************************************************************************************************************************************/
@@ -10768,7 +10768,7 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 
 /***/ }),
 
-/***/ 323:
+/***/ 329:
 /*!*********************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/编程/vscode/html/test/项目/git/wx-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
   \*********************************************************************************************************************************************/
@@ -12360,7 +12360,8 @@ var _default = {
       // 用户的基本信息
       userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}'),
       // 重定向的 object 对象 { openType, from }
-      redirectInfo: null
+      redirectInfo: null,
+      my: JSON.parse(uni.getStorageSync('my') || '{}')
     };
   },
   // 方法
@@ -12368,12 +12369,12 @@ var _default = {
     // 更新收货地址
     updateAddress: function updateAddress(state, address) {
       state.address = address;
-
       // 2. 通过 this.commit() 方法，调用 m_user 模块下的 saveAddressToStorage 方法将 address 对象持久化存储到本地
       this.commit('m_user/saveAddressToStorage');
     },
     // 1. 定义将 address 持久化存储到本地 mutations 方法
     saveAddressToStorage: function saveAddressToStorage(state) {
+      state.my.my_phone = state.address.telNumber;
       uni.setStorageSync('address', JSON.stringify(state.address));
     },
     // 更新用户的基本信息
@@ -12399,6 +12400,13 @@ var _default = {
     // 更新重定向的信息对象
     updateRedirectInfo: function updateRedirectInfo(state, info) {
       state.redirectInfo = info;
+    },
+    setMy: function setMy(state, info) {
+      state.my = info;
+      this.commit('m_user/saveMy');
+    },
+    saveMy: function saveMy(state) {
+      uni.setStorageSync('my', JSON.stringify(state.my));
     }
   },
   // 数据包装器
@@ -12497,7 +12505,6 @@ var _default = {
       var findResult = state.list.find(function (x) {
         return x.item_id === item.item_id;
       });
-      console.log(findResult);
       // 如果购物车中有这件商品，则只更新数量即可
       findResult.like++;
     },
@@ -12520,6 +12527,7 @@ var _default = {
       });
       // 如果购物车中有这件商品，则只更新数量即可
       findResult.choice = !findResult.choice;
+      console.log(findResult);
     }
   },
   // 模块的 getters 属性

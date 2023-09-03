@@ -6,7 +6,6 @@
     "van-field": "/wxcomponents/@vant/weapp/dist/field/index",
     "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
     "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
-    "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index",
-    "van-area": "/wxcomponents/@vant/weapp/dist/area/index"
+    "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index"
   }
 }

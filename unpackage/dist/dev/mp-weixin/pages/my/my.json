@@ -3,6 +3,7 @@
   "enablePullDownRefresh": false,
   "navigationStyle": "custom",
   "usingComponents": {
+    "my-login": "/components/my-login/my-login",
     "my-nav": "/components/my-nav/my-nav",
     "uni-tag": "/uni_modules/uni-tag/components/uni-tag/uni-tag",
     "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",

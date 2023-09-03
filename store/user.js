@@ -12,6 +12,7 @@ export default {
     userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}'),
     // 重定向的 object 对象 { openType, from }
     redirectInfo: null,
+    my: JSON.parse(uni.getStorageSync('my') || '{}'),
   }),
 
   // 方法
@@ -19,12 +20,12 @@ export default {
     // 更新收货地址
     updateAddress(state, address) {
       state.address = address
-
       // 2. 通过 this.commit() 方法，调用 m_user 模块下的 saveAddressToStorage 方法将 address 对象持久化存储到本地
       this.commit('m_user/saveAddressToStorage')
     },
     // 1. 定义将 address 持久化存储到本地 mutations 方法
     saveAddressToStorage(state) {
+      state.my.my_phone = state.address.telNumber
       uni.setStorageSync('address', JSON.stringify(state.address))
     },
 
@@ -52,6 +53,13 @@ export default {
     // 更新重定向的信息对象
     updateRedirectInfo(state, info) {
       state.redirectInfo = info
+    },
+    setMy(state, info) {
+      state.my = info
+      this.commit('m_user/saveMy')
+    },
+    saveMy(state) {
+      uni.setStorageSync('my', JSON.stringify(state.my))
     },
   },
 

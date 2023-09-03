@@ -12,6 +12,12 @@ export default {
   onHide: function () {
     console.log('App Hide')
   },
+  onPullDownRefresh() {
+		console.log('refresh');
+		setTimeout(function () {
+			uni.stopPullDownRefresh();
+		}, 1000);
+	}
 }
 </script>
 

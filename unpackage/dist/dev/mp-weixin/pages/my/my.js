@@ -100,11 +100,14 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    myLogin: function () {
+      return Promise.all(/*! import() | components/my-login/my-login */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/my-login/my-login")]).then(__webpack_require__.bind(null, /*! @/components/my-login/my-login.vue */ 426))
+    },
     myNav: function () {
-      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 195))
+      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 201))
     },
     uniTag: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-tag/components/uni-tag/uni-tag */ "uni_modules/uni-tag/components/uni-tag/uni-tag").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-tag/components/uni-tag/uni-tag.vue */ 297))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-tag/components/uni-tag/uni-tag */ "uni_modules/uni-tag/components/uni-tag/uni-tag").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-tag/components/uni-tag/uni-tag.vue */ 303))
     },
   }
 } catch (e) {
@@ -163,74 +166,55 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 
 
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
+var _vuex = __webpack_require__(/*! vuex */ 35);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var _default = {
   data: function data() {
     return {
-      pageTitle: '我的'
+      pageTitle: '我的',
+      isShow: false
     };
-  }
+  },
+  computed: _objectSpread(_objectSpread(_objectSpread({}, (0, _vuex.mapState)('m_user', ['my'])), (0, _vuex.mapState)('m_user', ['userinfo'])), {}, {
+    my_height: function my_height() {
+      return '身高: ' + this.my.my_height + 'cm';
+    },
+    my_weight: function my_weight() {
+      return '体重: ' + this.my.my_weight + 'kg';
+    },
+    my_size: function my_size() {
+      if (this.my.my_size == 0) {
+        return '尺码: ' + 'S';
+      } else if (this.my.my_size == 1) {
+        return '尺码: ' + 'M';
+      } else if (this.my.my_size == 2) {
+        return '尺码: ' + 'L';
+      } else if (this.my.my_size == 3) {
+        return '尺码: ' + 'XL';
+      } else if (this.my.my_size == 4) {
+        return '尺码: ' + 'XXL';
+      }
+    },
+    my_name: function my_name() {
+      return this.my.my_name;
+    }
+  }),
+  methods: {
+    changeIsShow: function changeIsShow() {
+      var _this = this;
+      setTimeout(function () {
+        _this.isShow = !_this.isShow;
+      }, 1000);
+    }
+  },
+  mounted: function mounted() {}
 };
 exports.default = _default;
 
