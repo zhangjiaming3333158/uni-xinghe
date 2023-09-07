@@ -90,17 +90,15 @@
             "navigationBarTitleText": "测试",
             "enablePullDownRefresh": false
           }
+        },
+        {
+          "path": "login/login",
+          "style": {
+            "navigationBarTitleText": "登录",
+            "enablePullDownRefresh": false
+          }
         }
-          ,{
-                    "path" : "login/login",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "登录",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+      ]
     },
     {
       "root": "subpkgB",
