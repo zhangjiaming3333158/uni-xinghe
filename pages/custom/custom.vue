@@ -4,14 +4,21 @@
     <my-nav :title="pageTitle"></my-nav>
     <view class="head">
       <view class="head-left">
-        <view><van-tag type="primary" plain>款式</van-tag></view>
-        <view v-for="(item, index) in 4" :key="index"
-          ><u-avatar src="/static/my-icons/wx-logo.jpg"></u-avatar
+        <view class="head-left-top"
+          ><van-tag type="primary" plain>款式</van-tag></view
+        >
+        <view class="head-left-body">
+          <view v-for="(item, index) in 4" :key="index"
+            ><u-avatar src="/static/my-icons/wx-logo.jpg"></u-avatar
+          ></view>
+        </view>
+
+        <view class="head-left-bottom"
+          ><u-icon size="80" name="more-circle"></u-icon
         ></view>
-        <view><u-icon size="80" name="more-circle"></u-icon></view>
       </view>
       <view class="head-right">
-        <image src="/static/my-icons/wx-logo.jpg" mode="scaleToFill" />
+        <image src="/static/my-icons/wx-logo.jpg" mode="aspectFit" />
       </view>
     </view>
     <view class="body">
@@ -95,10 +102,11 @@ export default {
 
 <style lang="scss">
 .container {
-  height: 100%;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   .head {
+    box-sizing: border-box;
     flex: 1;
     display: flex;
     justify-content: space-between;
@@ -106,7 +114,7 @@ export default {
     background-color: #fff;
     .head-left {
       box-sizing: border-box;
-      padding: 20rpx 0;
+      // padding: 20rpx 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -114,8 +122,29 @@ export default {
       width: 90px;
       height: 100%;
       background-color: #f5f5f5;
-      .van-tag {
-        margin-bottom: 10px;
+
+      .head-left-top {
+        height: 10%;
+        background-color: #f5f5f5;
+        .van-tag {
+          margin: 10px 0;
+        }
+      }
+      .head-left-body{
+        height: 70%;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        u-avatar {
+          width: 60rpx;
+          height: 60rpx;
+        }
+      }
+      .head-left-bottom {
+        height: 20%;
+        background-color: #f5f5f5;
       }
     }
     .head-right {

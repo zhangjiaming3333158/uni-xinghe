@@ -3,7 +3,7 @@
 /* 水平间距 */
 .my-search-container.data-v-8ad86a50 {
   height: 50px;
-  background-color: #cbc1b2;
+  background-color: #f9e3a8;
   padding: 0 10px;
   display: flex;
   align-items: center;

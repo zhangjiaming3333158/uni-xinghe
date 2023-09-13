@@ -11,76 +11,84 @@
     </view>
     <!-- body -->
     <view class="body-list">
-      <view class="body-item">
-        <view class="body-item-left1">新品<br />折扣</view>
-        <view class="body-item-right">
-          <swiper
-            :indicator-dots="true"
-            :autoplay="true"
-            :interval="3000"
-            :duration="1000"
-            circular
-          >
-            <swiper-item v-for="item in swiperList" :key="item.goods_id">
-              <navigator
-                class="swiper-item"
-                :url="
-                  '/subpkgA/goods_detail/goods_detail?goods_id=' + item.goods_id
-                "
-              >
-                <!-- 动态绑定图片的 src 属性 -->
-                <image :src="item.image_src"></image>
-              </navigator>
-            </swiper-item>
-          </swiper>
+      <view class="body-top">
+        <view class="body-top-left">
+          <view class="body-item-top">新品折扣</view>
+          <view class="body-item-bottom">
+            <swiper
+              :indicator-dots="true"
+              :autoplay="true"
+              :interval="3000"
+              :duration="1000"
+              circular
+            >
+              <swiper-item v-for="item in swiperList" :key="item.goods_id">
+                <navigator
+                  class="swiper-item"
+                  :url="
+                    '/subpkgA/goods_detail/goods_detail?goods_id=' +
+                    item.goods_id
+                  "
+                >
+                  <!-- 动态绑定图片的 src 属性 -->
+                  <image :src="item.image_src"></image>
+                </navigator>
+              </swiper-item>
+            </swiper>
+          </view>
+        </view>
+        <view class="body-top-right">
+          <view class="body-item-top">热卖</view>
+          <view class="body-item-bottom">
+            <swiper
+              :indicator-dots="true"
+              :autoplay="true"
+              :interval="3000"
+              :duration="1000"
+              circular
+            >
+              <swiper-item v-for="item in swiperList" :key="item.goods_id">
+                <navigator
+                  class="swiper-item"
+                  :url="
+                    '/subpkgA/goods_detail/goods_detail?goods_id=' +
+                    item.goods_id
+                  "
+                >
+                  <!-- 动态绑定图片的 src 属性 -->
+                  <image :src="item.image_src"></image>
+                </navigator>
+              </swiper-item>
+            </swiper>
+          </view>
         </view>
       </view>
-      <view class="body-item">
-        <view class="body-item-left2">热卖</view>
-        <view class="body-item-right">
-          <swiper
-            :indicator-dots="true"
-            :autoplay="true"
-            :interval="3000"
-            :duration="1000"
-            circular
-          >
-            <swiper-item v-for="item in swiperList" :key="item.goods_id">
-              <navigator
-                class="swiper-item"
-                :url="
-                  '/subpkgA/goods_detail/goods_detail?goods_id=' + item.goods_id
-                "
-              >
-                <!-- 动态绑定图片的 src 属性 -->
-                <image :src="item.image_src"></image>
-              </navigator>
-            </swiper-item>
-          </swiper>
-        </view>
-      </view>
-      <view class="body-item">
-        <view class="body-item-left3">推荐</view>
-        <view class="body-item-right">
-          <swiper
-            :indicator-dots="true"
-            :autoplay="true"
-            :interval="3000"
-            :duration="1000"
-            circular
-          >
-            <swiper-item v-for="item in swiperList" :key="item.goods_id">
-              <navigator
-                class="swiper-item"
-                :url="
-                  '/subpkgA/goods_detail/goods_detail?goods_id=' + item.goods_id
-                "
-              >
-                <!-- 动态绑定图片的 src 属性 -->
-                <image :src="item.image_src"></image>
-              </navigator>
-            </swiper-item>
-          </swiper>
+
+      <view class="body-bottom">
+        <view class="body-item">
+          <view class="body-item-left">新<br />品</view>
+          <view class="body-item-right">
+            <swiper
+              :indicator-dots="true"
+              :autoplay="true"
+              :interval="3000"
+              :duration="1000"
+              circular
+            >
+              <swiper-item v-for="item in swiperList" :key="item.goods_id">
+                <navigator
+                  class="swiper-item"
+                  :url="
+                    '/subpkgA/goods_detail/goods_detail?goods_id=' +
+                    item.goods_id
+                  "
+                >
+                  <!-- 动态绑定图片的 src 属性 -->
+                  <image :src="item.image_src"></image>
+                </navigator>
+              </swiper-item>
+            </swiper>
+          </view>
         </view>
       </view>
     </view>
@@ -301,10 +309,9 @@ export default {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
     text-align: center;
     line-height: 100rpx;
-    background-color: #cbc1b2;
+    background-color: #ebb86c;
     text {
       font-size: 25px;
       color: #000;
@@ -313,61 +320,97 @@ export default {
 }
 .body-list {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  .body-item {
-    position: relative;
-    width: 700rpx;
-    height: 250rpx;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
+  flex-direction: column;
+  .body-top {
+    box-sizing: border-box;
+    padding: 0 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     margin-top: 30rpx;
-    overflow: hidden;
-    .body-item-left1,
-    .body-item-left2,
-    .body-item-left3 {
-      position: absolute;
-      box-sizing: border-box;
-      padding-right: 10rpx;
-      width: 220rpx;
-      height: 100%;
-      border-right: 1px solid #ccc;
-      border-top-right-radius: 150rpx;
-      border-bottom-right-radius: 150rpx;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      text-align: center;
-      font-size: 30px;
-      z-index: 9;
-    }
-    .body-item-left1 {
-      padding: 50rpx 10rpx 50rpx 0;
-      // background-color: #fbd4ea;
-      background: linear-gradient(#fff, #9fd3e8);
-      line-height: 75rpx;
-    }
-    .body-item-left2 {
-      // background-color: #9fd3e8;
-      background: linear-gradient(#fff, #fbd4ea);
-      line-height: 250rpx;
-    }
-    .body-item-left3 {
-      // background-color: #f1ebb0;
-      background: linear-gradient(#fff, #f1ebb0);
-      line-height: 250rpx;
-    }
-
-    .body-item-right {
-      width: 100%;
-      height: 100%;
-      swiper {
-        height: 300rpx;
-
-        .swiper-item,
-        image {
+    .body-top-right,
+    .body-top-left {
+      width: 80%;
+      border-radius: 10px;
+      position: relative;
+      height: 500rpx;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+      overflow: hidden;
+      .body-item-top{
+        position: absolute;
+        height: 30%;
+        width: 100%;
+        background: linear-gradient(90deg, #f7cee2, #ec89d3);
+        opacity: 0.9;
+        z-index: 9;
+        font-size: 30px;
+        text-align: center;
+        line-height: 150rpx;
+      }
+      .body-item-bottom {
+        width: 100%;
+        height: 100%;
+        swiper {
           height: 100%;
-          width: 100%;
+          .swiper-item,
+          image {
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+    .body-top-right {
+      margin-left: 10px;
+    }
+  }
+  .body-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .body-item {
+      position: relative;
+      width: 700rpx;
+      height: 250rpx;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+      margin-top: 30rpx;
+      overflow: hidden;
+      .body-item-left {
+        position: absolute;
+        box-sizing: border-box;
+        width: 180rpx;
+        height: 100%;
+        border-top-left-radius: 9px;
+        border-bottom-left-radius: 9px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(90deg, #55bbf9, #578aef);
+        opacity: 0.9;
+        line-height: 75rpx;
+        z-index: 9;
+        padding: 10px 0;
+        font-size: 30px;
+        text-align: center;
+        line-height: 105rpx;
+      }
+
+      .body-item-right {
+        width: 100%;
+        height: 100%;
+        swiper {
+          height: 300rpx;
+
+          .swiper-item,
+          image {
+            height: 100%;
+            width: 100%;
+          }
         }
       }
     }

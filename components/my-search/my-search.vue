@@ -28,7 +28,7 @@ export default {
 <style lang="scss" scoped>
 .my-search-container {
   height: 50px;
-  background-color: #cbc1b2;
+  background-color: #f9e3a8;
   padding: 0 10px;
   display: flex;
   align-items: center;

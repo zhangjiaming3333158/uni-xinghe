@@ -27,7 +27,7 @@ export default {
   justify-content: center;
 	padding-top:19px ;
   height: 64px;
-  background-color: #cbc1b2;
+  background-color: #f9e3a8;
 	box-sizing: border-box;
   .icon {
 		position: absolute;
@@ -43,8 +43,8 @@ export default {
 		text-align: center;
 		justify-content: center;
 		line-height: 64px;
-    font-size: 13px;
-		color: #f8f8f8;
+    font-size: 20px;
+		color: #cf9239;
   }
 }
 </style>
