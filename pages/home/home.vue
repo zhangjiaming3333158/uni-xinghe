@@ -1,108 +1,51 @@
 <template>
   <view>
-    <my-nav :title="pageTitle"></my-nav>
-    <!-- 使用自定义的搜索组件 -->
-    <view class="search-box">
-      <my-search @click="gotoSearch"></my-search>
-    </view>
-    <!-- card -->
-    <view class="top-tag">
-      <view class="top-tag-item"> <text>官方推荐</text></view>
-    </view>
-    <!-- body -->
-    <view class="body-list">
-      <view class="body-top">
-        <view class="body-top-left">
-          <view class="body-item-top">新品折扣</view>
-          <view class="body-item-bottom">
-            <swiper
-              :indicator-dots="true"
-              :autoplay="true"
-              :interval="3000"
-              :duration="1000"
-              circular
-            >
-              <swiper-item v-for="item in swiperList" :key="item.goods_id">
-                <navigator
-                  class="swiper-item"
-                  :url="
-                    '/subpkgA/goods_detail/goods_detail?goods_id=' +
-                    item.goods_id
-                  "
-                >
-                  <!-- 动态绑定图片的 src 属性 -->
-                  <image :src="item.image_src"></image>
-                </navigator>
-              </swiper-item>
-            </swiper>
-          </view>
+    <!-- nav自定义组件 -->
+    <my-nav></my-nav>
+    <!-- swpier-card -->
+    <view class="swiper-card">
+      <view class="item">
+        <view class="left">
+          <view class="title">新品上市</view>
+          <view class="desc">畲式 凤尾鞋 轻便款</view>
+          <view class="time">2021.6.13-8.13</view>
         </view>
-        <view class="body-top-right">
-          <view class="body-item-top">热卖</view>
-          <view class="body-item-bottom">
-            <swiper
-              :indicator-dots="true"
-              :autoplay="true"
-              :interval="3000"
-              :duration="1000"
-              circular
-            >
-              <swiper-item v-for="item in swiperList" :key="item.goods_id">
-                <navigator
-                  class="swiper-item"
-                  :url="
-                    '/subpkgA/goods_detail/goods_detail?goods_id=' +
-                    item.goods_id
-                  "
-                >
-                  <!-- 动态绑定图片的 src 属性 -->
-                  <image :src="item.image_src"></image>
-                </navigator>
-              </swiper-item>
-            </swiper>
-          </view>
+        <view class="right"
+          ><image
+            class="img1"
+            src="/static/my-icons/home/shoe.png"
+            mode="aspectFit"
+        /></view>
+      </view>
+      <view class="item">
+        <view class="right"
+          ><image
+            class="img2"
+            src="/static/my-icons/home/bag.png"
+            mode="aspectFit" /></view
+        ><view class="left">
+          <view class="title">新品上市</view>
+          <view class="desc">畲式 凤尾鞋 轻便款</view>
+          <view class="time">2021.6.13-8.13</view>
         </view>
       </view>
+    </view>
+    <!-- select导航了 -->
+    <view class="select-card">
+      <view class="select-item active">全部</view>
+      <view class="select-item">款式新</view>
+      <view class="select-item">销量高</view>
+      <view class="select-item">好评多</view>
+      <view class="select-item"
+        ><text>更多分类</text>
+        <image
+          style="width: 15px; height: 15px"
+          src="/static/my-icons/home/select.png"
+          mode="scaleToFill"
+        />
+      </view>
+    </view>
 
-      <view class="body-bottom">
-        <view class="body-item">
-          <view class="body-item-left">新<br />品</view>
-          <view class="body-item-right">
-            <swiper
-              :indicator-dots="true"
-              :autoplay="true"
-              :interval="3000"
-              :duration="1000"
-              circular
-            >
-              <swiper-item v-for="item in swiperList" :key="item.goods_id">
-                <navigator
-                  class="swiper-item"
-                  :url="
-                    '/subpkgA/goods_detail/goods_detail?goods_id=' +
-                    item.goods_id
-                  "
-                >
-                  <!-- 动态绑定图片的 src 属性 -->
-                  <image :src="item.image_src"></image>
-                </navigator>
-              </swiper-item>
-            </swiper>
-          </view>
-        </view>
-      </view>
-    </view>
-    <!-- scroll -->
-    <view class="scroll">
-      <scroll-view class="scroll-view_H">
-        <view id="demo1" class="scroll-view-item_H uni-bg-red">
-          <view v-for="(i, index) in 10" :key="index">
-            <image src="../../static/my-icons/wx-logo.jpg" mode="scaleToFill" />
-            <text>首页</text>
-          </view>
-        </view>
-      </scroll-view>
-    </view>
     <!-- waterfall -->
     <view class="waterfall">
       <u-waterfall v-model="flowList">
@@ -125,26 +68,13 @@
             </view>
             <!-- 名称 -->
             <view class="demo-bottom">
-              <view class="bottom-ava">
-                <image src="/static/my-icons/wx-logo.jpg" mode="scaleToFill" />
-              </view>
-              <view class="bottom-name">
-                {{ item.shop }}
-              </view>
+              <view class="bottom-name"> ¥{{ item.price }} </view>
               <view class="bottom-like" @click="changLike(item)">
-                <uni-icons
-                  type="heart"
-                  size="20"
-                  class="bottom-icon"
-                  v-if="item.choice == false"
-                ></uni-icons>
-                <uni-icons
-                  type="heart-filled"
-                  size="20"
-                  class="bottom-icon"
-                  v-else
-                ></uni-icons>
-                <text>{{ item.like }}</text>
+                <image
+                  style="width: 20px; height: 20px"
+                  src="/static/my-icons/home/dingzhi.png"
+                  mode="scaleToFill"
+                />
               </view>
             </view>
           </view>
@@ -166,26 +96,13 @@
             </view>
             <!-- 名称 -->
             <view class="demo-bottom">
-              <view class="bottom-ava">
-                <image src="/static/my-icons/wx-logo.jpg" mode="scaleToFill" />
-              </view>
-              <view class="bottom-name">
-                {{ item.shop }}
-              </view>
+              <view class="bottom-name"> ¥{{ item.price }} </view>
               <view class="bottom-like" @click="changLike(item)">
-                <uni-icons
-                  type="heart"
-                  size="20"
-                  class="bottom-icon"
-                  v-if="item.choice == false"
-                ></uni-icons>
-                <uni-icons
-                  type="heart-filled"
-                  size="20"
-                  class="bottom-icon"
-                  v-else
-                ></uni-icons>
-                <text>{{ item.like }}</text>
+                <image
+                  style="width: 20px; height: 20px"
+                  src="/static/my-icons/home/dingzhi.png"
+                  mode="scaleToFill"
+                />
               </view>
             </view>
           </view>
@@ -289,177 +206,90 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.search-box {
-  // 设置定位效果为“吸顶”
-  position: sticky;
-  // 吸顶的“位置”
-  top: 0;
-  // 提高层级，防止被轮播图覆盖
-  z-index: 999;
-}
-
-.top-tag {
+$background-color: #823027;
+$font-color: #1a1a1a;
+$active: #c26c63;
+.swiper-card {
+  height: 150px;
+  max-width: 100wh;
+  overflow-y: scroll;
+  background-color: $background-color;
   display: flex;
-  justify-content: center;
-  margin-top: 20rpx;
-  text-align: center;
-  .top-tag-item {
-    width: 400rpx;
-    height: 100rpx;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    line-height: 100rpx;
-    background-color: #ebb86c;
-    text {
-      font-size: 25px;
-      color: #000;
-    }
-  }
-}
-.body-list {
-  display: flex;
-  flex-direction: column;
-  .body-top {
-    box-sizing: border-box;
-    padding: 0 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30rpx;
-    .body-top-right,
-    .body-top-left {
-      width: 80%;
-      border-radius: 10px;
-      position: relative;
-      height: 500rpx;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      background-color: #fff;
-      overflow: hidden;
-      .body-item-top{
-        position: absolute;
-        height: 30%;
-        width: 100%;
-        background: linear-gradient(90deg, #f7cee2, #ec89d3);
-        opacity: 0.9;
-        z-index: 9;
-        font-size: 30px;
-        text-align: center;
-        line-height: 150rpx;
-      }
-      .body-item-bottom {
-        width: 100%;
-        height: 100%;
-        swiper {
-          height: 100%;
-          .swiper-item,
-          image {
-            height: 100%;
-            width: 100%;
-          }
-        }
-      }
-    }
-    .body-top-right {
-      margin-left: 10px;
-    }
-  }
-  .body-bottom {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    .body-item {
-      position: relative;
-      width: 700rpx;
-      height: 250rpx;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      background-color: #fff;
-      margin-top: 30rpx;
-      overflow: hidden;
-      .body-item-left {
-        position: absolute;
-        box-sizing: border-box;
-        width: 180rpx;
-        height: 100%;
-        border-top-left-radius: 9px;
-        border-bottom-left-radius: 9px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        background: linear-gradient(90deg, #55bbf9, #578aef);
-        opacity: 0.9;
-        line-height: 75rpx;
-        z-index: 9;
-        padding: 10px 0;
-        font-size: 30px;
-        text-align: center;
-        line-height: 105rpx;
-      }
-
-      .body-item-right {
-        width: 100%;
-        height: 100%;
-        swiper {
-          height: 300rpx;
-
-          .swiper-item,
-          image {
-            height: 100%;
-            width: 100%;
-          }
-        }
-      }
-    }
-  }
-}
-.scroll {
-  display: flex;
+  // justify-content: center;
   align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  .scroll-view_H {
-    white-space: nowrap;
-    width: 730rpx;
-    height: 292rpx;
-    border-radius: 10px;
-    background-color: #fff;
-    .scroll-view-item_H {
+  .item {
+    display: flex;
+    margin-left: 20px;
+    height: 100px;
+    width: 300px;
+    border-radius: 15px;
+    background-color: $active;
+    .left {
+      box-sizing: border-box;
+      width: 170px;
+      height: 100%;
       display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      width: 100%;
-      height: 292rpx;
-      border-radius: 10px;
-      view {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        height: 146rpx;
-        width: 146rpx;
-        text-align: center;
-        line-height: 146rpx;
-        image {
-          height: 70%;
-          width: 70%;
-          margin-bottom: -25px;
-        }
-        text {
-          height: 30%;
-          width: 70%;
-          font-size: 24rpx;
-          color: #000;
-        }
+      flex-direction: column;
+      justify-content: space-around;
+      color: $font-color;
+      border-radius: 15px;
+      padding: 10px 0 10px 20px;
+      .title {
+        font-size: 10px;
       }
+      .desc {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .time {
+        font-size: 10px;
+        font-weight: bold;
+      }
+    }
+    .right {
+      position: relative;
+      width: 130px;
+      height: 100%;
+      border-radius: 15px;
+      .img1 {
+        position: absolute;
+        top: -15px;
+        left: -10px;
+        width: 100%;
+        height: 100%;
+        scale: 1.5;
+      }
+      .img2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        scale: 1.5;
+      }
+    }
+  }
+}
+.select-card {
+  height: 50px;
+  background-color: $background-color;
+  // background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .select-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #fff;
+    &.active {
+      background-color: $active;
     }
   }
 }
 .waterfall {
-  margin-top: 30rpx;
+  background-color: $background-color;
   .demo-warter {
     border-radius: 8px;
     margin: 5px;
@@ -480,14 +310,10 @@ export default {
   }
 
   .demo-title {
-    font-size: 30rpx;
-    margin-top: 5px;
-    color: $u-main-color;
-  }
-
-  .demo-tag {
-    display: flex;
-    margin-top: 5px;
+    font-size: 14px;
+    margin: 5px 0 0 10px;
+    color: $font-color;
+    font-weight: bold;
   }
 
   .demo-tag-owner {
@@ -514,36 +340,15 @@ export default {
     font-size: 20rpx;
   }
 
-  .demo-price {
-    font-size: 30rpx;
-    color: $u-type-error;
-    margin-top: 5px;
-  }
-
-  .demo-name {
-    font-size: 22rpx;
-    color: $u-tips-color;
-    margin-top: 5px;
-  }
   .demo-bottom {
+    box-sizing: border-box;
+    padding: 0 10px;
     display: flex;
     align-items: center;
-    .bottom-ava {
-      margin-top: 5px;
-      margin-right: 5px;
-      width: 60rpx;
-      height: 60rpx;
-      border-radius: 40rpx;
-      background-color: #f2f2f2;
-      image {
-        width: 100%;
-        height: 100%;
-      }
-    }
+    justify-content: space-between;
     .bottom-name {
-      font-size: 22rpx;
-      width: 150rpx;
-      color: $u-tips-color;
+      font-size:14px;
+      color: $font-color;
       margin-top: 5px;
     }
     .bottom-like {
@@ -553,11 +358,6 @@ export default {
       // background-color: #fff;
       .bottom-icon {
         display: flex;
-      }
-      text {
-        text-align: center;
-        font-size: 22rpx;
-        color: $u-tips-color;
       }
     }
   }

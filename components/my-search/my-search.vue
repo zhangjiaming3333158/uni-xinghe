@@ -3,7 +3,6 @@
     <!-- 使用 view 组件模拟 input 输入框的样式 -->
     <view class="my-search-box">
       <uni-icons type="search" size="17"></uni-icons>
-      <text class="placeholder">搜索</text>
     </view>
   </view>
 </template>
@@ -27,26 +26,20 @@ export default {
 
 <style lang="scss" scoped>
 .my-search-container {
-  height: 50px;
-  background-color: #f9e3a8;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 70px;
+  background-color: #823027;
+  padding: 30px 10px;
   .my-search-box {
-    height: 36px;
+    height: 30px;
     width: 100%;
     background-color: #f5f5f5;
     border-radius: 15px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    opacity: 0.8;
     uni-icons {
-      margin-right: 5px;
-      color: #999;
-    }
-    text {
-      font-size: 14px;
+      margin-left: 10px;
       color: #999;
     }
   }

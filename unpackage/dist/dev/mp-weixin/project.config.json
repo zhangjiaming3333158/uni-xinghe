@@ -18,7 +18,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "3.0.0",
+	"libVersion": "3.1.2",
 	"appid": "wx24408d3bc4bf37e8",
 	"projectname": "wx-xinghe",
 	"condition": {

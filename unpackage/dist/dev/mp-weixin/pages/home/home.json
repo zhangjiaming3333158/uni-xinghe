@@ -6,10 +6,8 @@
     "home-u-waterfall-left": "/pages/home/home-u-waterfall-left",
     "home-u-waterfall-right": "/pages/home/home-u-waterfall-right",
     "my-nav": "/components/my-nav/my-nav",
-    "my-search": "/components/my-search/my-search",
     "u-waterfall": "/node-modules/uview-ui/components/u-waterfall/u-waterfall",
     "u-lazy-load": "/node-modules/uview-ui/components/u-lazy-load/u-lazy-load",
-    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
     "u-loadmore": "/node-modules/uview-ui/components/u-loadmore/u-loadmore",
     "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
     "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index"
