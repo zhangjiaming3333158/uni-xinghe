@@ -1,50 +1,104 @@
 @charset "UTF-8";
 /* 水平间距 */
 /* 水平间距 */
-.user-info {
-  display: flex;
-  align-items: center;
-  height: 300rpx;
-  background-color: #cbc1b2;
+.my-container {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #823027;
 }
-.user-info .avatar {
-  margin-left: 20rpx;
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50%;
-  background-color: #fff;
-  border: 1px solid #eeeedd;
-}
-.user-info .info {
-  margin-top: -5px;
-  margin-left: 20rpx;
+.my-container .user-info {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 300px;
+  border-radius: 30px;
+  background-color: #cbc1b2;
+}
+.my-container .user-info .top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: start;
+  height: 50%;
+  width: 100%;
 }
-.user-info .info .name {
-  margin-bottom: 5px;
-  font-size: 40rpx;
+.my-container .user-info .top .message {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 35px;
+  width: 35px;
+}
+.my-container .user-info .top .message image {
+  width: 100%;
+  height: 100%;
+}
+.my-container .user-info .top .avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #fae084;
+}
+.my-container .user-info .top text {
+  font-size: 24px;
   font-weight: bold;
+  color: #000;
 }
-.user-info .info .info3 .uni-tag {
-  margin-right: 20rpx;
-  border-color: #eeeedd;
-  background-color: #eeeedd;
+.my-container .user-info .bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: #c4a9a9;
 }
-.cell {
-  margin-top: 30rpx;
+.my-container .user-info .bottom .my3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 30%;
+  font-size: 16px;
+  color: #000;
 }
-.cell .van-cell {
-  margin-top: 20rpx;
-  border-radius: 50rpx;
+.my-container .user-info .bottom .my4 {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.cell .van-button {
-  margin-top: 30rpx;
-  border-radius: 50rpx;
-  margin-bottom: 50rpx;
-  border: 1px solid #552220;
-  background-color: #552220;
+.my-container .user-info .bottom .my4 .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.my-container .user-info .bottom .my4 .item image {
+  margin-bottom: 10px;
+  width: 30px;
+  height: 30px;
+}
+.my-container .buy {
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 20px 0;
+}
+.my-container .buy .title {
+  margin: 20px 0;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #c4a9a9;
+}
+.my-container .buy .goods {
+  margin-top: 20px;
 }
 

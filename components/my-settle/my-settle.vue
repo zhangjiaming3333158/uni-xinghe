@@ -8,11 +8,14 @@
 
     <!-- 合计区域 -->
     <view class="amount-box">
-      合计:<text class="amount">￥{{checkedGoodsAmount}}</text>
+      合计:<text class="amount"
+        ><text style="font-size: 16px">￥</text
+        ><text style="font-size: 24px">{{ checkedGoodsAmount }}</text></text
+      >
     </view>
 
     <!-- 结算按钮 -->
-    <view class="btn-settle" @click="settlement">结算({{checkedCount}})</view>
+    <view class="btn-settle" @click="settlement">结算({{ checkedCount }})</view>
   </view>
 </template>
 
@@ -107,6 +110,7 @@ export default {
 </script>
 
 <style lang="scss">
+$font-title-color: #ab1b0e;
 .my-settle-container {
   /* 底部固定定位 */
   position: fixed;
@@ -126,17 +130,25 @@ export default {
     display: flex;
     align-items: center;
   }
-  .amount {
-    color: #552220;
+  .amount-box {
+    display: flex;
+    align-items: center;
+    .amount {
+      color: $font-title-color;
+    }
   }
+
   .btn-settle {
-    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
     min-width: 100px;
-    background-color: #883333;
+    //线性渐变
+    background: linear-gradient(to right, #d43030, #ab1b0e);
     color: white;
-    line-height: 50px;
-    text-align: center;
     padding: 0 10px;
+    border-radius: 20px;
   }
 }
 </style>

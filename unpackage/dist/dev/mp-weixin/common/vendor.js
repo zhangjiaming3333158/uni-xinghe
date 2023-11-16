@@ -2680,88 +2680,6 @@ module.exports = _nonIterableSpread, module.exports.__esModule = true, module.ex
 
 /***/ }),
 
-/***/ 216:
-/*!**********************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/store/cate.js ***!
-  \**********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  // 为当前模块开启命名空间
-  namespaced: true,
-  // 模块的 state 数据
-  state: function state() {
-    return {
-      list: [{
-        item_id: 0,
-        name: '小西西',
-        likes: 15,
-        title: '宝藏单品，快来安利',
-        image: '/static/my-icons/cate/cate1.png'
-      }, {
-        item_id: 1,
-        name: '罗罗',
-        likes: 854,
-        title: '这件衣服太出片啦！',
-        image: '/static/my-icons/cate/cate2.png'
-      }, {
-        item_id: 2,
-        name: '利可',
-        likes: 15,
-        title: '太多款式啦，最后还是选择了这个。',
-        image: '/static/my-icons/cate/cate3.png'
-      }, {
-        item_id: 3,
-        name: '有有',
-        likes: 15,
-        title: '第一次给孩子尝试，很棒的体验！',
-        image: '/static/my-icons/cate/cate4.png'
-      }]
-    };
-  },
-  // 模块的 mutations 方法
-  mutations: {
-    // // 增加收藏
-    // addLike(state, item) {
-    //   // 根据提交的商品的Id，查询购物车中是否存在这件商品
-    //   // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
-    //   const findResult = state.list.find((x) => x.item_id === item.item_id)
-    //   // 如果购物车中有这件商品，则只更新数量即可
-    //   findResult.like++
-    // },
-    // // 减少收藏
-    // removeLike(state, item) {
-    //   // 根据提交的商品的Id，查询购物车中是否存在这件商品
-    //   // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
-    //   const findResult = state.list.find((x) => x.item_id === item.item_id)
-    //   // 如果购物车中有这件商品，则只更新数量即可
-    //   findResult.like--
-    // },
-    // //改变选择状态
-    // changeChoice(state, item) {
-    //   // 根据提交的商品的Id，查询购物车中是否存在这件商品
-    //   // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
-    //   const findResult = state.list.find((x) => x.item_id === item.item_id)
-    //   // 如果购物车中有这件商品，则只更新数量即可
-    //   findResult.choice = !findResult.choice
-    //   console.log(findResult)
-    // },
-  },
-  // 模块的 getters 属性
-  getters: {}
-};
-exports.default = _default;
-
-/***/ }),
-
 /***/ 22:
 /*!*************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-i18n/dist/uni-i18n.es.js ***!
@@ -3344,7 +3262,7 @@ module.exports = _createClass, module.exports.__esModule = true, module.exports[
 
 /***/ }),
 
-/***/ 242:
+/***/ 243:
 /*!************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \************************************************************************************************************************/
@@ -10459,7 +10377,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 290:
+/***/ 277:
 /*!*******************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpwxs.js ***!
   \*******************************************************************************************************************************************/
@@ -10538,7 +10456,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 291:
+/***/ 278:
 /*!**********************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-swipe-action/components/uni-swipe-action-item/bindingx.js ***!
   \**********************************************************************************************************************************************/
@@ -10558,7 +10476,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 292:
+/***/ 279:
 /*!*********************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpother.js ***!
   \*********************************************************************************************************************************************/
@@ -10606,6 +10524,55 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ 317:
+/*!*************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
+  \*************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 318));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 319));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 320));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 318:
+/*!************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
+  \************************************************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-goods-nav.options.cart\":\"cart\",\"uni-goods-nav.buttonGroup.addToCart\":\"add to cart\",\"uni-goods-nav.buttonGroup.buyNow\":\"buy now\"}");
+
+/***/ }),
+
+/***/ 319:
+/*!*****************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
+  \*****************************************************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-goods-nav.options.cart\":\"购物车\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入购物车\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即购买\"}");
 
 /***/ }),
 
@@ -10741,6 +10708,55 @@ function normalizeComponent (
 
 /***/ }),
 
+/***/ 320:
+/*!*****************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
+  \*****************************************************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-goods-nav.options.cart\":\"購物車\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入購物車\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即購買\"}");
+
+/***/ }),
+
+/***/ 328:
+/*!***************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
+  \***************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 329));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 330));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 331));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 329:
+/*!**************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
+  \**************************************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
+
+/***/ }),
+
 /***/ 33:
 /*!***************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/@escook/request-miniprogram/miniprogram_dist/index.js ***!
@@ -10854,62 +10870,24 @@ exports.$http = $http;
 /***/ }),
 
 /***/ 330:
-/*!*************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
-  \*************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*!*******************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
 
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 331));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 332));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 333));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
-};
-exports.default = _default;
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
 
 /***/ }),
 
 /***/ 331:
-/*!************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
-  \************************************************************************************************************************************/
-/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/*!*******************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-goods-nav.options.cart\":\"cart\",\"uni-goods-nav.buttonGroup.addToCart\":\"add to cart\",\"uni-goods-nav.buttonGroup.buyNow\":\"buy now\"}");
-
-/***/ }),
-
-/***/ 332:
-/*!*****************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
-  \*****************************************************************************************************************************************/
-/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-goods-nav.options.cart\":\"购物车\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入购物车\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即购买\"}");
-
-/***/ }),
-
-/***/ 333:
-/*!*****************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
-  \*****************************************************************************************************************************************/
-/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-goods-nav.options.cart\":\"購物車\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入購物車\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即購買\"}");
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
 
 /***/ }),
 
@@ -10933,7 +10911,7 @@ var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 35));
 var _cart = _interopRequireDefault(__webpack_require__(/*! ./cart.js */ 36));
 var _user = _interopRequireDefault(__webpack_require__(/*! ./user.js */ 37));
 var _home = _interopRequireDefault(__webpack_require__(/*! ./home.js */ 38));
-var _cate = _interopRequireDefault(__webpack_require__(/*! ./cate.js */ 216));
+var _cate = _interopRequireDefault(__webpack_require__(/*! ./cate.js */ 39));
 // 1. 导入 Vue 和 Vuex
 
 // 1. 导入购物车的 vuex 模块
@@ -10964,66 +10942,6 @@ var store = new _vuex.default.Store({
 // 4. 向外共享 Store 的实例对象
 var _default = store;
 exports.default = _default;
-
-/***/ }),
-
-/***/ 341:
-/*!***************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
-  \***************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 342));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 343));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 344));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 342:
-/*!**************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
-  \**************************************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
-
-/***/ }),
-
-/***/ 343:
-/*!*******************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
-  \*******************************************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
-
-/***/ }),
-
-/***/ 344:
-/*!*******************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
-  \*******************************************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
 
 /***/ }),
 
@@ -12591,6 +12509,104 @@ exports.default = _default;
 /***/ }),
 
 /***/ 39:
+/*!**********************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/store/cate.js ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  // 为当前模块开启命名空间
+  namespaced: true,
+  // 模块的 state 数据
+  state: function state() {
+    return {
+      list: [{
+        item_id: 0,
+        name: '小西西',
+        likes: 15,
+        title: '宝藏单品，快来安利',
+        image: '/static/my-icons/cate/cate1.png'
+      }, {
+        item_id: 1,
+        name: '罗罗',
+        likes: 854,
+        title: '这件衣服太出片啦！',
+        image: '/static/my-icons/cate/cate2.png'
+      }, {
+        item_id: 2,
+        name: '利可',
+        likes: 15,
+        title: '太多款式啦，最后还是选择了这个。',
+        image: '/static/my-icons/cate/cate3.png'
+      }, {
+        item_id: 3,
+        name: '有有',
+        likes: 15,
+        title: '第一次给孩子尝试，很棒的体验！',
+        image: '/static/my-icons/cate/cate4.png'
+      }]
+    };
+  },
+  // 模块的 mutations 方法
+  mutations: {
+    // // 增加收藏
+    // addLike(state, item) {
+    //   // 根据提交的商品的Id，查询购物车中是否存在这件商品
+    //   // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
+    //   const findResult = state.list.find((x) => x.item_id === item.item_id)
+    //   // 如果购物车中有这件商品，则只更新数量即可
+    //   findResult.like++
+    // },
+    // // 减少收藏
+    // removeLike(state, item) {
+    //   // 根据提交的商品的Id，查询购物车中是否存在这件商品
+    //   // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
+    //   const findResult = state.list.find((x) => x.item_id === item.item_id)
+    //   // 如果购物车中有这件商品，则只更新数量即可
+    //   findResult.like--
+    // },
+    // //改变选择状态
+    // changeChoice(state, item) {
+    //   // 根据提交的商品的Id，查询购物车中是否存在这件商品
+    //   // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
+    //   const findResult = state.list.find((x) => x.item_id === item.item_id)
+    //   // 如果购物车中有这件商品，则只更新数量即可
+    //   findResult.choice = !findResult.choice
+    //   console.log(findResult)
+    // },
+  },
+  // 模块的 getters 属性
+  getters: {}
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 4:
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 40:
 /*!***************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/index.js ***!
   \***************************************************************************************************/
@@ -12605,31 +12621,31 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 40));
-var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 41));
-var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 45));
-var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 46));
-var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 50));
-var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 51));
-var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 52));
-var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 53));
-var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 54));
-var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 55));
-var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 56));
-var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 43));
-var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 42));
-var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 57));
-var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 44));
-var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 58));
-var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 59));
-var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 60));
-var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 61));
-var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 62));
-var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 63);
-var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 64));
-var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 65));
-var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 66));
-var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 67));
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 41));
+var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 42));
+var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 46));
+var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 47));
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 51));
+var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 52));
+var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 53));
+var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 54));
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 55));
+var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 56));
+var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 57));
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 44));
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 43));
+var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 58));
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 45));
+var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 59));
+var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 60));
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 61));
+var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 62));
+var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 63));
+var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 64);
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 65));
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 66));
+var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 67));
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 68));
 // 引入全局mixin
 
 // 引入关于是否mixin集成小程序分享的配置
@@ -12725,23 +12741,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 4:
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 40:
+/***/ 41:
 /*!**************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/mixin/mixin.js ***!
   \**************************************************************************************************************/
@@ -12817,7 +12817,7 @@ module.exports = _interopRequireDefault, module.exports.__esModule = true, modul
 
 /***/ }),
 
-/***/ 41:
+/***/ 42:
 /*!****************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/request/index.js ***!
   \****************************************************************************************************************/
@@ -12834,8 +12834,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
 var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
-var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 42));
-var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 44));
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 43));
+var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 45));
 var Request = /*#__PURE__*/function () {
   function Request() {
     var _this = this;
@@ -13029,7 +13029,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 42:
+/***/ 43:
 /*!*********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/deepMerge.js ***!
   \*********************************************************************************************************************/
@@ -13045,7 +13045,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
-var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 43));
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 44));
 // JS对象深度合并
 function deepMerge() {
   var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -13078,7 +13078,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 43:
+/***/ 44:
 /*!*********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/deepClone.js ***!
   \*********************************************************************************************************************/
@@ -13145,7 +13145,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 44:
+/***/ 45:
 /*!****************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/test.js ***!
   \****************************************************************************************************************/
@@ -13394,7 +13394,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 45:
+/***/ 46:
 /*!***********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/queryParams.js ***!
   \***********************************************************************************************************************/
@@ -13476,7 +13476,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 46:
+/***/ 47:
 /*!*****************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/route.js ***!
   \*****************************************************************************************************************/
@@ -13491,8 +13491,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 47));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 49));
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 48));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 50));
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
 var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
 /**
@@ -13658,7 +13658,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 47:
+/***/ 48:
 /*!************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/@babel/runtime/regenerator/index.js ***!
   \************************************************************************************************/
@@ -13667,12 +13667,12 @@ exports.default = _default;
 
 // TODO(Babel 8): Remove this file.
 
-var runtime = __webpack_require__(/*! @babel/runtime/helpers/regeneratorRuntime */ 48)();
+var runtime = __webpack_require__(/*! @babel/runtime/helpers/regeneratorRuntime */ 49)();
 module.exports = runtime;
 
 /***/ }),
 
-/***/ 48:
+/***/ 49:
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/regeneratorRuntime.js ***!
   \*******************************************************************/
@@ -13994,7 +13994,25 @@ module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.e
 
 /***/ }),
 
-/***/ 49:
+/***/ 5:
+/*!**************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayWithHoles = __webpack_require__(/*! ./arrayWithHoles.js */ 6);
+var iterableToArrayLimit = __webpack_require__(/*! ./iterableToArrayLimit.js */ 7);
+var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray.js */ 8);
+var nonIterableRest = __webpack_require__(/*! ./nonIterableRest.js */ 10);
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
+}
+module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 50:
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
   \*****************************************************************/
@@ -14035,25 +14053,7 @@ module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exp
 
 /***/ }),
 
-/***/ 5:
-/*!**************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithHoles = __webpack_require__(/*! ./arrayWithHoles.js */ 6);
-var iterableToArrayLimit = __webpack_require__(/*! ./iterableToArrayLimit.js */ 7);
-var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray.js */ 8);
-var nonIterableRest = __webpack_require__(/*! ./nonIterableRest.js */ 10);
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
-}
-module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 50:
+/***/ 51:
 /*!**********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/timeFormat.js ***!
   \**********************************************************************************************************************/
@@ -14130,7 +14130,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /*!********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/timeFrom.js ***!
   \********************************************************************************************************************/
@@ -14145,7 +14145,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 50));
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 51));
 /**
  * 时间戳转为多久之前
  * @param String timestamp 时间戳
@@ -14195,7 +14195,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /*!*************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/colorGradient.js ***!
   \*************************************************************************************************************************/
@@ -14349,7 +14349,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 53:
+/***/ 54:
 /*!****************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/guid.js ***!
   \****************************************************************************************************************/
@@ -14410,7 +14410,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /*!*****************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/color.js ***!
   \*****************************************************************************************************************/
@@ -14459,7 +14459,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 55:
+/***/ 56:
 /*!*********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/type2icon.js ***!
   \*********************************************************************************************************************/
@@ -14513,7 +14513,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 56:
+/***/ 57:
 /*!***********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/randomArray.js ***!
   \***********************************************************************************************************************/
@@ -14540,7 +14540,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 57:
+/***/ 58:
 /*!*******************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/addUnit.js ***!
   \*******************************************************************************************************************/
@@ -14555,7 +14555,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = addUnit;
-var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 44));
+var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 45));
 // 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
 function addUnit() {
   var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';
@@ -14567,7 +14567,7 @@ function addUnit() {
 
 /***/ }),
 
-/***/ 58:
+/***/ 59:
 /*!******************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/random.js ***!
   \******************************************************************************************************************/
@@ -14594,7 +14594,21 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 59:
+/***/ 6:
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 60:
 /*!****************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/trim.js ***!
   \****************************************************************************************************************/
@@ -14627,21 +14641,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 6:
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 60:
+/***/ 61:
 /*!*****************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/toast.js ***!
   \*****************************************************************************************************************/
@@ -14669,7 +14669,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 61:
+/***/ 62:
 /*!*********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/getParent.js ***!
   \*********************************************************************************************************************/
@@ -14739,7 +14739,7 @@ function getParent(name, keys) {
 
 /***/ }),
 
-/***/ 62:
+/***/ 63:
 /*!*******************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/$parent.js ***!
   \*******************************************************************************************************************/
@@ -14775,7 +14775,7 @@ function $parent() {
 
 /***/ }),
 
-/***/ 63:
+/***/ 64:
 /*!***************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/sys.js ***!
   \***************************************************************************************************************/
@@ -14801,7 +14801,7 @@ function sys() {
 
 /***/ }),
 
-/***/ 64:
+/***/ 65:
 /*!********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/debounce.js ***!
   \********************************************************************************************************************/
@@ -14849,7 +14849,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 65:
+/***/ 66:
 /*!********************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/function/throttle.js ***!
   \********************************************************************************************************************/
@@ -14901,7 +14901,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 66:
+/***/ 67:
 /*!****************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/config/config.js ***!
   \****************************************************************************************************************/
@@ -14927,7 +14927,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 67:
+/***/ 68:
 /*!****************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/uview-ui/libs/config/zIndex.js ***!
   \****************************************************************************************************************/
@@ -15004,7 +15004,7 @@ module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module
 
 /***/ }),
 
-/***/ 74:
+/***/ 75:
 /*!*******************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/mixins/tabbar-badge.js ***!
   \*******************************************************************************************/

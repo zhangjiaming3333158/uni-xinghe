@@ -1,14 +1,15 @@
 <template>
   <view>
-    <my-nav :title="pageTitle"></my-nav>
+    <my-nav></my-nav>
     <view class="cart-container" v-if="cart.length !== 0">
-      <my-address></my-address>
+      <!-- <my-address></my-address> -->
       <!-- 购物车商品列表的标题区域 -->
       <view class="cart-title">
         <!-- 左侧的图标 -->
-        <uni-icons type="shop" size="18"></uni-icons>
+        <!-- <uni-icons type="shop" size="24"></uni-icons> -->
         <!-- 描述文本 -->
         <text class="cart-title-text">购物车</text>
+        <text style="font-size: 18px">(4件)</text>
       </view>
       <!-- 商品列表区域 -->
       <!-- uni-swipe-action 是最外层包裹性质的容器 -->
@@ -103,17 +104,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$background-color: #823027;
 .cart-container {
+  height: 100%;
+  background-color: $background-color;
   padding-bottom: 50px;
   .cart-title {
     height: 40px;
     display: flex;
     align-items: center;
     font-size: 14px;
+    color: #fff;
     padding-left: 5px;
-    border-bottom: 1px solid #efefef;
     .cart-title-text {
       margin-left: 10px;
+      font-size: 24px;
     }
   }
 }

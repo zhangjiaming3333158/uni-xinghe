@@ -1,6 +1,6 @@
 <template>
   <view class="my-search-container">
-    <view class="uni-bar">
+    <view class="uni-bar" v-show="showNav">
       <image
         v-if="showIcon"
         style="width: 20px; height: 20px; margin-right: 10px"
@@ -15,7 +15,7 @@
       />
     </view>
     <!-- 使用 view 组件模拟 input 输入框的样式 -->
-    <view class="my-search-box" @click="handler">
+    <view class="my-search-box" @click="handler" v-show="showNav">
       <image
         style="width: 13px; height: 13px; margin-left: 10px"
         src="/static/my-icons/home/search.png"
@@ -35,6 +35,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    showNav:{
+      type: Boolean,
+      default: true,
+    }
   },
   data() {
     return {}

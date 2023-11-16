@@ -2,19 +2,38 @@
   <view>
     <view class="goods-item">
       <!-- 商品左侧图片区域 -->
-      <view class="goods-item-left">
-        <radio :checked="goods.goods_state" color="#C00000" v-if="showRadio" @click="radioClickHandler"></radio>
-        <image :src="goods.goods_small_logo || defaultPic" class="goods-pic"></image>
+      <view class="goods-item-left" v-if="showRadio">
+        <radio
+          :checked="goods.goods_state"
+          color="#C00000"
+          @click="radioClickHandler"
+        ></radio>
       </view>
       <!-- 商品右侧信息区域 -->
-      <view class="goods-item-right">
-        <!-- 商品标题 -->
-        <view class="goods-name">{{goods.goods_name}}</view>
-        <view class="goods-info-box">
+      <view class="goods-item-right"
+        ><image
+          :src="goods.goods_small_logo || defaultPic"
+          class="goods-pic"
+        ></image>
+        <view class="context"
+          ><!-- 商品标题 -->
+          <view class="goods-name">name</view>
+          <!-- <view class="goods-name">{{ goods.goods_name }}</view> -->
+          <!-- 商品尺码和颜色 -->
+          <view class="goods-size">
+            <text style="margin-right: 10px">尺码：M</text>
+            <text>颜色：红色</text>
+          </view>
           <!-- 商品价格 -->
-          <view class="goods-price">￥{{goods.goods_price | tofixed}}</view>
+          <view class="goods-price"
+            >￥{{ goods.goods_price | tofixed }}</view
+          ></view
+        >
+        <view class="goods-info-box">
           <!-- 商品数量 -->
-          <uni-number-box :min="1" :value="goods.goods_count" v-if="showNum" @change="numChangeHandler"></uni-number-box>
+          <view v-show="state === 0" class="goods-count">x1</view>
+          <view v-show="state === 1" style="color: #910A18;">已收获</view>
+          <view v-show="state === 2">未收获</view>
         </view>
       </view>
     </view>
@@ -41,6 +60,10 @@ export default {
     showNum: {
       type: Boolean,
       default: false,
+    },
+    state: {
+      type: Number,
+      default: 0,
     },
   },
   data() {
@@ -82,46 +105,76 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$font-title-color: #1a1a1a;
+$font-color: #383838;
 .goods-item {
   // 让 goods-item 项占满整个屏幕的宽度
-  width: 750rpx;
+  width: 80wh;
   // 设置盒模型为 border-box
   box-sizing: border-box;
   display: flex;
   padding: 10px 5px;
-  border-bottom: 1px solid #f0f0f0;
 
   .goods-item-left {
     margin-right: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    .goods-pic {
-      width: 100px;
-      height: 100px;
-      display: block;
-    }
   }
 
   .goods-item-right {
     display: flex;
     flex: 1;
-    flex-direction: column;
-    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #c4a9a9;
 
-    .goods-name {
-      font-size: 13px;
-      color: #333;
+    .goods-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 15px;
+      display: block;
+    }
+    .context {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      .goods-name {
+        display: flex;
+        align-items: center;
+        height: 25%;
+        font-size: 12px;
+        color: $font-title-color;
+      }
+      .goods-size {
+        display: flex;
+        align-items: center;
+        height: 25%;
+        font-size: 10px;
+        color: $font-color;
+      }
+      .goods-price {
+        display: flex;
+        align-items: center;
+        height: 50%;
+        font-size: 14px;
+        color: $font-title-color;
+      }
     }
 
     .goods-info-box {
+      box-sizing: border-box;
+      padding-right: 20px;
+      flex: 1;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      .goods-price {
-        font-size: 16px;
-        color: #c00000;
+      justify-content: flex-end;
+      .goods-count {
+        padding: 2px 5px;
+        border: 1px solid #fff;
+        font-size: 13px;
+        color: #000;
       }
     }
   }

@@ -1,160 +1,217 @@
 <template>
   <view>
-    <view @click="changeIsShow" v-show="!isShow">
+    <!-- <view @click="changeIsShow" v-show="!isShow">
       <my-login></my-login>
-    </view>
-
-    <view v-show="isShow">
-      <my-nav :title="pageTitle"></my-nav>
+    </view> -->
+    <my-nav :showNav="false"></my-nav>
+    <view class="my-container">
       <!-- 头像信息 -->
       <view class="user-info">
-        <image
-          class="avatar"
-          src="/static/my-icons/favicon.ico"
-          mode="scaleToFill"
-        ></image>
-        <view class="info">
-          <view class="name">{{ my_name }}</view>
-          <view class="info3"
-            ><uni-tag
-              :inverted="true"
-              :circle="true"
-              size="mini"
-              :text="my_height"
-            /><uni-tag
-              :inverted="true"
-              :circle="true"
-              size="mini"
-              :text="my_weight"
-            /><uni-tag
-              :inverted="true"
-              :circle="true"
-              size="mini"
-              :text="my_size"
-            />
+        <view class="top">
+          <view class="message">
+            <image src="/static/my-icons/my/message.png" mode="scaleToFill" />
+          </view>
+          <image
+            class="avatar"
+            src="/static/my-icons/favicon.ico"
+            mode="aspectFit"
+          ></image>
+          <text>Lucy</text>
+        </view>
+        <view class="bottom">
+          <view class="my3">
+            <view>关注 23</view>
+            <view style="width: 1px">|</view>
+            <view>粉丝 63</view>
+            <view style="width: 1px">|</view>
+            <view>好友 12</view>
+          </view>
+          <view class="my4">
+            <view class="item">
+              <image src="/static/my-icons/my/message.png" mode="scaleToFill" />
+              <text>我的评价</text>
+            </view>
+            <view class="item">
+              <image src="/static/my-icons/my/message.png" mode="scaleToFill" />
+              <text>我的评价</text>
+            </view>
+            <view class="item">
+              <image src="/static/my-icons/my/message.png" mode="scaleToFill" />
+              <text>我的评价</text>
+            </view>
+            <view class="item">
+              <image src="/static/my-icons/my/message.png" mode="scaleToFill" />
+              <text>我的评价</text>
+            </view>
           </view>
         </view>
       </view>
-      <view class="cell">
-        <van-cell-group inset>
-          <navigator url="/subpkgB/myInfo/myInfo">
-            <van-cell icon="user-o" title="个人信息" value=">" />
-          </navigator>
-          <navigator url="/subpkgB/message/message">
-            <van-cell icon="chat-o" title="消息" value=">" />
-          </navigator>
-          <navigator url="/subpkgB/order/order">
-            <van-cell icon="orders-o" title="订单" value=">" />
-          </navigator>
-          <navigator url="/subpkgB/coupon/coupon">
-            <van-cell icon="discount" title="优惠券" value=">" />
-          </navigator>
-          <navigator url="/subpkgB/invite/invite">
-            <van-cell icon="gift-o" title="邀请有礼" value=">" />
-          </navigator>
-          <navigator url="/subpkgB/question/question">
-            <van-cell icon="question-o" title="常见问题" value=">" />
-          </navigator>
-          <van-button type="primary" block>退出登录</van-button>
-        </van-cell-group>
+      <!-- 近期购买 -->
+      <view class="buy">
+        <text class="title">近期购买</text>
+        <view class="goods"
+          ><my-goods
+            :state="1"
+            :goods="goods"
+            :show-radio="false"
+            :show-num="true"
+            @radio-change="radioChangeHandler"
+            @num-change="numberChangeHandler"
+          ></my-goods
+        ></view>
       </view>
     </view>
   </view>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// 按需导入 mapGetters 这个辅助方法
+import { mapGetters, mapState, mapMutations } from 'vuex'
+import badgeMix from '@/mixins/tabbar-badge.js'
+import myAddress from '../../components/my-address/my-address.vue'
 export default {
+  components: { myAddress },
+  mixins: [badgeMix],
   data() {
     return {
-      pageTitle: '我的',
-      isShow: false,
+      options: [
+        {
+          text: '删除', // 显示的文本内容
+          style: {
+            backgroundColor: '#C00000', // 按钮的背景颜色
+          },
+        },
+      ],
+      pageTitle: '购物车',
     }
   },
   computed: {
-    ...mapState('m_user', ['my']),
-    ...mapState('m_user', ['userinfo']),
-    my_height() {
-      return '身高: ' + this.my.my_height + 'cm'
-    },
-    my_weight() {
-      return '体重: ' + this.my.my_weight + 'kg'
-    },
-    my_size() {
-      if (this.my.my_size == 0) {
-        return '尺码: ' + 'S'
-      } else if (this.my.my_size == 1) {
-        return '尺码: ' + 'M'
-      } else if (this.my.my_size == 2) {
-        return '尺码: ' + 'L'
-      } else if (this.my.my_size == 3) {
-        return '尺码: ' + 'XL'
-      } else if (this.my.my_size == 4) {
-        return '尺码: ' + 'XXL'
-      }
-    },
-    my_name() {
-      return this.my.my_name
-    },
+    // 将 m_cart 模块中的 total 映射为当前页面的计算属性
+    ...mapGetters('m_cart', ['total']),
+    ...mapState('m_cart', ['cart']),
+  },
+  onShow() {
+    // 在页面刚展示的时候，设置数字徽标
+    this.setBadge()
   },
   methods: {
-    changeIsShow() {
-      setTimeout(() => {
-        this.isShow = !this.isShow
-      }, 1000)
+    setBadge() {
+      // 调用 uni.setTabBarBadge() 方法，为购物车设置右上角的徽标
+      uni.setTabBarBadge({
+        index: 3, // 索引
+        text: this.total + '', // 注意：text 的值必须是字符串，不能是数字
+      })
     },
+    ...mapMutations('m_cart', [
+      'updateGoodsState',
+      'updateGoodsCount',
+      'removeGoodsById',
+    ]),
   },
-  mounted() {},
 }
 </script>
 
 <style lang="scss">
-.user-info {
-  display: flex;
-  align-items: center;
-  height: 300rpx;
-  background-color: #cbc1b2;
-  .avatar {
-    margin-left: 20rpx;
-    width: 100rpx;
-    height: 100rpx;
-    border-radius: 50%;
-    background-color: #fff;
-    border: 1px solid #eeeedd;
-  }
-  .info {
-    margin-top: -5px;
-    margin-left: 20rpx;
+$top-background-color: #c4a9a9;
+$background-color: #823027;
+.my-container {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: $background-color;
+  .user-info {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    .name {
-      margin-bottom: 5px;
-      font-size: 40rpx;
-      font-weight: bold;
+    align-items: center;
+    height: 300px;
+    border-radius: 30px;
+    background-color: #cbc1b2;
+    .top {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50%;
+      width: 100%;
+      .message {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 35px;
+        width: 35px;
+        image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 2px solid #fae084;
+      }
+      text {
+        font-size: 24px;
+        font-weight: bold;
+        color: #000;
+      }
     }
-    .info3 {
-      .uni-tag {
-        margin-right: 20rpx;
-        border-color: #eeeedd;
-        background-color: #eeeedd;
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50%;
+      width: 100%;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      background-color: $top-background-color;
+      .my3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 30%;
+        font-size: 16px;
+        color: #000;
+      }
+      .my4 {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        .item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          image {
+            margin-bottom: 10px;
+            width: 30px;
+            height: 30px;
+          }
+        }
       }
     }
   }
-}
-.cell {
-  margin-top: 30rpx;
-  .van-cell {
-    margin-top: 20rpx;
-    border-radius: 50rpx;
-  }
-  .van-button {
-    margin-top: 30rpx;
-    border-radius: 50rpx;
-    margin-bottom: 50rpx;
-    border: 1px solid #552220;
-    background-color: #552220;
+  .buy {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 20px 0;
+    .title {
+      margin: 20px 0;
+      padding: 5px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      background-color: $top-background-color;
+    }
+    .goods{
+      margin-top: 20px;
+    }
   }
 }
 </style>

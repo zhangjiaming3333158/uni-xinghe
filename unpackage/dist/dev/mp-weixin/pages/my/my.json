@@ -3,11 +3,11 @@
   "enablePullDownRefresh": false,
   "navigationStyle": "custom",
   "usingComponents": {
-    "my-login": "/components/my-login/my-login",
     "my-nav": "/components/my-nav/my-nav",
-    "uni-tag": "/uni_modules/uni-tag/components/uni-tag/uni-tag",
+    "my-goods": "/components/my-goods/my-goods",
     "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
     "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
-    "van-button": "/wxcomponents/@vant/weapp/dist/button/index"
+    "van-button": "/wxcomponents/@vant/weapp/dist/button/index",
+    "my-address": "/components/my-address/my-address"
   }
 }
