@@ -18,7 +18,7 @@
     {
       "path": "pages/cate/cate",
       "style": {
-        "navigationBarTitleText": "分类",
+        "navigationBarTitleText": "广场",
         "enablePullDownRefresh": false,
         "navigationStyle": "custom"
       }
@@ -204,7 +204,7 @@
       },
       {
         "pagePath": "pages/cate/cate",
-        "text": "分类",
+        "text": "广场",
         "iconPath": "static/tab_icons/cate.png",
         "selectedIconPath": "static/tab_icons/cate-active.png"
       },

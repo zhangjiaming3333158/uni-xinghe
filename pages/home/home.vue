@@ -1,7 +1,7 @@
 <template>
   <view>
     <!-- nav自定义组件 -->
-    <my-nav></my-nav>
+    <my-nav :showIcon="true"></my-nav>
     <!-- swpier-card -->
     <view class="swiper-card">
       <view class="item">
@@ -36,13 +36,22 @@
       <view class="select-item">款式新</view>
       <view class="select-item">销量高</view>
       <view class="select-item">好评多</view>
-      <view class="select-item"
+      <view class="select-item" @click="toggleShowMore"
         ><text>更多分类</text>
         <image
           style="width: 15px; height: 15px"
           src="/static/my-icons/home/select.png"
           mode="scaleToFill"
         />
+        <view
+          class="more"
+          :class="[showMore ? 'active' : '']"
+        >
+          <text>鞋子</text>
+          <text>T恤</text>
+          <text>长袍</text>
+          <text>长裙</text>
+        </view>
       </view>
     </view>
 
@@ -132,6 +141,7 @@ export default {
       flowList: [],
       pages: 0, //当前页数
       limit: 1, //总页数
+      showMore: false,
     }
   },
   onLoad() {
@@ -162,6 +172,10 @@ export default {
     }
   },
   methods: {
+    //切换showmore展示
+    toggleShowMore() {
+      this.showMore = !this.showMore
+    },
     gotoSearch() {
       uni.navigateTo({
         url: '/subpkgA/search/search',
@@ -277,12 +291,31 @@ $active: #c26c63;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: $font-color;
+  font-weight: bold;
+  font-size: 14px;
   .select-item {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 10px;
     border-radius: 15px;
     background-color: #fff;
+    .more {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      padding: 5px;
+      display: none;
+      background-color: #fff;
+      border-radius: 5px;
+      font-size: 12px;
+      z-index: 1;
+      &.active {
+        display: flex;
+        flex-direction: column;
+      }
+    }
     &.active {
       background-color: $active;
     }
@@ -347,7 +380,7 @@ $active: #c26c63;
     align-items: center;
     justify-content: space-between;
     .bottom-name {
-      font-size:14px;
+      font-size: 14px;
       color: $font-color;
       margin-top: 5px;
     }

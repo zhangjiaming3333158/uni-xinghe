@@ -104,7 +104,7 @@ try {
       return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 209))
     },
     uWaterfall: function () {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-waterfall/u-waterfall */ "node-modules/uview-ui/components/u-waterfall/u-waterfall").then(__webpack_require__.bind(null, /*! uview-ui/components/u-waterfall/u-waterfall.vue */ 223))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-waterfall/u-waterfall */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-waterfall/u-waterfall")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-waterfall/u-waterfall.vue */ 223))
     },
     uLazyLoad: function () {
       return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-lazy-load/u-lazy-load */ "node-modules/uview-ui/components/u-lazy-load/u-lazy-load").then(__webpack_require__.bind(null, /*! uview-ui/components/u-lazy-load/u-lazy-load.vue */ 230))
@@ -193,7 +193,9 @@ var _default = {
       flowList: [],
       pages: 0,
       //当前页数
-      limit: 1 //总页数
+      limit: 1,
+      //总页数
+      showMore: false
     };
   },
   onLoad: function onLoad() {
@@ -223,6 +225,10 @@ var _default = {
     }
   },
   methods: _objectSpread(_objectSpread({
+    //切换showmore展示
+    toggleShowMore: function toggleShowMore() {
+      this.showMore = !this.showMore;
+    },
     gotoSearch: function gotoSearch() {
       uni.navigateTo({
         url: '/subpkgA/search/search'

@@ -1,71 +1,136 @@
 <template>
-  <view>
-    <my-nav :title="pageTitle"></my-nav>
-    <!-- 使用自定义的搜索组件 -->
-    <view class="search-box">
-      <my-search @click="gotoSearch"></my-search>
-    </view>
-    <!-- 使用自定义的分类组件 -->
-    <view class="scroll-view-container">
-      <!-- 左侧的滚动视图区域 -->
-      <scroll-view
-        class="left-scroll-view"
-        scroll-y
-        :style="{ height: wh + 'px' }"
-      >
-        <!-- <view class="left-scroll-view-item active">xxx</view> -->
-        <view
-          :class="['left-scroll-view-item', i === activeIndex ? 'active' : '']"
-          v-for="(item, i) in cateList"
-          :key="i"
-          @click="changeActive(i)"
-          >{{ item }}</view
-        >
-      </scroll-view>
-      <!-- 右侧的滚动视图区域 -->
-      <scroll-view
-        class="right-scroll-view"
-        scroll-y
-        :style="{ height: wh + 'px' }"
-        :scroll-top="scrollTop"
-      >
-        <!-- <view class="left-scroll-view-item active">zzz</view> -->
-        <view class="cate-lv2" v-for="(item2, i2) in cateList2" :key="i2">
-          <view class="cate-lv2-title">/ {{ item2.cat_name }} /</view>
-          <!-- 动态渲染三级分类的列表数据 -->
-          <view class="cate-lv3-list">
-            <!-- 三级分类 Item 项 -->
-            <view
-              class="cate-lv3-item"
-              v-for="(item3, i3) in item2.children"
-              :key="i3"
-              @click="gotoGoodsList(item3)"
-            >
-              <!-- 图片 -->
-              <image :src="item3.cat_icon"></image>
-              <!-- 文本 -->
-              <text>{{ item3.cat_name }}</text>
-            </view>
-          </view>
+  <view style="background-color: #823027">
+    <my-nav :showIcon="false"></my-nav>
+    <!-- 宝藏博主 -->
+    <view class="blogger">
+      <view><text class="title">宝藏博主</text></view>
+      <view class="body">
+        <view class="item">
+          <view class="image"
+            ><image src="/static/my-icons/cate/shop1.png" mode="widthFix"
+          /></view>
+          <view class="name">阿托雅莉</view>
         </view>
-      </scroll-view>
+        <view class="item">
+          <view class="image"
+            ><image src="/static/my-icons/cate/shop2.png" mode="widthFix"
+          /></view>
+          <view class="name">阿瑞一家</view>
+        </view>
+        <view class="item">
+          <view class="image"
+            ><image src="/static/my-icons/cate/shop3.png" mode="widthFix"
+          /></view>
+          <view class="name">阿瑞一家</view>
+        </view>
+      </view>
+    </view>
+    <!-- 分享社区 -->
+    <view class="community">
+      <view><text class="title">分享社区</text></view>
+      <!-- waterfall -->
+      <view class="waterfall">
+        <u-waterfall v-model="flowList">
+          <template v-slot:left="{ leftList }">
+            <view
+              class="demo-warter"
+              v-for="(item, index) in leftList"
+              :key="index"
+            >
+              <!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
+              <u-lazy-load
+                threshold="-450"
+                border-radius="10"
+                :image="item.image"
+                :index="index"
+              ></u-lazy-load>
+              <!-- 标题 -->
+              <view class="demo-title">
+                {{ item.title }}
+              </view>
+              <!-- 名称 -->
+              <view class="demo-bottom">
+                <view class="left"
+                  ><view class="img">
+                    <image
+                      style="width: 100%; height: 100%"
+                      src="/static/my-icons/wx-logo.jpg"
+                      mode="scaleToFill"
+                    />
+                  </view>
+                  <view class="bottom-name"> {{ item.name }} </view></view
+                >
+                <view class="bottom-like" @click="changLike(item)">
+                  <uni-icons type="heart" size="20"></uni-icons>
+                  <text style="font-size: 10px; margin-left: 5px">{{
+                    item.likes
+                  }}</text>
+                </view>
+              </view>
+            </view>
+          </template>
+          <template v-slot:right="{ rightList }">
+            <view
+              class="demo-warter"
+              v-for="(item, index) in rightList"
+              :key="index"
+            >
+              <!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
+              <u-lazy-load
+                threshold="-450"
+                border-radius="10"
+                :image="item.image"
+                :index="index"
+              ></u-lazy-load>
+              <!-- 标题 -->
+              <view class="demo-title">
+                {{ item.title }}
+              </view>
+              <!-- 名称 -->
+              <view class="demo-bottom">
+                <view class="left"
+                  ><view class="img">
+                    <image
+                      style="width: 100%; height: 100%"
+                      src="/static/my-icons/wx-logo.jpg"
+                      mode="scaleToFill"
+                    />
+                  </view>
+                  <view class="bottom-name"> {{ item.name }} </view></view
+                >
+                <view class="bottom-like" @click="changLike(item)">
+                  <uni-icons type="heart" size="20"></uni-icons>
+                  <text style="font-size: 10px; margin-left: 5px">{{
+                    item.likes
+                  }}</text>
+                </view>
+              </view>
+            </view>
+          </template>
+        </u-waterfall>
+        <u-loadmore
+          bg-color="rgb(240, 240, 240)"
+          :status="loadStatus"
+          @loadmore="addRandomData"
+        ></u-loadmore>
+      </view>
     </view>
   </view>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import badgeMix from '@/mixins/tabbar-badge.js'
 export default {
   mixins: [badgeMix],
   data() {
     return {
       wh: '', //屏幕高度
-      cateList: ["满族","蒙古族","回族","藏族","维吾尔族","苗族","彝族","壮族","布依族","侗族","瑶族","白族","土家族","哈尼族"], //分类数据
-      activeIndex: 0, //激活项索引
-      cateList2: [], //二级分类数据
-      cateList3: [], //三级分类数据
-      scrollTop: 0, //滚动条距离顶部的距离
-      pageTitle: '分类', //页面标题
+      //瀑布流列表
+      loadStatus: 'loadmore',
+      flowList: [],
+      pages: 0, //当前页数
+      limit: 1, //总页数
     }
   },
   onLoad() {
@@ -73,120 +138,160 @@ export default {
     const info = uni.getSystemInfoSync()
     //获取屏幕高度-搜索栏高度
     this.wh = info.windowHeight - 50
-    //获取分类数据
-    this.getCateList()
+    //waterfall
+    this.addRandomData()
+  },
+  computed: {
+    ...mapState('m_cate', ['list']),
+  },
+  onReachBottom() {
+    this.limit = Math.floor(this.list.length / 10)
+    if (this.limit > this.pages) {
+      this.loadStatus = 'loading'
+      // 模拟数据加载
+      setTimeout(() => {
+        this.addRandomData()
+        this.loadStatus = 'loadmore'
+      }, 1000)
+      this.pages++ // 页数+1
+    } else {
+      this.loadStatus = 'none'
+    }
   },
   methods: {
-    //获取分类数据
-    async getCateList() {
-      const { data: res } = await uni.$http.get('/api/public/v1/categories')
-      // console.log(res)
-      if (res.meta.status !== 200)
-        return uni.$showMsg({
-          title: '获取分类数据失败',
-        })
-      // this.cateList = res.message
-      // 为二级分类赋值
-      this.cateList2 = res.message[0].children
-      // console.log(this.cateList)
-    },
-    //点击左侧分类项，激活当前项
-    changeActive(i) {
-      this.activeIndex = i
-      this.cateList2 = this.cateList[i].children
-      // 可以简化为如下的代码：
-      this.scrollTop = this.scrollTop ? 0 : 1
-    },
-    gotoGoodsList(item3) {
-      uni.navigateTo({
-        url: '/subpkgA/goods_list/goods_list?cid=' + item3.cat_id,
-      })
-    },
-    gotoSearch() {
-      uni.navigateTo({
-        url: '/subpkgA/search/search',
-      })
+    addRandomData() {
+      for (let i = 0; i < this.list.length > 10 ? this.list.length : 10; i++) {
+        // console.log(i)
+        // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
+        let item = JSON.parse(JSON.stringify(this.list[i]))
+        item.id = this.$u.guid()
+        this.flowList.push(item)
+      }
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.scroll-view-container {
+$title-color: #c4a9a9;
+$font-color: #1a1a1a;
+.blogger {
+  margin-top: 30px;
+  padding-left: 20px;
   display: flex;
-  flex-direction: row;
-
-  .left-scroll-view {
-    width: 25%;
-    background-color: #f6f6f6;
-
-    .left-scroll-view-item {
-      height: 100rpx;
-      line-height: 100rpx;
-      text-align: center;
-      font-size: 30rpx;
-
-      // 激活项的样式
-      &.active {
-        background-color: #ffffff;
-        position: relative;
-        color: #552220;
-        font-weight: bold;
-
-        // 渲染激活项左侧的红色指示边线
-        &::before {
-          content: ' ';
-          display: block;
-          width: 3px;
-          height: 30px;
-          background-color: #552220;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
+  flex-direction: column;
+  .title {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: $title-color;
+    font-size: 14px;
+    font-weight: bold;
+    color: $font-color;
+  }
+  .body {
+    margin-top: 20px;
+    display: flex;
+    overflow-y: scroll;
+    .item {
+      height: 100px;
+      margin-right: 20px;
+      min-width: 150px;
+      border-radius: 40px;
+      background-color: #fff;
+      .image {
+        height: 60%;
+        overflow: hidden;
+        image {
+          height: 100%;
+          width: 100%;
+          border-top-right-radius: 40px;
+          border-top-left-radius: 40px;
+          z-index: 1;
         }
       }
-    }
-  }
-  .right-scroll-view {
-    width: 75%;
-    background-color: #ffffff;
-    .cate-lv2 {
-      padding: 20rpx;
-      .cate-lv2-title {
+
+      .name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40%;
+        width: 100%;
         font-size: 12px;
         font-weight: bold;
-        text-align: center;
-        padding: 15px 0;
-      }
-      .cate-lv3-list {
-        display: flex;
-        flex-wrap: wrap;
-        .cate-lv3-item {
-          width: 33%;
-          padding: 10rpx;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          image {
-            width: 60px;
-            height: 60px;
-          }
-
-          text {
-            font-size: 12px;
-          }
-        }
+        color: $font-color;
+        background-color: #fff;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        z-index: 2;
       }
     }
   }
 }
-.search-box {
-  // 设置定位效果为“吸顶”
-  position: sticky;
-  // 吸顶的“位置”
-  top: 0;
-  // 提高层级，防止被轮播图覆盖
-  z-index: 999;
+.community {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  .title {
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: $title-color;
+    font-size: 14px;
+    font-weight: bold;
+    color: $font-color;
+  }
+  .waterfall {
+    box-sizing: border-box;
+    padding: 0 10px;
+    .demo-warter {
+      border-radius: 10px;
+      margin: 20px 10px 0 10px;
+      background-color: #ffffff;
+      padding: 0;
+      position: relative;
+    }
+
+    .demo-title {
+      font-size: 10px;
+      margin: 10px 0 0 10px;
+      color: $font-color;
+      font-weight: bold;
+    }
+
+    .demo-bottom {
+      box-sizing: border-box;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .left {
+        display: flex;
+        align-items: center;
+        .img {
+          height: 25px;
+          width: 25px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .bottom-name {
+          margin-left: 5px;
+          font-size: 10px;
+          color: $font-color;
+          justify-content: start;
+          align-items: start;
+        }
+      }
+
+      .bottom-like {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .bottom-icon {
+          display: flex;
+        }
+      }
+    }
+  }
 }
 </style>

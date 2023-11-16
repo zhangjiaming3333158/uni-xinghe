@@ -103,8 +103,17 @@ try {
     myNav: function () {
       return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 209))
     },
-    mySearch: function () {
-      return __webpack_require__.e(/*! import() | components/my-search/my-search */ "components/my-search/my-search").then(__webpack_require__.bind(null, /*! @/components/my-search/my-search.vue */ 216))
+    uWaterfall: function () {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-waterfall/u-waterfall */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-waterfall/u-waterfall")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-waterfall/u-waterfall.vue */ 223))
+    },
+    uLazyLoad: function () {
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-lazy-load/u-lazy-load */ "node-modules/uview-ui/components/u-lazy-load/u-lazy-load").then(__webpack_require__.bind(null, /*! uview-ui/components/u-lazy-load/u-lazy-load.vue */ 230))
+    },
+    uniIcons: function () {
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 237))
+    },
+    uLoadmore: function () {
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-loadmore/u-loadmore */ "node-modules/uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! uview-ui/components/u-loadmore/u-loadmore.vue */ 245))
     },
   }
 } catch (e) {
@@ -168,81 +177,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 47));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 49));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
+var _vuex = __webpack_require__(/*! vuex */ 35);
 var _tabbarBadge = _interopRequireDefault(__webpack_require__(/*! @/mixins/tabbar-badge.js */ 74));
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var _default = {
   mixins: [_tabbarBadge.default],
   data: function data() {
     return {
       wh: '',
       //屏幕高度
-      cateList: ["满族", "蒙古族", "回族", "藏族", "维吾尔族", "苗族", "彝族", "壮族", "布依族", "侗族", "瑶族", "白族", "土家族", "哈尼族"],
-      //分类数据
-      activeIndex: 0,
-      //激活项索引
-      cateList2: [],
-      //二级分类数据
-      cateList3: [],
-      //三级分类数据
-      scrollTop: 0,
-      //滚动条距离顶部的距离
-      pageTitle: '分类' //页面标题
+      //瀑布流列表
+      loadStatus: 'loadmore',
+      flowList: [],
+      pages: 0,
+      //当前页数
+      limit: 1 //总页数
     };
   },
   onLoad: function onLoad() {
@@ -250,60 +201,34 @@ var _default = {
     var info = uni.getSystemInfoSync();
     //获取屏幕高度-搜索栏高度
     this.wh = info.windowHeight - 50;
-    //获取分类数据
-    this.getCateList();
+    //waterfall
+    this.addRandomData();
+  },
+  computed: _objectSpread({}, (0, _vuex.mapState)('m_cate', ['list'])),
+  onReachBottom: function onReachBottom() {
+    var _this = this;
+    this.limit = Math.floor(this.list.length / 10);
+    if (this.limit > this.pages) {
+      this.loadStatus = 'loading';
+      // 模拟数据加载
+      setTimeout(function () {
+        _this.addRandomData();
+        _this.loadStatus = 'loadmore';
+      }, 1000);
+      this.pages++; // 页数+1
+    } else {
+      this.loadStatus = 'none';
+    }
   },
   methods: {
-    //获取分类数据
-    getCateList: function getCateList() {
-      var _this = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var _yield$uni$$http$get, res;
-        return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return uni.$http.get('/api/public/v1/categories');
-              case 2:
-                _yield$uni$$http$get = _context.sent;
-                res = _yield$uni$$http$get.data;
-                if (!(res.meta.status !== 200)) {
-                  _context.next = 6;
-                  break;
-                }
-                return _context.abrupt("return", uni.$showMsg({
-                  title: '获取分类数据失败'
-                }));
-              case 6:
-                // this.cateList = res.message
-                // 为二级分类赋值
-                _this.cateList2 = res.message[0].children;
-                // console.log(this.cateList)
-              case 7:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    },
-    //点击左侧分类项，激活当前项
-    changeActive: function changeActive(i) {
-      this.activeIndex = i;
-      this.cateList2 = this.cateList[i].children;
-      // 可以简化为如下的代码：
-      this.scrollTop = this.scrollTop ? 0 : 1;
-    },
-    gotoGoodsList: function gotoGoodsList(item3) {
-      uni.navigateTo({
-        url: '/subpkgA/goods_list/goods_list?cid=' + item3.cat_id
-      });
-    },
-    gotoSearch: function gotoSearch() {
-      uni.navigateTo({
-        url: '/subpkgA/search/search'
-      });
+    addRandomData: function addRandomData() {
+      for (var i = 0; i < this.list.length > 10 ? this.list.length : 10; i++) {
+        // console.log(i)
+        // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
+        var item = JSON.parse(JSON.stringify(this.list[i]));
+        item.id = this.$u.guid();
+        this.flowList.push(item);
+      }
     }
   }
 };

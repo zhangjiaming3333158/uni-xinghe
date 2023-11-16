@@ -2,8 +2,15 @@
   <view class="my-search-container">
     <view class="uni-bar">
       <image
+        v-if="showIcon"
         style="width: 20px; height: 20px; margin-right: 10px"
         src="/static/my-icons/home/list.png"
+        mode="scaleToFill"
+      />
+      <image
+        v-else
+        style="width: 13px; height: 20px; margin-right: 17px"
+        src="/static/my-icons/cate/left.png"
         mode="scaleToFill"
       />
     </view>
@@ -23,6 +30,12 @@
 
 <script>
 export default {
+  props: {
+    showIcon: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data() {
     return {}
   },
@@ -57,7 +70,7 @@ export default {
   }
   .my-search-box {
     height: 30px;
-    width: 1000px;
+    width: 900px;
     background-color: #f5f5f5;
     border-radius: 15px;
     display: flex;

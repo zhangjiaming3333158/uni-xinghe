@@ -7,6 +7,8 @@ import moduleCart from './cart.js'
 import moduleUser from './user.js'
 // 导入home模块
 import moduleHome from './home.js'
+// 导入cate模块
+import moduleCate from './cate.js'
 
 // 2. 将 Vuex 安装为 Vue 的插件
 Vue.use(Vuex)
@@ -20,6 +22,8 @@ const store = new Vuex.Store({
     m_user: moduleUser,
     // 挂载home模块
     m_home: moduleHome,
+    // 挂在cate模块
+    m_cate: moduleCate,
   },
 })
 

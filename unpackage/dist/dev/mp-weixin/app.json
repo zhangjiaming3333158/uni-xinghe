@@ -50,7 +50,7 @@
       },
       {
         "pagePath": "pages/cate/cate",
-        "text": "分类",
+        "text": "广场",
         "iconPath": "static/tab_icons/cate.png",
         "selectedIconPath": "static/tab_icons/cate-active.png"
       },

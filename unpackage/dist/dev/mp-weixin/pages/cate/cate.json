@@ -1,9 +1,14 @@
 {
-  "navigationBarTitleText": "分类",
+  "navigationBarTitleText": "广场",
   "enablePullDownRefresh": false,
   "navigationStyle": "custom",
   "usingComponents": {
+    "cate-u-waterfall-left": "/pages/cate/cate-u-waterfall-left",
+    "cate-u-waterfall-right": "/pages/cate/cate-u-waterfall-right",
     "my-nav": "/components/my-nav/my-nav",
-    "my-search": "/components/my-search/my-search"
+    "u-waterfall": "/node-modules/uview-ui/components/u-waterfall/u-waterfall",
+    "u-lazy-load": "/node-modules/uview-ui/components/u-lazy-load/u-lazy-load",
+    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "u-loadmore": "/node-modules/uview-ui/components/u-loadmore/u-loadmore"
   }
 }

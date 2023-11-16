@@ -2680,6 +2680,88 @@ module.exports = _nonIterableSpread, module.exports.__esModule = true, module.ex
 
 /***/ }),
 
+/***/ 216:
+/*!**********************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/store/cate.js ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  // 为当前模块开启命名空间
+  namespaced: true,
+  // 模块的 state 数据
+  state: function state() {
+    return {
+      list: [{
+        item_id: 0,
+        name: '小西西',
+        likes: 15,
+        title: '宝藏单品，快来安利',
+        image: '/static/my-icons/cate/cate1.png'
+      }, {
+        item_id: 1,
+        name: '罗罗',
+        likes: 854,
+        title: '这件衣服太出片啦！',
+        image: '/static/my-icons/cate/cate2.png'
+      }, {
+        item_id: 2,
+        name: '利可',
+        likes: 15,
+        title: '太多款式啦，最后还是选择了这个。',
+        image: '/static/my-icons/cate/cate3.png'
+      }, {
+        item_id: 3,
+        name: '有有',
+        likes: 15,
+        title: '第一次给孩子尝试，很棒的体验！',
+        image: '/static/my-icons/cate/cate4.png'
+      }]
+    };
+  },
+  // 模块的 mutations 方法
+  mutations: {
+    // // 增加收藏
+    // addLike(state, item) {
+    //   // 根据提交的商品的Id，查询购物车中是否存在这件商品
+    //   // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
+    //   const findResult = state.list.find((x) => x.item_id === item.item_id)
+    //   // 如果购物车中有这件商品，则只更新数量即可
+    //   findResult.like++
+    // },
+    // // 减少收藏
+    // removeLike(state, item) {
+    //   // 根据提交的商品的Id，查询购物车中是否存在这件商品
+    //   // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
+    //   const findResult = state.list.find((x) => x.item_id === item.item_id)
+    //   // 如果购物车中有这件商品，则只更新数量即可
+    //   findResult.like--
+    // },
+    // //改变选择状态
+    // changeChoice(state, item) {
+    //   // 根据提交的商品的Id，查询购物车中是否存在这件商品
+    //   // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
+    //   const findResult = state.list.find((x) => x.item_id === item.item_id)
+    //   // 如果购物车中有这件商品，则只更新数量即可
+    //   findResult.choice = !findResult.choice
+    //   console.log(findResult)
+    // },
+  },
+  // 模块的 getters 属性
+  getters: {}
+};
+exports.default = _default;
+
+/***/ }),
+
 /***/ 22:
 /*!*************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-i18n/dist/uni-i18n.es.js ***!
@@ -10851,6 +10933,7 @@ var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 35));
 var _cart = _interopRequireDefault(__webpack_require__(/*! ./cart.js */ 36));
 var _user = _interopRequireDefault(__webpack_require__(/*! ./user.js */ 37));
 var _home = _interopRequireDefault(__webpack_require__(/*! ./home.js */ 38));
+var _cate = _interopRequireDefault(__webpack_require__(/*! ./cate.js */ 216));
 // 1. 导入 Vue 和 Vuex
 
 // 1. 导入购物车的 vuex 模块
@@ -10858,6 +10941,8 @@ var _home = _interopRequireDefault(__webpack_require__(/*! ./home.js */ 38));
 // 导入用户的 vuex 模块
 
 // 导入home模块
+
+// 导入cate模块
 
 // 2. 将 Vuex 安装为 Vue 的插件
 _vue.default.use(_vuex.default);
@@ -10870,7 +10955,9 @@ var store = new _vuex.default.Store({
     // 挂载用户的 vuex 模块，访问路径为 m_user
     m_user: _user.default,
     // 挂载home模块
-    m_home: _home.default
+    m_home: _home.default,
+    // 挂在cate模块
+    m_cate: _cate.default
   }
 });
 
