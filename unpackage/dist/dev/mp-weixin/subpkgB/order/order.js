@@ -101,13 +101,13 @@ var components
 try {
   components = {
     uniSwipeAction: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action */ "uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue */ 267))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action */ "uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue */ 285))
     },
     myOrders: function () {
-      return __webpack_require__.e(/*! import() | components/my-orders/my-orders */ "components/my-orders/my-orders").then(__webpack_require__.bind(null, /*! @/components/my-orders/my-orders.vue */ 334))
+      return __webpack_require__.e(/*! import() | components/my-orders/my-orders */ "components/my-orders/my-orders").then(__webpack_require__.bind(null, /*! @/components/my-orders/my-orders.vue */ 359))
     },
     mySteps: function () {
-      return __webpack_require__.e(/*! import() | components/my-steps/my-steps */ "components/my-steps/my-steps").then(__webpack_require__.bind(null, /*! @/components/my-steps/my-steps.vue */ 341))
+      return __webpack_require__.e(/*! import() | components/my-steps/my-steps */ "components/my-steps/my-steps").then(__webpack_require__.bind(null, /*! @/components/my-steps/my-steps.vue */ 366))
     },
   }
 } catch (e) {
@@ -187,7 +187,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var myAddress = function myAddress() {
   Promise.all(/*! require.ensure | components/my-address/my-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/my-address/my-address")]).then((function () {
-    return resolve(__webpack_require__(/*! ../../components/my-address/my-address.vue */ 298));
+    return resolve(__webpack_require__(/*! ../../components/my-address/my-address.vue */ 316));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

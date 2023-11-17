@@ -100,11 +100,14 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    mySubNav: function () {
+      return __webpack_require__.e(/*! import() | components/my-sub-nav/my-sub-nav */ "components/my-sub-nav/my-sub-nav").then(__webpack_require__.bind(null, /*! @/components/my-sub-nav/my-sub-nav.vue */ 352))
+    },
     uniIcons: function () {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 238))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 256))
     },
     uniGoodsNav: function () {
-      return Promise.all(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 305))
+      return Promise.all(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 323))
     },
   }
 } catch (e) {
@@ -178,26 +181,28 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var _default = {
   data: function data() {
     return {
+      title: '商品详情',
       // 商品详情对象
       goods_info: {},
       // 左侧按钮组的配置对象
       options: [{
         icon: 'shop',
-        text: '店铺'
+        text: '客服'
       }, {
         icon: 'cart',
-        text: '购物车'
+        text: '收藏'
         // info: 2,
       }],
 
       // 右侧按钮组的配置对象
       buttonGroup: [{
         text: '加入购物车',
-        backgroundColor: '#ff0000',
+        //线性渐变
+        backgroundColor: 'linear-gradient(90deg, #F74848, #C41414)',
         color: '#fff'
       }, {
-        text: '立即购买',
-        backgroundColor: '#ffa200',
+        text: '去定制',
+        backgroundColor: '#910A18',
         color: '#fff'
       }]
     };
@@ -206,8 +211,9 @@ var _default = {
     // 获取商品 Id
     var goods_id = options.goods_id;
     // 调用请求商品详情数据的方法
-    this.getGoodsDetail(goods_id);
+    // this.getGoodsDetail(goods_id)
   },
+
   methods: _objectSpread(_objectSpread({
     // 定义请求商品详情数据的方法
     getGoodsDetail: function getGoodsDetail(goods_id) {

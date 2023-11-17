@@ -1,38 +1,54 @@
 <template>
   <view class="goods-detail-container">
-    <swiper
-      :indicator-dots="true"
-      :autoplay="true"
-      :interval="3000"
-      :duration="1000"
-      circular
-      indicator-color="rgba(255, 255, 255, .3)"
-    >
-      <swiper-item v-for="(item, i) in goods_info.pics" :key="i">
-        <image :src="item.pics_big" @click="preview(i)"></image>
-      </swiper-item>
-    </swiper>
-    <!-- 商品信息区域 -->
-    <view class="goods-info-box">
-      <!-- 商品价格 -->
-      <view class="price" v-if="goods_info.goods_name"
-        >￥{{ goods_info.goods_price }}</view
-      >
-      <!-- 信息主体区域 -->
-      <view class="goods-info-body">
-        <!-- 商品名称 -->
-        <view class="goods-name">{{ goods_info.goods_name }}</view>
-        <!-- 收藏 -->
-        <view class="favi">
-          <uni-icons type="star" size="18" color="gray"></uni-icons>
-          <text>收藏</text>
-        </view>
-      </view>
-      <!-- 运费 -->
-      <view class="yf">快递：免运费</view>
+    <my-sub-nav :title="title"></my-sub-nav>
+
+    <!-- 商品图片区域 -->
+    <view class="image">
+      <image src="/static/my-icons/home/shoe.png" mode="aspectFit" />
     </view>
     <!-- 商品详情信息 -->
-    <rich-text :nodes="goods_info.goods_introduce"></rich-text>
+    <!-- <rich-text :nodes="goods_info.goods_introduce"></rich-text> -->
+    <view class="detail">
+      <view class="title">
+        <text class="price">¥<text style="font-size: 32px">700</text>起</text>
+        <text class="name">畲式客制化时尚凤尾鞋</text>
+      </view>
+      <view class="count">
+        <text>已售 300+</text>
+        <uni-icons type="redo" color="#a6a6a6" size="25"></uni-icons
+      ></view>
+      <view class="list">
+        <view class="list-item">
+          <image
+            class="list-item-icon"
+            src="/static/my-icons/goods/car.jpg"
+            mode="aspectFit"
+          />
+          <view class="list-item-content">
+            <text>浙江 快递：免运费</text>
+            <text>预定，付款后一周内发货</text>
+          </view>
+        </view>
+        <view class="list-item">
+          <image
+            class="list-item-icon"
+            src="/static/my-icons/goods/hands.jpg"
+            mode="aspectFit"
+          />
+          <text class="list-item-content">七天无理由退货</text>
+          <view class="list-right">></view>
+        </view>
+        <view class="list-item">
+          <image
+            class="list-item-icon"
+            src="/static/my-icons/goods/app.jpg"
+            mode="aspectFit"
+          />
+          <text class="list-item-content">共8种款式分类可选</text>
+          <view class="list-right">></view>
+        </view>
+      </view>
+    </view>
     <!-- 商品导航组件 -->
     <view class="goods_nav">
       <!-- fill 控制右侧按钮的样式 -->
@@ -57,17 +73,18 @@ import { mapGetters, mapMutations } from 'vuex' //引入mapGetters
 export default {
   data() {
     return {
+      title: '商品详情',
       // 商品详情对象
       goods_info: {},
       // 左侧按钮组的配置对象
       options: [
         {
           icon: 'shop',
-          text: '店铺',
+          text: '客服',
         },
         {
           icon: 'cart',
-          text: '购物车',
+          text: '收藏',
           // info: 2,
         },
       ],
@@ -75,12 +92,13 @@ export default {
       buttonGroup: [
         {
           text: '加入购物车',
-          backgroundColor: '#ff0000',
+          //线性渐变
+          backgroundColor: 'linear-gradient(90deg, #F74848, #C41414)',
           color: '#fff',
         },
         {
-          text: '立即购买',
-          backgroundColor: '#ffa200',
+          text: '去定制',
+          backgroundColor: '#910A18',
           color: '#fff',
         },
       ],
@@ -90,7 +108,7 @@ export default {
     // 获取商品 Id
     const goods_id = options.goods_id
     // 调用请求商品详情数据的方法
-    this.getGoodsDetail(goods_id)
+    // this.getGoodsDetail(goods_id)
   },
   methods: {
     // 定义请求商品详情数据的方法
@@ -143,7 +161,6 @@ export default {
         // 3. 通过 this 调用映射过来的 addToCart 方法，把商品信息对象存储到购物车中
         this.addToCart(goods)
       } else if (e.content.text === '立即购买') {
-        
       }
     },
   },
@@ -167,67 +184,94 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-swiper {
-  height: 750rpx;
-
-  image {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-// 商品信息区域的样式
-.goods-info-box {
-  padding: 10px;
-  padding-right: 0;
-
-  .price {
-    color: #c00000;
-    font-size: 18px;
-    margin: 10px 0;
-  }
-
-  .goods-info-body {
-    display: flex;
-    justify-content: space-between;
-
-    .goods-name {
-      font-size: 13px;
-      padding-right: 10px;
-    }
-
-    // 收藏区域
-    .favi {
-      width: 120px;
-      font-size: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-left: 1px solid #efefef;
-      color: gray;
-    }
-  }
-
-  // 运费
-  .yf {
-    margin: 10px 0;
-    font-size: 12px;
-    color: gray;
-  }
-}
-
+$price: #910a18;
 .goods-detail-container {
+  box-sizing: border-box;
   // 给页面外层的容器，添加 50px 的内padding，
   // 防止页面内容被底部的商品导航组件遮盖
   padding-bottom: 50px;
-}
-
-.goods_nav {
-  // 为商品导航组件添加固定定位
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  background-color: #fff;
+  .image {
+    width: 100%;
+    height: 300px;
+    background-color: #ededed;
+    image {
+      width: 100%;
+      height: 100%;
+      rotate: 18deg;
+    }
+  }
+  .detail {
+    box-sizing: border-box;
+    padding: 15px;
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .price {
+        font-size: 24px;
+        color: $price;
+      }
+      .name {
+        font-size: 24px;
+        color: #000;
+      }
+    }
+    .count {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 18px;
+      color: #a6a6a6;
+      margin: 10px 0;
+    }
+    .list {
+      box-sizing: border-box;
+      padding: 0 10px;
+      display: flex;
+      flex-direction: column;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      background-color: #f5f5f5;
+      .list-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        height: 50px;
+        .list-item-icon {
+          width: 40px;
+          height: 40px;
+          margin-right: 10px;
+          image {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .list-item-content {
+          flex: 1;
+          margin-left: 10px;
+          font-size: 14px;
+          color: #000;
+          display: flex;
+          flex-direction: column;
+        }
+        .item-right {
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          color: #000;
+        }
+      }
+    }
+  }
+  .goods_nav {
+    // 为商品导航组件添加固定定位
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
 }
 </style>

@@ -64,6 +64,7 @@
         {
           "path": "goods_detail/goods_detail",
           "style": {
+            "navigationStyle": "custom",
             "navigationBarTitleText": "商品详情",
             "enablePullDownRefresh": false
           }
@@ -96,6 +97,13 @@
           "style": {
             "navigationBarTitleText": "登录",
             "enablePullDownRefresh": false
+          }
+        },{
+          "path":"cate_detail/cate_detail",
+          "style":{
+            "navigationStyle":"custom",
+            "navigationBarTitleText":"分类详情",
+            "enablePullDownRefresh":false
           }
         }
       ]

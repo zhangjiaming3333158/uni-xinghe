@@ -14,7 +14,8 @@
         "goods_list/goods_list",
         "search/search",
         "test/test",
-        "login/login"
+        "login/login",
+        "cate_detail/cate_detail"
       ]
     },
     {
