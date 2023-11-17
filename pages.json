@@ -119,7 +119,8 @@
         {
           "path": "message/message",
           "style": {
-            "navigationBarTitleText": "消息",
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "私人客服",
             "enablePullDownRefresh": false
           }
         },
@@ -156,10 +157,27 @@
           }
         },
         {
-          "path": "question/question",
+          "path": "notice/notice",
           "style": {
-            "navigationBarTitleText": "常见问题",
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "消息",
             "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path": "judge/judge",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "评价",
+            "enablePullDownRefresh": false
+          }
+        },
+        {
+          "path":"wallet/wallet",
+          "style":{
+            "navigationStyle": "custom",
+            "navigationBarTitleText":"钱包",
+            "enablePullDownRefresh":false
           }
         },
         {
@@ -189,7 +207,7 @@
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "星禾",
-    "navigationBarBackgroundColor": "#cbc1b2",
+    "navigationBarBackgroundColor": "#823027",
     "backgroundColor": "#FFFFFF",
     "enablePullDownRefresh": true
   },

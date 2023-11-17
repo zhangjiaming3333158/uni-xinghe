@@ -100,6 +100,9 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    mySubNav: function () {
+      return __webpack_require__.e(/*! import() | components/my-sub-nav/my-sub-nav */ "components/my-sub-nav/my-sub-nav").then(__webpack_require__.bind(null, /*! @/components/my-sub-nav/my-sub-nav.vue */ 422))
+    },
     uniIcons: function () {
       return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 238))
     },
@@ -197,6 +200,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   data: function data() {
     return {
@@ -210,7 +214,8 @@ var _default = {
         content: 'How are you?',
         sender: 'other'
       }],
-      newMessage: ''
+      newMessage: '',
+      title: '私人客服'
     };
   },
   methods: {

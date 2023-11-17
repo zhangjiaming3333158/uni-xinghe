@@ -1,5 +1,6 @@
 <template>
   <view class="chat-container">
+    <my-sub-nav :title="title"></my-sub-nav>
     <view class="chat-messages">
       <view v-for="(message, index) in messages" :key="index" class="message">
         <view
@@ -41,6 +42,7 @@ export default {
         { content: 'How are you?', sender: 'other' },
       ],
       newMessage: '',
+      title: '私人客服',
     }
   },
   methods: {

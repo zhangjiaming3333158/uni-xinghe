@@ -7,7 +7,6 @@
     "my-goods": "/components/my-goods/my-goods",
     "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
     "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
-    "van-button": "/wxcomponents/@vant/weapp/dist/button/index",
-    "my-address": "/components/my-address/my-address"
+    "van-button": "/wxcomponents/@vant/weapp/dist/button/index"
   }
 }

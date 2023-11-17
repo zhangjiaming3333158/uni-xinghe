@@ -26,7 +26,9 @@
         "history/history",
         "coupon/coupon",
         "invite/invite",
-        "question/question",
+        "notice/notice",
+        "judge/judge",
+        "wallet/wallet",
         "orderDetail/orderDetail",
         "buy/buy"
       ]
@@ -35,7 +37,7 @@
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "星禾",
-    "navigationBarBackgroundColor": "#cbc1b2",
+    "navigationBarBackgroundColor": "#823027",
     "backgroundColor": "#FFFFFF",
     "enablePullDownRefresh": true
   },
