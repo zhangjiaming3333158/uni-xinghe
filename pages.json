@@ -70,25 +70,9 @@
           }
         },
         {
-          "path": "goods_list/goods_list",
-          "style": {
-            "navigationBarTitleText": "商品列表",
-            "enablePullDownRefresh": true,
-            "onReachBottomDistance": 150,
-            "backgroundColor": "#F8F8F8"
-          }
-        },
-        {
           "path": "search/search",
           "style": {
             "navigationBarTitleText": "搜索",
-            "enablePullDownRefresh": false
-          }
-        },
-        {
-          "path": "test/test",
-          "style": {
-            "navigationBarTitleText": "测试",
             "enablePullDownRefresh": false
           }
         },
@@ -112,55 +96,10 @@
       "root": "subpkgB",
       "pages": [
         {
-          "path": "myInfo/myInfo",
-          "style": {
-            "navigationBarTitleText": "个人信息",
-            "enablePullDownRefresh": false,
-            "usingComponents": {
-              "van-field": "/wxcomponents/@vant/weapp/dist/field/index",
-              "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
-              "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
-              "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index"
-            }
-          }
-        },
-        {
           "path": "message/message",
           "style": {
             "navigationStyle": "custom",
             "navigationBarTitleText": "私人客服",
-            "enablePullDownRefresh": false
-          }
-        },
-        {
-          "path": "order/order",
-          "style": {
-            "navigationBarTitleText": "订单",
-            "enablePullDownRefresh": false,
-            "usingComponents": {
-              "van-button": "/wxcomponents/@vant/weapp/dist/button/index",
-              "van-action-sheet": "/wxcomponents/@vant/weapp/dist/action-sheet/index"
-            }
-          }
-        },
-        {
-          "path": "history/history",
-          "style": {
-            "navigationBarTitleText": "足迹",
-            "enablePullDownRefresh": false
-          }
-        },
-        {
-          "path": "coupon/coupon",
-          "style": {
-            "navigationBarTitleText": "优惠卷",
-            "enablePullDownRefresh": false
-          }
-        },
-        {
-          "path": "invite/invite",
-          "style": {
-            "navigationBarTitleText": "邀请有礼",
             "enablePullDownRefresh": false
           }
         },
@@ -187,26 +126,12 @@
             "navigationBarTitleText":"钱包",
             "enablePullDownRefresh":false
           }
-        },
-        {
-          "path": "orderDetail/orderDetail",
-          "style": {
-            "navigationBarTitleText": "订单详情",
-            "enablePullDownRefresh": false
-          }
-        },
-        {
-          "path": "buy/buy",
-          "style": {
-            "navigationBarTitleText": "购买",
-            "enablePullDownRefresh": false,
-            "usingComponents": {
-              "van-field": "/wxcomponents/@vant/weapp/dist/field/index",
-              "van-cell-group": "/wxcomponents/@vant/weapp/dist/cell-group/index",
-              "van-cell": "/wxcomponents/@vant/weapp/dist/cell/index",
-              "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index",
-              "van-button": "/wxcomponents/@vant/weapp/dist/button/index"
-            }
+        },{
+          "path":"custom-goods/custom-goods",
+          "style":{
+            "navigationStyle": "custom",
+            "navigationBarTitleText":"我的定制",
+            "enablePullDownRefresh":false
           }
         }
       ]

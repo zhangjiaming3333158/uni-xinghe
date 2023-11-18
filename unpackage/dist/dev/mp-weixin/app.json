@@ -11,9 +11,7 @@
       "root": "subpkgA",
       "pages": [
         "goods_detail/goods_detail",
-        "goods_list/goods_list",
         "search/search",
-        "test/test",
         "login/login",
         "cate_detail/cate_detail"
       ]
@@ -21,17 +19,11 @@
     {
       "root": "subpkgB",
       "pages": [
-        "myInfo/myInfo",
         "message/message",
-        "order/order",
-        "history/history",
-        "coupon/coupon",
-        "invite/invite",
         "notice/notice",
         "judge/judge",
         "wallet/wallet",
-        "orderDetail/orderDetail",
-        "buy/buy"
+        "custom-goods/custom-goods"
       ]
     }
   ],

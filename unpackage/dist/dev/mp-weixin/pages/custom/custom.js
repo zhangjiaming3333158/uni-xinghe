@@ -100,17 +100,14 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
-    myNav: function () {
-      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 228))
+    mySubNav: function () {
+      return __webpack_require__.e(/*! import() | components/my-sub-nav/my-sub-nav */ "components/my-sub-nav/my-sub-nav").then(__webpack_require__.bind(null, /*! @/components/my-sub-nav/my-sub-nav.vue */ 331))
     },
-    uAvatar: function () {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-avatar/u-avatar */ "node-modules/uview-ui/components/u-avatar/u-avatar").then(__webpack_require__.bind(null, /*! uview-ui/components/u-avatar/u-avatar.vue */ 264))
+    myGoodsCard: function () {
+      return __webpack_require__.e(/*! import() | components/my-goods-card/my-goods-card */ "components/my-goods-card/my-goods-card").then(__webpack_require__.bind(null, /*! @/components/my-goods-card/my-goods-card.vue */ 272))
     },
-    uIcon: function () {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */ "node-modules/uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 271))
-    },
-    uSwiper: function () {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-swiper/u-swiper */ "node-modules/uview-ui/components/u-swiper/u-swiper").then(__webpack_require__.bind(null, /*! uview-ui/components/u-swiper/u-swiper.vue */ 278))
+    uniIcons: function () {
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 264))
     },
   }
 } catch (e) {
@@ -167,23 +164,33 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _vuex = __webpack_require__(/*! vuex */ 35);
 var _tabbarBadge = _interopRequireDefault(__webpack_require__(/*! @/mixins/tabbar-badge.js */ 75));
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   mixins: [_tabbarBadge.default],
   data: function data() {
     return {
-      pageTitle: '定制',
+      pageTitle: '历史定制',
       list: [{
         image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
         title: '昨夜星辰昨夜风，画楼西畔桂堂东'
@@ -196,34 +203,16 @@ var _default = {
       }]
     };
   },
-  methods: _objectSpread(_objectSpread({}, (0, _vuex.mapMutations)('m_cart', ['addToCart'])), {}, {
-    // 右侧按钮的点击事件处理函数
-    buttonClick: function buttonClick(e) {
-      console.log(e);
-      // 1. 判断是否点击了 加入购物车 按钮
-      if (e.content.text === '加入购物车') {
-        // 2. 组织一个商品的信息对象
-        var goods = {
-          goods_id: this.goods_info.goods_id,
-          // 商品的Id
-          goods_name: this.goods_info.goods_name,
-          // 商品的名称
-          goods_price: this.goods_info.goods_price,
-          // 商品的价格
-          goods_count: 1,
-          // 商品的数量
-          goods_small_logo: this.goods_info.goods_small_logo,
-          // 商品的图片
-          goods_state: true // 商品的勾选状态
-        };
-
-        // 3. 通过 this 调用映射过来的 addToCart 方法，把商品信息对象存储到购物车中
-        this.addToCart(goods);
-      }
+  methods: {
+    goToCustom: function goToCustom() {
+      uni.navigateTo({
+        url: '/subpkgB/custom-goods/custom-goods'
+      });
     }
-  })
+  }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

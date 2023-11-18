@@ -1,63 +1,24 @@
 <template>
   <!-- 使用自定义的搜索组件 -->
   <view class="container">
-    <my-nav :title="pageTitle"></my-nav>
-    <view class="head">
-      <view class="head-left">
-        <view class="head-left-top"
-          ><van-tag type="primary" plain>款式</van-tag></view
-        >
-        <view class="head-left-body">
-          <view v-for="(item, index) in 4" :key="index"
-            ><u-avatar src="/static/my-icons/wx-logo.jpg"></u-avatar
-          ></view>
-        </view>
-
-        <view class="head-left-bottom"
-          ><u-icon size="80" name="more-circle"></u-icon
-        ></view>
-      </view>
-      <view class="head-right">
-        <image src="/static/my-icons/wx-logo.jpg" mode="aspectFit" />
-      </view>
+    <my-sub-nav :title="pageTitle"></my-sub-nav>
+    <view class="content">
+      <view v-for="i in 4" :key="i"><my-goods-card></my-goods-card></view>
     </view>
-    <view class="body">
-      <view class="body-left">
-        <van-button type="default" color="#ff0000">加入购物车</van-button>
-      </view>
-      <view class="body-middle">
-        <text>100¥</text>
-      </view>
-      <view class="body-right">
-        <navigator
-          url="/subpkgB/buy/buy"
-          open-type="navigate"
-          hover-class="navigator-hover"
-        >
-          <van-button type="default" color="#ffa200">立即购买</van-button>
-        </navigator>
-      </view>
-    </view>
-    <view class="foot">
-      <u-swiper
-        :list="list"
-        mode="dot"
-        indicator-pos="bottomCenter"
-        :effect3d="true"
-        :autoplay="false"
-      ></u-swiper></view
-  ></view>
+    <view class="bottom-nav" @click="goToCustom"
+      ><uni-icons type="plus" size="30" color="#fff"></uni-icons>
+      开启新的定制</view
+    >
+  </view>
 </template>
 
 <script>
-// 按需导入 mapMutations 这个辅助方法
-import { mapMutations } from 'vuex' //引入mapGettersf
 import badgeMix from '@/mixins/tabbar-badge.js'
 export default {
   mixins: [badgeMix],
   data() {
     return {
-      pageTitle: '定制',
+      pageTitle: '历史定制',
       list: [
         {
           image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
@@ -75,26 +36,10 @@ export default {
     }
   },
   methods: {
-    // 把 m_cart 模块中的 addToCart 方法映射到当前页面使用
-    ...mapMutations('m_cart', ['addToCart']),
-    // 右侧按钮的点击事件处理函数
-    buttonClick(e) {
-      console.log(e)
-      // 1. 判断是否点击了 加入购物车 按钮
-      if (e.content.text === '加入购物车') {
-        // 2. 组织一个商品的信息对象
-        const goods = {
-          goods_id: this.goods_info.goods_id, // 商品的Id
-          goods_name: this.goods_info.goods_name, // 商品的名称
-          goods_price: this.goods_info.goods_price, // 商品的价格
-          goods_count: 1, // 商品的数量
-          goods_small_logo: this.goods_info.goods_small_logo, // 商品的图片
-          goods_state: true, // 商品的勾选状态
-        }
-
-        // 3. 通过 this 调用映射过来的 addToCart 方法，把商品信息对象存储到购物车中
-        this.addToCart(goods)
-      }
+    goToCustom() {
+      uni.navigateTo({
+        url: '/subpkgB/custom-goods/custom-goods',
+      })
     },
   },
 }
@@ -102,118 +47,27 @@ export default {
 
 <style lang="scss">
 .container {
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  .head {
+  background-color: #823027;
+  .content {
+    margin-top: 20px;
     box-sizing: border-box;
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 100%;
+    height: 100%;
     background-color: #fff;
-    .head-left {
-      box-sizing: border-box;
-      // padding: 20rpx 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 90px;
-      height: 100%;
-      background-color: #f5f5f5;
-
-      .head-left-top {
-        height: 10%;
-        background-color: #f5f5f5;
-        .van-tag {
-          margin: 10px 0;
-        }
-      }
-      .head-left-body{
-        height: 70%;
-        background-color: #f5f5f5;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        u-avatar {
-          width: 60rpx;
-          height: 60rpx;
-        }
-      }
-      .head-left-bottom {
-        height: 20%;
-        background-color: #f5f5f5;
-      }
-    }
-    .head-right {
-      box-sizing: border-box;
-      padding: 20rpx;
-      width: 100%;
-      height: 100%;
-      background-color: #ffffff;
-      image {
-        width: 100%;
-        height: 100%;
-      }
-    }
+    padding: 20px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
   }
-  .body {
-    height: 70px;
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .body-left {
-      width: 250rpx;
-      height: 100%;
-      background-color: #f5f5f5;
-      text-align: center;
-      line-height: 70px;
-      .van-button {
-        border-top-right-radius: 50rpx;
-        border-bottom-right-radius: 50rpx;
-        width: 250rpx;
-      }
-    }
-    .body-middle {
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      line-height: 70px;
-      background-color: #f5f5f5;
-      text {
-        font-size: 60rpx;
-      }
-    }
-    .body-right {
-      width: 250rpx;
-      height: 100%;
-      background-color: #f5f5f5;
-      text-align: center;
-      line-height: 70px;
-      .van-button {
-        border-top-left-radius: 50rpx;
-        border-bottom-left-radius: 50rpx;
-        width: 250rpx;
-      }
-    }
-  }
-  .foot {
-    box-sizing: border-box;
-    padding: 40rpx;
-    height: 130px;
-    background-color: #fff;
-    swiper {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      swiper-item {
-        margin-left: 137rpx !important;
-        width: 300rpx !important;
-      }
-    }
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    background-color: #910a18;
   }
 }
 </style>

@@ -130,19 +130,19 @@ var components
 try {
   components = {
     myNav: function () {
-      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 228))
+      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 236))
     },
     uniSwipeAction: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action */ "uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue */ 285))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action */ "uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue */ 293))
     },
     uniSwipeActionItem: function () {
-      return Promise.all(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 290))
+      return Promise.all(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 298))
     },
     myGoods: function () {
-      return __webpack_require__.e(/*! import() | components/my-goods/my-goods */ "components/my-goods/my-goods").then(__webpack_require__.bind(null, /*! @/components/my-goods/my-goods.vue */ 302))
+      return __webpack_require__.e(/*! import() | components/my-goods/my-goods */ "components/my-goods/my-goods").then(__webpack_require__.bind(null, /*! @/components/my-goods/my-goods.vue */ 310))
     },
     mySettle: function () {
-      return __webpack_require__.e(/*! import() | components/my-settle/my-settle */ "components/my-settle/my-settle").then(__webpack_require__.bind(null, /*! @/components/my-settle/my-settle.vue */ 309))
+      return __webpack_require__.e(/*! import() | components/my-settle/my-settle */ "components/my-settle/my-settle").then(__webpack_require__.bind(null, /*! @/components/my-settle/my-settle.vue */ 317))
     },
   }
 } catch (e) {
@@ -222,7 +222,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var myAddress = function myAddress() {
   Promise.all(/*! require.ensure | components/my-address/my-address */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/my-address/my-address")]).then((function () {
-    return resolve(__webpack_require__(/*! ../../components/my-address/my-address.vue */ 316));
+    return resolve(__webpack_require__(/*! ../../components/my-address/my-address.vue */ 324));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

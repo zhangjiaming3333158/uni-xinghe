@@ -101,19 +101,19 @@ var components
 try {
   components = {
     myNav: function () {
-      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 228))
+      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 236))
     },
     uWaterfall: function () {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-waterfall/u-waterfall */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-waterfall/u-waterfall")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-waterfall/u-waterfall.vue */ 235))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-waterfall/u-waterfall */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-waterfall/u-waterfall")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-waterfall/u-waterfall.vue */ 243))
     },
     uLazyLoad: function () {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-lazy-load/u-lazy-load */ "node-modules/uview-ui/components/u-lazy-load/u-lazy-load").then(__webpack_require__.bind(null, /*! uview-ui/components/u-lazy-load/u-lazy-load.vue */ 242))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-lazy-load/u-lazy-load */ "node-modules/uview-ui/components/u-lazy-load/u-lazy-load").then(__webpack_require__.bind(null, /*! uview-ui/components/u-lazy-load/u-lazy-load.vue */ 250))
     },
     uniIcons: function () {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 256))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 264))
     },
     uLoadmore: function () {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-loadmore/u-loadmore */ "node-modules/uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! uview-ui/components/u-loadmore/u-loadmore.vue */ 249))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-loadmore/u-loadmore */ "node-modules/uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! uview-ui/components/u-loadmore/u-loadmore.vue */ 257))
     },
   }
 } catch (e) {

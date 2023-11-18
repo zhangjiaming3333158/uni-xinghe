@@ -9355,7 +9355,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 261:
+/***/ 269:
 /*!************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \************************************************************************************************************************/
@@ -10377,7 +10377,38 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 295:
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 303:
 /*!*******************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpwxs.js ***!
   \*******************************************************************************************************************************************/
@@ -10456,7 +10487,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 296:
+/***/ 304:
 /*!**********************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-swipe-action/components/uni-swipe-action-item/bindingx.js ***!
   \**********************************************************************************************************************************************/
@@ -10476,7 +10507,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 297:
+/***/ 305:
 /*!*********************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpother.js ***!
   \*********************************************************************************************************************************************/
@@ -10493,37 +10524,6 @@ exports.default = void 0;
 var otherMixins = {};
 var _default = otherMixins;
 exports.default = _default;
-
-/***/ }),
-
-/***/ 3:
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
 
 /***/ }),
 
@@ -10659,44 +10659,6 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 328:
-/*!*************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
-  \*************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 329));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 330));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 331));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 329:
-/*!************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
-  \************************************************************************************************************************************/
-/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-goods-nav.options.cart\":\"cart\",\"uni-goods-nav.buttonGroup.addToCart\":\"add to cart\",\"uni-goods-nav.buttonGroup.buyNow\":\"buy now\"}");
-
-/***/ }),
-
 /***/ 33:
 /*!***************************************************************************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/node_modules/@escook/request-miniprogram/miniprogram_dist/index.js ***!
@@ -10809,55 +10771,6 @@ exports.$http = $http;
 
 /***/ }),
 
-/***/ 330:
-/*!*****************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
-  \*****************************************************************************************************************************************/
-/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-goods-nav.options.cart\":\"购物车\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入购物车\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即购买\"}");
-
-/***/ }),
-
-/***/ 331:
-/*!*****************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
-  \*****************************************************************************************************************************************/
-/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-goods-nav.options.cart\":\"購物車\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入購物車\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即購買\"}");
-
-/***/ }),
-
-/***/ 339:
-/*!***************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
-  \***************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 340));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 341));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 342));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
-};
-exports.default = _default;
-
-/***/ }),
-
 /***/ 34:
 /*!***********************************************************************************!*\
   !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/store/store.js ***!
@@ -10912,36 +10825,63 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 340:
-/*!**************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
-  \**************************************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
+/***/ 343:
+/*!*************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
+  \*************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 344));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 345));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 346));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
 
 /***/ }),
 
-/***/ 341:
-/*!*******************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
-  \*******************************************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ 344:
+/*!************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
+  \************************************************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-goods-nav.options.cart\":\"cart\",\"uni-goods-nav.buttonGroup.addToCart\":\"add to cart\",\"uni-goods-nav.buttonGroup.buyNow\":\"buy now\"}");
 
 /***/ }),
 
-/***/ 342:
-/*!*******************************************************************************************************************************************!*\
-  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
-  \*******************************************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ 345:
+/*!*****************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
+  \*****************************************************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-goods-nav.options.cart\":\"购物车\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入购物车\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即购买\"}");
+
+/***/ }),
+
+/***/ 346:
+/*!*****************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
+  \*****************************************************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-goods-nav.options.cart\":\"購物車\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入購物車\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即購買\"}");
 
 /***/ }),
 
@@ -12199,6 +12139,66 @@ var index_cjs = {
 module.exports = index_cjs;
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
+
+/***/ }),
+
+/***/ 354:
+/*!***************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
+  \***************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 355));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 356));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 357));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 355:
+/*!**************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
+  \**************************************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
+
+/***/ }),
+
+/***/ 356:
+/*!*******************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
+
+/***/ }),
+
+/***/ 357:
+/*!*******************************************************************************************************************************************!*\
+  !*** /Users/zhangjiaming512660/code/vscode/project/git/uni-xinghe/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
 
 /***/ }),
 

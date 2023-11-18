@@ -101,10 +101,10 @@ var components
 try {
   components = {
     myNav: function () {
-      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 228))
+      return __webpack_require__.e(/*! import() | components/my-nav/my-nav */ "components/my-nav/my-nav").then(__webpack_require__.bind(null, /*! @/components/my-nav/my-nav.vue */ 236))
     },
     myGoods: function () {
-      return __webpack_require__.e(/*! import() | components/my-goods/my-goods */ "components/my-goods/my-goods").then(__webpack_require__.bind(null, /*! @/components/my-goods/my-goods.vue */ 302))
+      return __webpack_require__.e(/*! import() | components/my-goods/my-goods */ "components/my-goods/my-goods").then(__webpack_require__.bind(null, /*! @/components/my-goods/my-goods.vue */ 310))
     },
   }
 } catch (e) {

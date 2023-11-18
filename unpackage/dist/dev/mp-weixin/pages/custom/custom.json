@@ -3,10 +3,9 @@
   "enablePullDownRefresh": false,
   "navigationStyle": "custom",
   "usingComponents": {
-    "my-nav": "/components/my-nav/my-nav",
-    "u-avatar": "/node-modules/uview-ui/components/u-avatar/u-avatar",
-    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
-    "u-swiper": "/node-modules/uview-ui/components/u-swiper/u-swiper",
+    "my-sub-nav": "/components/my-sub-nav/my-sub-nav",
+    "my-goods-card": "/components/my-goods-card/my-goods-card",
+    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
     "van-tag": "/wxcomponents/@vant/weapp/dist/tag/index",
     "van-button": "/wxcomponents/@vant/weapp/dist/button/index"
   }
