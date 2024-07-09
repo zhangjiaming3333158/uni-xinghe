@@ -1,6 +1,6 @@
 <template>
   <view>
-    <my-nav></my-nav>
+    <my-nav title="购物车"></my-nav>
     <view class="cart-container" v-if="cart.length !== 0">
       <!-- <my-address></my-address> -->
       <!-- 购物车商品列表的标题区域 -->
@@ -60,6 +60,7 @@ export default {
         },
       ],
       pageTitle: '购物车',
+      
     }
   },
   computed: {
@@ -79,7 +80,7 @@ export default {
     setBadge() {
       // 调用 uni.setTabBarBadge() 方法，为购物车设置右上角的徽标
       uni.setTabBarBadge({
-        index: 3, // 索引
+        index: 2, // 索引
         text: this.total + '', // 注意：text 的值必须是字符串，不能是数字
       })
     },
@@ -97,7 +98,7 @@ export default {
     },
     // 点击了滑动操作按钮
     swipeActionClickHandler(goods) {
-      this.removeGoodsById(goods.goods_id)
+      this.removeGoodsById(goods.good_id)
     },
   },
 }
@@ -106,7 +107,9 @@ export default {
 <style lang="scss" scoped>
 $background-color: #823027;
 .cart-container {
+  position: absolute;
   height: 100%;
+  width: 100%;
   background-color: $background-color;
   padding-bottom: 50px;
   .cart-title {

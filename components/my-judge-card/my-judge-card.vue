@@ -13,9 +13,9 @@
       >
     </view>
     <view class="image">
-      <image src="/static/my-icons/home/bag.png" mode="aspectFill" />
-      <image src="/static/my-icons/home/bag.png" mode="aspectFill" />
-      <image src="/static/my-icons/home/bag.png" mode="aspectFill" />
+      <image src="https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/cate/cate1.png" mode="aspectFill" />
+      <image src="https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/myJudge/judge.png" mode="aspectFill" />
+      <image src="https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/cate/cate2.png" mode="aspectFill" />
     </view>
     <view class="detail">
       <text>浏览 364</text>

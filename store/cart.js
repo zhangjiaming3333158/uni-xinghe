@@ -13,33 +13,25 @@ export default {
   // 模块的 mutations 方法
   mutations: {
     addToCart(state, goods) {
-      // 根据提交的商品的Id，查询购物车中是否存在这件商品
-      // 如果不存在，则 findResult 为 undefined；否则，为查找到的商品信息对象
-      const findResult = state.cart.find((x) => x.goods_id === goods.goods_id)
-
-      if (!findResult) {
-        // 如果购物车中没有这件商品，则直接 push
-        state.cart.push(goods)
-      } else {
-        // 如果购物车中有这件商品，则只更新数量即可
-        findResult.goods_count++
-      }
+      state.cart.push(goods)
       // 通过 commit 方法，调用 m_cart 命名空间下的 saveToStorage 方法
       this.commit('m_cart/saveToStorage')
     },
     // 将购物车中的数据持久化存储到本地
     saveToStorage(state) {
+      console.log(state.cart)
       uni.setStorageSync('cart', JSON.stringify(state.cart))
     },
     // 更新购物车中商品的勾选状态
     updateGoodsState(state, goods) {
       // 根据 goods_id 查询购物车中对应商品的信息对象
-      const findResult = state.cart.find((x) => x.goods_id === goods.goods_id)
-
+      const findResult = state.cart.find((x) => {
+        if (x.good_id == goods.good_id) return x
+      })
       // 有对应的商品信息对象
       if (findResult) {
         // 更新对应商品的勾选状态
-        findResult.goods_state = goods.goods_state
+        findResult.good_state = goods.good_state
         // 持久化存储到本地
         this.commit('m_cart/saveToStorage')
       }
@@ -47,18 +39,18 @@ export default {
     // 更新所有商品的勾选状态
     updateAllGoodsState(state, newState) {
       // 循环更新购物车中每件商品的勾选状态
-      state.cart.forEach((x) => (x.goods_state = newState))
+      state.cart.forEach((x) => (x.good_state = newState))
       // 持久化存储到本地
       this.commit('m_cart/saveToStorage')
     },
     // 更新购物车中商品的数量
     updateGoodsCount(state, goods) {
       // 根据 goods_id 查询购物车中对应商品的信息对象
-      const findResult = state.cart.find((x) => x.goods_id === goods.goods_id)
+      const findResult = state.cart.find((x) => x.good_id == goods.good_id)
 
       if (findResult) {
         // 更新对应商品的数量
-        findResult.goods_count = goods.goods_count
+        findResult.good_count = goods.good_count
         // 持久化存储到本地
         this.commit('m_cart/saveToStorage')
       }
@@ -66,7 +58,7 @@ export default {
     // 根据 Id 从购物车中删除对应的商品信息
     removeGoodsById(state, goods_id) {
       // 调用数组的 filter 方法进行过滤
-      state.cart = state.cart.filter((x) => x.goods_id !== goods_id)
+      state.cart = state.cart.filter((x) => x.good_id !== goods_id)
       // 持久化存储到本地
       this.commit('m_cart/saveToStorage')
     },
@@ -78,7 +70,7 @@ export default {
     total(state) {
       let c = 0
       // 循环统计商品的数量，累加到变量 c 中
-      state.cart.forEach((goods) => (c += goods.goods_count))
+      state.cart.forEach((goods) => (c += goods.good_count))
       return c
     },
     // 勾选的商品的总数量
@@ -87,8 +79,8 @@ export default {
       // 再使用 reduce 方法，将已勾选的商品总数量进行累加
       // reduce() 的返回值就是已勾选的商品的总数量
       return state.cart
-        .filter((x) => x.goods_state)
-        .reduce((total, item) => (total += item.goods_count), 0)
+        .filter((x) => x.good_state)
+        .reduce((total, item) => (total += item.good_count), 0)
     },
     // 已勾选的商品的总价
     checkedGoodsAmount(state) {
@@ -97,9 +89,9 @@ export default {
       // reduce() 的返回值就是已勾选的商品的总价
       // 最后调用 toFixed(2) 方法，保留两位小数
       return state.cart
-        .filter((x) => x.goods_state)
+        .filter((x) => x.good_state)
         .reduce(
-          (total, item) => (total += item.goods_count * item.goods_price),
+          (total, item) => (total += item.good_count * item.good_price),
           0
         )
         .toFixed(2)

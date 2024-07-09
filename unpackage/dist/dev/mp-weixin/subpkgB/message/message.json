@@ -4,6 +4,6 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "my-sub-nav": "/components/my-sub-nav/my-sub-nav",
-    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons"
+    "uni-icons": "/node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons"
   }
 }

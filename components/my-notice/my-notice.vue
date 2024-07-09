@@ -1,11 +1,11 @@
 <template>
   <view class="notice-container">
-    <view class="avator">
-      <image src="/static/my-icons/my/avator.png" mode="scaleToFill" />
-    </view>
+    <image class="notice-avator" :src="img" mode="aspectFit" />
     <view class="context">
-      <text class="context-name">Lucy</text>
-      <text class="context-body">赞了你的评论</text>
+      <text class="context-name">{{ name }}</text>
+      <text class="context-body">
+        {{ content }}
+      </text>
     </view>
     <view class="time">
       <text>15:25</text>
@@ -13,7 +13,29 @@
   </view>
 </template>
 
-<script></script>
+<script>
+export default {
+  props: {
+    name: {
+      type: String,
+      default: '',
+    },
+    img: {
+      type: String,
+      default: '',
+    },
+    content: {
+      type: String,
+      default: '',
+    },
+  },
+  data() {
+    return {
+      message: '消息',
+    }
+  },
+}
+</script>
 
 <style scoped lang="scss">
 .notice-container {
@@ -23,19 +45,15 @@
   align-items: center;
   width: 100%;
   height: 70px;
-  .avator {
-    width: 50px;
+  .notice-avator {
+    min-width: 50px;
     height: 50px;
     border-radius: 50%;
     background-color: #fff;
-    border: 2px solid #fae084;
-    image {
-      width: 100%;
-      height: 100%;
-    }
   }
   .context {
     flex: 1;
+    max-width: 220px;
     box-sizing: border-box;
     margin-left: 15px;
     display: flex;
@@ -62,7 +80,7 @@
     align-items: flex-start;
     justify-content: flex-end;
     height: 100%;
-    width: 50px;
+    min-width: 50px;
     text {
       font-size: 13px;
       color: #666565;

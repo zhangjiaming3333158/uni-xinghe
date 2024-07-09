@@ -51,7 +51,8 @@
   left: -10px;
   width: 100%;
   height: 100%;
-  scale: 1.5;
+  scale: 1.3;
+  rotate: -20deg;
 }
 .swiper-card .item .right .img2.data-v-92bb8f34 {
   position: absolute;
@@ -93,6 +94,9 @@
 .select-card .select-item .more.active.data-v-92bb8f34 {
   display: flex;
   flex-direction: column;
+}
+.select-card .select-item .more .activeindex.data-v-92bb8f34 {
+  background-color: #c26c63;
 }
 .select-card .select-item.active.data-v-92bb8f34 {
   background-color: #c26c63;

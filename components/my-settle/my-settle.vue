@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     // 2. 使用 mapMutations 辅助函数，把 m_cart 模块提供的 updateAllGoodsState 方法映射到当前组件中使用
-    ...mapMutations('m_cart', ['updateAllGoodsState']),
+    ...mapMutations('m_cart', ['updateAllGoodsState','removeGoodsById']),
     // 把 m_user 模块中的 updateRedirectInfo 方法映射到当前页面中使用
     ...mapMutations('m_user', ['updateRedirectInfo']),
     changeAllState() {
@@ -56,10 +56,25 @@ export default {
       if (!this.checkedCount) return uni.$showMsg('请选择要结算的商品！')
 
       // 2. 再判断用户是否选择了收货地址
-      if (!this.addstr) return uni.$showMsg('请选择收货地址！')
+      // if (!this.addstr) return uni.$showMsg('请选择收货地址！')
 
       // 3. 最后判断用户是否登录了
-      if (!this.token) return this.delayNavigate()
+      // console.log(JSON.parse(uni.getStorageSync('userinfo')).nickName,'userinfo');
+      if (!JSON.parse(uni.getStorageSync('userinfo')).nickName ) return this.delayNavigate()
+
+      //在localstorage中添加一个reslist存储cart
+      let reslist = uni.getStorageSync('reslist') || []
+      let cart = JSON.parse(uni.getStorageSync('cart') || '[]')
+      ///reslist存储cart数组中state为1的商品
+      cart.forEach((item) => {
+        console.log(item,'item');
+        if (item.good_state) {
+          reslist.push(item)
+          this.removeGoodsById(item.good_id)
+        }
+      })
+      uni.setStorageSync('reslist', reslist)
+      // uni.setStorageSync('cart', JSON.stringify(cart))
     },
     // 展示倒计时的提示消息
     showTips(n) {

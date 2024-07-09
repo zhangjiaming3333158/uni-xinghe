@@ -1,7 +1,7 @@
 <template>
   <view>
     <!-- nav自定义组件 -->
-    <my-nav :showIcon="true"></my-nav>
+    <my-nav :showIcon="true" title="首页"></my-nav>
     <!-- swpier-card -->
     <view class="swiper-card">
       <view class="item">
@@ -12,51 +12,69 @@
         </view>
         <view class="right"
           ><image
+            @click="naviToGood(1)"
             class="img1"
-            src="/static/my-icons/home/shoe.png"
+            src="https://mp-f8e9f035-1bf3-4088-9f69-9b64b6566cd6.cdn.bspapp.com/img/home/shoes.png"
             mode="aspectFit"
         /></view>
       </view>
       <view class="item">
         <view class="right"
           ><image
+            @click="naviToGood(0)"
             class="img2"
-            src="/static/my-icons/home/bag.png"
+            src="https://mp-f8e9f035-1bf3-4088-9f69-9b64b6566cd6.cdn.bspapp.com/img/home/bag.png"
             mode="aspectFit" /></view
         ><view class="left">
           <view class="title">新品上市</view>
-          <view class="desc">畲式 凤尾鞋 轻便款</view>
+          <view class="desc">畲式 印花帆布包</view>
           <view class="time">2021.6.13-8.13</view>
         </view>
       </view>
     </view>
     <!-- select导航了 -->
     <view class="select-card">
-      <view class="select-item active">全部</view>
-      <view class="select-item">款式新</view>
-      <view class="select-item">销量高</view>
-      <view class="select-item">好评多</view>
-      <view class="select-item" @click="toggleShowMore"
+      <view
+        class="select-item"
+        @click="sortTo(0)"
+        :class="[activeIndex === 0 ? 'active' : '']"
+        >全部</view
+      >
+      <view
+        class="select-item"
+        @click="sortTo(1)"
+        :class="[activeIndex === 1 ? 'active' : '']"
+        >款式新</view
+      >
+      <view
+        class="select-item"
+        @click="sortTo(2)"
+        :class="[activeIndex === 2 ? 'active' : '']"
+        >销量高</view
+      >
+      <view
+        class="select-item"
+        @click="sortTo(3)"
+        :class="[activeIndex === 3 ? 'active' : '']"
+        >价格低</view
+      >
+      <!-- <view class="select-item" @click="toggleShowMore" :class="[activeIndex >= 4 ? 'active' : '']"
         ><text>更多分类</text>
         <image
           style="width: 15px; height: 15px"
           src="/static/my-icons/home/select.png"
           mode="scaleToFill"
         />
-        <view
-          class="more"
-          :class="[showMore ? 'active' : '']"
-        >
-          <text>鞋子</text>
-          <text>T恤</text>
-          <text>长袍</text>
-          <text>长裙</text>
+        <view class="more" :class="[showMore ? 'active' : '']">
+          <text @click="sortTo(4)" :class="[activeIndex === 4 ? 'activeindex' : '']">鞋子</text>
+          <text @click="sortTo(5)" :class="[activeIndex === 5 ? 'activeindex' : '']">衣服</text>
+          <text @click="sortTo(6)" :class="[activeIndex === 6 ? 'activeindex' : '']">裤子</text>
         </view>
-      </view>
+      </view> -->
     </view>
 
     <!-- waterfall -->
-    <view class="waterfall">
+    <view class="waterfall" v-if="loadStatus === 'loadmore'">
       <u-waterfall v-model="flowList">
         <template v-slot:left="{ leftList }">
           <view
@@ -66,6 +84,7 @@
           >
             <!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
             <u-lazy-load
+              @click="naviToGood(item.item_id)"
               threshold="-450"
               border-radius="10"
               :image="item.image"
@@ -95,6 +114,7 @@
             :key="index"
           >
             <u-lazy-load
+              @click="naviToGood(item.item_id)"
               threshold="-450"
               border-radius="10"
               :image="item.image"
@@ -142,6 +162,7 @@ export default {
       pages: 0, //当前页数
       limit: 1, //总页数
       showMore: false,
+      activeIndex: 0,
     }
   },
   onLoad() {
@@ -152,24 +173,12 @@ export default {
     //获取楼层数据列表
     // this.getFloorList()
     //waterfall
+  },
+  mounted() {
     this.addRandomData()
   },
   computed: {
     ...mapState('m_home', ['list']),
-  },
-  onReachBottom() {
-    this.limit = Math.floor(this.list.length / 10)
-    if (this.limit > this.pages) {
-      this.loadStatus = 'loading'
-      // 模拟数据加载
-      setTimeout(() => {
-        this.addRandomData()
-        this.loadStatus = 'loadmore'
-      }, 1000)
-      this.pages++ // 页数+1
-    } else {
-      this.loadStatus = 'none'
-    }
   },
   methods: {
     //切换showmore展示
@@ -189,14 +198,53 @@ export default {
       // 3.3 请求成功，为 data 中的数据赋值
       this.swiperList = res.message
     },
-    addRandomData() {
-      for (let i = 0; i < this.list.length > 10 ? this.list.length : 10; i++) {
-        // console.log(i)
-        // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
-        let item = JSON.parse(JSON.stringify(this.list[i]))
-        item.id = this.$u.guid()
-        this.flowList.push(item)
+    sortTo(index) {
+      console.log(index)
+      if (index == 0) {
+        this.list.sort((a, b) => {
+          return a.item_id - b.item_id
+        })
+      } else if (index == 1) {
+        this.list.sort((a, b) => {
+          return b.time - a.time
+        })
+      } else if (index == 2) {
+        this.list.sort((a, b) => {
+          return a.sale - a.sale
+        })
+      } else if (index == 3) {
+        this.list.sort((a, b) => {
+          return a.price - b.price
+        })
+      } else if (index == 4) {
+        this.list = this.list.filter((item) => {
+          return item.type == '鞋子'
+        })
+        console.log(this.list, 'list')
+      } else if (index == 5) {
+        this.list = this.list.filter((item) => {
+          return item.type == '衣服'
+        })
+      } else if (index == 6) {
+        this.list = this.list.filter((item) => {
+          return item.type == '裤子'
+        })
       }
+      this.loadStatus = 'loading'
+      // 模拟数据加载
+      setTimeout(() => {
+        this.flowList = this.list
+        console.log(this.flowList, 'flowList')
+        this.loadStatus = 'loadmore'
+      }, 300)
+      this.activeIndex = index
+    },
+    addRandomData() {
+      // 重新渲染页面
+      this.flowList = this.list
+      console.log(this.flowList, 'flowList')
+      //forceUpdate
+      // this.$forceUpdate()
     },
     //获取home.js中的方法
     ...mapMutations('m_home', ['addLike', 'removeLike', 'changeChoice']),
@@ -213,6 +261,11 @@ export default {
       this.$nextTick(() => {
         // 可在这里执行一些依赖于状态更新后的操作
         this.flowList = this.list
+      })
+    },
+    naviToGood(good_id) {
+      uni.navigateTo({
+        url: `/subpkgA/goods_detail/goods_detail?good_id=${good_id}`,
       })
     },
   },
@@ -271,7 +324,8 @@ $active: #c26c63;
         left: -10px;
         width: 100%;
         height: 100%;
-        scale: 1.5;
+        scale: 1.3;
+        rotate: -20deg;
       }
       .img2 {
         position: absolute;
@@ -314,6 +368,9 @@ $active: #c26c63;
       &.active {
         display: flex;
         flex-direction: column;
+      }
+      .activeindex {
+        background-color: $active;
       }
     }
     &.active {

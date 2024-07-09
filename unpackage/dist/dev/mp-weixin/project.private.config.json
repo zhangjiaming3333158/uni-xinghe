@@ -9,8 +9,43 @@
 		"miniprogram": {
 			"list": [
 				{
+					"name": "pages/my/my",
+					"pathName": "pages/my/my",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "pages/cart/cart",
+					"pathName": "pages/cart/cart",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "subpkgA/cate_detail/cate_detail",
+					"pathName": "subpkgA/cate_detail/cate_detail",
+					"query": "cate_id=0",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "pages/cate/cate",
+					"pathName": "pages/cate/cate",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
 					"name": "",
 					"pathName": "pages/home/home",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/cart/cart",
 					"query": "",
 					"launchMode": "default",
 					"scene": null

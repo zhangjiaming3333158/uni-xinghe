@@ -4,7 +4,7 @@
       <!-- 商品左侧图片区域 -->
       <view class="goods-item-left" v-if="showRadio">
         <radio
-          :checked="goods.goods_state"
+          :checked="goods.good_state"
           color="#C00000"
           @click="radioClickHandler"
         ></radio>
@@ -12,21 +12,21 @@
       <!-- 商品右侧信息区域 -->
       <view class="goods-item-right"
         ><image
-          :src="goods.goods_small_logo || defaultPic"
+          :src="goods.good_small_logo || defaultPic"
+          mode="aspectFit"
           class="goods-pic"
         ></image>
         <view class="context"
           ><!-- 商品标题 -->
-          <view class="goods-name">name</view>
-          <!-- <view class="goods-name">{{ goods.goods_name }}</view> -->
+          <view class="goods-name">{{ goods.good_name }}</view>
+          <!-- <view class="goods-name">{{ goods.good_name }}</view> -->
           <!-- 商品尺码和颜色 -->
           <view class="goods-size">
             <text style="margin-right: 10px">尺码：M</text>
-            <text>颜色：红色</text>
           </view>
           <!-- 商品价格 -->
           <view class="goods-price"
-            >￥{{ goods.goods_price | tofixed }}</view
+            >￥{{ goods.good_price | tofixed }}</view
           ></view
         >
         <view class="goods-info-box">
@@ -80,16 +80,16 @@ export default {
       // 同时把商品的 Id 和 勾选状态 作为参数传递给 radio-change 事件处理函数
       this.$emit('radio-change', {
         // 商品的 Id
-        goods_id: this.goods.goods_id,
+        good_id: this.goods.good_id,
         // 商品最新的勾选状态
-        goods_state: !this.goods.goods_state,
+        good_state: !this.goods.good_state,
       })
     },
     numChangeHandler(val) {
       // 通过 this.$emit() 触发外界通过 @ 绑定的 num-change 事件
       this.$emit('num-change', {
         // 商品的 Id
-        goods_id: this.goods.goods_id,
+        goods_id: this.goods.good_id,
         // 商品的最新数量
         goods_count: +val,
       })

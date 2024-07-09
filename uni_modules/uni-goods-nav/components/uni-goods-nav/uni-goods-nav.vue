@@ -51,11 +51,8 @@
 				type: Array,
 				default () {
 					return [{
-						icon: 'shop',
-						text: t("uni-goods-nav.options.shop"),
-					}, {
 						icon: 'cart',
-						text: t("uni-goods-nav.options.cart")
+						text: '购物车'
 					}]
 				}
 			},
@@ -67,11 +64,11 @@
 							backgroundColor: 'linear-gradient(90deg, #FFCD1E, #FF8A18)',
 							color: '#fff'
 						},
-						{
-							text: t("uni-goods-nav.buttonGroup.buyNow"),
-							backgroundColor: 'linear-gradient(90deg, #FE6035, #EF1224)',
-							color: '#fff'
-						}
+						// {
+						// 	text: t("uni-goods-nav.buttonGroup.buyNow"),
+						// 	backgroundColor: 'linear-gradient(90deg, #FE6035, #EF1224)',
+						// 	color: '#fff'
+						// }
 					]
 				}
 			},
@@ -86,9 +83,12 @@
 		},
 		methods: {
 			onClick(index, item) {
-				this.$emit('click', {
-					index,
-					content: item,
+				// this.$emit('click', {
+				// 	index,
+				// 	content: item,
+				// })
+				uni.tabBar.switchTab({
+					url: '/pages/cart/cart'
 				})
 			},
 			buttonClick(index, item) {

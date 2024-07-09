@@ -15,11 +15,10 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"ignoreUploadUnusedFiles": true
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "3.1.2",
+	"libVersion": "3.4.3",
 	"appid": "wx24408d3bc4bf37e8",
 	"projectname": "wx-xinghe",
 	"condition": {

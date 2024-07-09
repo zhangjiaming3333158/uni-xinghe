@@ -39,13 +39,16 @@ export default {
 <style lang="scss" scoped>
 .my-search-container {
   box-sizing: border-box;
-  position: relative;
-  height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
   background-color: #823027;
-  padding: 30px 20px 0 20px;
+  padding: 20px 10px 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
   .uni-bar {
     width: 30px;
     height: 30px;

@@ -11,8 +11,12 @@
           src="/static/my-icons/home/zuobiao.jpg"
           mode="scaleToFill"
         />
-        <view class="more-none-1" :class="[showMoreNone ? 'active' : '']">手绘图案</view>
-        <view class="more-none-2" :class="[showMoreNone ? 'active' : '']">上传图片</view>
+        <view class="more-none-1" :class="[showMoreNone ? 'active' : '']"
+          >手绘图案</view
+        >
+        <view class="more-none-2" :class="[showMoreNone ? 'active' : '']"
+          >上传图片</view
+        >
         <view class="more-button" @click="showMoreNoneAction">更多</view>
       </view>
       <view class="bottom-swiper">
@@ -34,13 +38,22 @@
             duration="1000"
           >
             <swiper-item>
-              <image src="/static/my-icons/home/cloth.jpg" mode="aspectFit" />
+              <image
+                src="https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/vein/vein1.png"
+                mode="aspectFit"
+              />
             </swiper-item>
             <swiper-item>
-              <image src="/static/my-icons/home/cloth.jpg" mode="aspectFit" />
+              <image
+                src="https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/vein/vein2.png"
+                mode="aspectFit"
+              />
             </swiper-item>
             <swiper-item>
-              <image src="/static/my-icons/home/cloth.jpg" mode="aspectFit" />
+              <image
+                src="https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/vein/vein3.png"
+                mode="aspectFit"
+              />
             </swiper-item>
           </swiper>
         </view>
@@ -54,14 +67,14 @@ export default {
   data() {
     return {
       pageTitle: '我的定制',
-      showMoreNone: false
+      showMoreNone: false,
     }
   },
-  methods:{
-    showMoreNoneAction(){
+  methods: {
+    showMoreNoneAction() {
       this.showMoreNone = !this.showMoreNone
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -153,16 +166,16 @@ export default {
         box-sizing: border-box;
         padding: 0 20px;
         width: 100%;
-        height: 100%;
+        height: 200px;
         .swiper-item {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 50%;
-          height: 50%;
+          width: 100%;
+          height: 100%;
           image {
-            width: 50%;
-            height: 50%;
+            width: 100%;
+            height: 100%;
           }
         }
       }

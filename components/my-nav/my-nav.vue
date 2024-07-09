@@ -1,6 +1,6 @@
 <template>
   <view class="my-search-container">
-    <view class="uni-bar" v-show="showNav">
+    <!-- <view class="uni-bar" v-show="showNav">
       <image
         v-if="showIcon"
         style="width: 20px; height: 20px; margin-right: 10px"
@@ -13,18 +13,19 @@
         src="/static/my-icons/cate/left.png"
         mode="scaleToFill"
       />
-    </view>
+    </view> -->
     <!-- 使用 view 组件模拟 input 输入框的样式 -->
-    <view class="my-search-box" @click="handler" v-show="showNav">
+    <!-- <view class="my-search-box" @click="handler" v-show="showNav">
       <image
         style="width: 13px; height: 13px; margin-left: 10px"
         src="/static/my-icons/home/search.png"
         mode="scaleToFill"
       />
-    </view>
-    <view class="uni-scan">
-      <!-- <uni-icons type="scan" size="25"></uni-icons> -->
-    </view>
+    </view> -->
+    <!-- <view class="uni-scan">
+      <uni-icons type="scan" size="25"></uni-icons>
+    </view> -->
+    <text>{{ title }}</text>
   </view>
 </template>
 
@@ -38,6 +39,10 @@ export default {
     showNav:{
       type: Boolean,
       default: true,
+    },
+    title:{
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -62,7 +67,9 @@ export default {
   padding: 30px 10px 0 10px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
   .uni-bar {
     margin: 0 10px;
     width: 30px;

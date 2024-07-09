@@ -8,7 +8,7 @@
     "my-nav": "/components/my-nav/my-nav",
     "u-waterfall": "/node-modules/uview-ui/components/u-waterfall/u-waterfall",
     "u-lazy-load": "/node-modules/uview-ui/components/u-lazy-load/u-lazy-load",
-    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "uni-icons": "/node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons",
     "u-loadmore": "/node-modules/uview-ui/components/u-loadmore/u-loadmore"
   }
 }

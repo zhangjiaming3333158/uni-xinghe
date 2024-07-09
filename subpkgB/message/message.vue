@@ -13,7 +13,7 @@
         </view>
         <image
           class="avatar"
-          src="../../static/my-icons/favicon.ico"
+          src="https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/my/myAvator.png"
           mode="scaleToFill"
         ></image>
       </view>
@@ -25,9 +25,9 @@
       <input
         v-model="newMessage"
         @keyup.enter="sendMessage"
-        placeholder="Type a message..."
+        placeholder="..."
       />
-      <button @click="sendMessage">Send</button>
+      <button @click="sendMessage">发送</button>
     </view>
   </view>
 </template>
@@ -37,9 +37,7 @@ export default {
   data() {
     return {
       messages: [
-        { content: 'Hello!', sender: 'me' },
-        { content: 'Hi there!', sender: 'other' },
-        { content: 'How are you?', sender: 'other' },
+        { content: '你好!', sender: 'me' },
       ],
       newMessage: '',
       title: '私人客服',

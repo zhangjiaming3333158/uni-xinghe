@@ -1,27 +1,27 @@
 <template>
   <view style="background-color: #823027">
-    <my-nav :showIcon="false"></my-nav>
+    <my-nav :showIcon="false" title="社区"></my-nav>
     <!-- 宝藏博主 -->
     <view class="blogger">
       <view><text class="title">宝藏博主</text></view>
       <view class="body">
         <view class="item">
           <view class="image"
-            ><image src="/static/my-icons/cate/shop1.png" mode="widthFix"
+            ><image src="https://mp-f8e9f035-1bf3-4088-9f69-9b64b6566cd6.cdn.bspapp.com/img/cate/shop1.png" mode="widthFix"
           /></view>
           <view class="name">阿托雅莉</view>
         </view>
         <view class="item">
           <view class="image"
-            ><image src="/static/my-icons/cate/shop2.png" mode="widthFix"
+            ><image src="https://mp-f8e9f035-1bf3-4088-9f69-9b64b6566cd6.cdn.bspapp.com/img/cate/shop2.png" mode="widthFix"
           /></view>
           <view class="name">阿瑞一家</view>
         </view>
         <view class="item">
           <view class="image"
-            ><image src="/static/my-icons/cate/shop3.png" mode="widthFix"
+            ><image src="https://mp-f8e9f035-1bf3-4088-9f69-9b64b6566cd6.cdn.bspapp.com/img/cate/shop3.png" mode="widthFix"
           /></view>
-          <view class="name">阿瑞一家</view>
+          <view class="name">阿利尔家</view>
         </view>
       </view>
     </view>
@@ -33,6 +33,7 @@
         <u-waterfall v-model="flowList">
           <template v-slot:left="{ leftList }">
             <view
+            @click="naviToCate(item.item_id)"
               class="demo-warter"
               v-for="(item, index) in leftList"
               :key="index"
@@ -53,8 +54,8 @@
                 <view class="left"
                   ><view class="img">
                     <image
-                      style="width: 100%; height: 100%"
-                      src="/static/my-icons/wx-logo.jpg"
+                      style="width: 100%; height: 100%;border-radius: 50%;"
+                      :src="item.avator"
                       mode="scaleToFill"
                     />
                   </view>
@@ -71,6 +72,7 @@
           </template>
           <template v-slot:right="{ rightList }">
             <view
+            @click="naviToCate(item.item_id)"
               class="demo-warter"
               v-for="(item, index) in rightList"
               :key="index"
@@ -91,8 +93,8 @@
                 <view class="left"
                   ><view class="img">
                     <image
-                      style="width: 100%; height: 100%"
-                      src="/static/my-icons/wx-logo.jpg"
+                      style="width: 100%; height: 100%;border-radius: 50%;"
+                      :src="item.avator"
                       mode="scaleToFill"
                     />
                   </view>
@@ -131,6 +133,7 @@ export default {
       flowList: [],
       pages: 0, //当前页数
       limit: 1, //总页数
+      
     }
   },
   onLoad() {
@@ -160,13 +163,20 @@ export default {
   },
   methods: {
     addRandomData() {
-      for (let i = 0; i < this.list.length > 10 ? this.list.length : 10; i++) {
-        // console.log(i)
-        // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
-        let item = JSON.parse(JSON.stringify(this.list[i]))
-        item.id = this.$u.guid()
-        this.flowList.push(item)
-      }
+      // for (let i = 0; i < this.list.length > 10 ? this.list.length : 10; i++) {
+      //   // console.log(i)
+      //   // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
+      //   let item = JSON.parse(JSON.stringify(this.list[i]))
+      //   item.id = this.$u.guid()
+      //   this.flowList.push(item)
+      //   this.flowList=this.list
+      // }
+      this.flowList = this.list
+    },
+    naviToCate(cate_id) {
+      uni.navigateTo({
+        url: `/subpkgA/cate_detail/cate_detail?cate_id=${cate_id}`,
+      })
     },
   },
 }
@@ -268,6 +278,7 @@ $font-color: #1a1a1a;
         display: flex;
         align-items: center;
         .img {
+          border-radius: 50%;
           height: 25px;
           width: 25px;
           display: flex;

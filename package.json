@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@dcloudio/uni-ui": "^1.5.0",
     "@escook/request-miniprogram": "^0.2.1",
     "@vant/weapp": "^1.10.25",
     "uview-ui": "^1.8.8",

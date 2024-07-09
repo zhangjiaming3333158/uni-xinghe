@@ -3,7 +3,12 @@
   <view class="container">
     <my-sub-nav :title="pageTitle"></my-sub-nav>
     <view class="content">
-      <view v-for="i in 4" :key="i"><my-goods-card></my-goods-card></view>
+      <view v-for="i in 4" :key="i"
+        ><my-goods-card
+          :title="list[i].title"
+          :img="list[i].image"
+        ></my-goods-card
+      ></view>
     </view>
     <view class="bottom-nav" @click="goToCustom"
       ><uni-icons type="plus" size="30" color="#fff"></uni-icons>
@@ -21,16 +26,24 @@ export default {
       pageTitle: '历史定制',
       list: [
         {
-          image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
-          title: '昨夜星辰昨夜风，画楼西畔桂堂东',
+          image:
+            'https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/custom/whiteTshirt.png',
+          title: '时尚T恤',
         },
         {
-          image: 'https://cdn.uviewui.com/uview/swiper/2.jpg',
-          title: '身无彩凤双飞翼，心有灵犀一点通',
+          image:
+            'https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/custom/whiteBag.png',
+          title: '如意帆布包',
         },
         {
-          image: 'https://cdn.uviewui.com/uview/swiper/3.jpg',
-          title: '谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳',
+          image:
+            'https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/custom/whiteCap.png',
+          title: '吉祥鸭舌帽',
+        },
+        {
+          image:
+            'https://mp-d0916f12-1d32-4523-8bb2-7abf42b821f8.cdn.bspapp.com/image/image/home/shoes.png',
+          title: '凤尾鞋',
         },
       ],
     }
@@ -55,10 +68,12 @@ export default {
     height: 100%;
     background-color: #fff;
     padding: 20px;
+    padding-bottom: 50px;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
   }
   .bottom-nav {
+    margin-top: 50px;
     position: fixed;
     bottom: 0;
     width: 100%;
